@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var $class string
+ * @var $form CActiveForm
+ * @var $model CActiveRecord
+ */
+?>
 <div class="tab-pane fade <?= isset($class) ? $class : ''; ?>" id="seo">
     <div class="dataTable_wrapper">
         <table class="table table-striped table-bordered table-hover">

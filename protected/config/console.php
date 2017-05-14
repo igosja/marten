@@ -4,9 +4,9 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'components' => array(
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=igosja_varta',
+            'connectionString' => 'mysql:host=localhost;dbname=igosja_marten',
             'emulatePrepare' => true,
-            'username' => 'igosja_varta',
+            'username' => 'igosja_marten',
             'password' => '&WKWp@*{',
             'charset' => 'utf8',
         ),
