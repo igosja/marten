@@ -1,5 +1,7 @@
 <?php
 
+//\usr\local\php5\php.exe
+
 class Controller extends CController
 {
     public $a_language = array();

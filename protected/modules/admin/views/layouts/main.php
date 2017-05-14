@@ -47,6 +47,17 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="javascript:;">Котлы<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <?= CHtml::link('Категории', array('category/index')); ?>
+                            </li>
+                            <li>
+                                <?= CHtml::link('Котлы и запчасти', array('product/index')); ?>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         <?= CHtml::link('Языки', array('language/index')); ?>
                     </li>
                     <li>

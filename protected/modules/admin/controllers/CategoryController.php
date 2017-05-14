@@ -1,11 +1,11 @@
 <?php
 
-class LanguageController extends AController
+class CategoryController extends AController
 {
-    public $h1 = 'Языки';
-    public $h1_edit = 'Редактирование языка';
-    public $title = 'Языки';
-    public $model_name = 'Language';
+    public $h1 = 'Категории';
+    public $h1_edit = 'Редактирование категории';
+    public $title = 'Категории';
+    public $model_name = 'Category';
 
     public function actionIndex()
     {
@@ -36,16 +36,22 @@ class LanguageController extends AController
         if ($data = Yii::app()->request->getPost($this->model_name)) {
             $model->attributes = $data;
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array('view', 'id' => $model->primaryKey));
             }
         }
         $this->breadcrumbs = array(
             $this->title => array('index'),
         );
         if (0 != $id) {
-            $this->breadcrumbs[$model->name] = array('view', 'id' => $model->id);
+            $this->breadcrumbs[$model->name_ru] = array('view', 'id' => $model->primaryKey);
         }
-        $this->render('form', array('model' => $model));
+        $a_category = $this->getModel()->findAll(array(
+            'condition' => 'id!=' . $id,
+            'select' => array('id', 'name_ru', 'parent_id'),
+            'order' => 'parent_id, `order`'
+        ));
+        $a_category = $this->getModel()->getTree($a_category);
+        $this->render('form', array('a_category' => $a_category, 'model' => $model));
     }
 
     public function actionView($id)
@@ -54,10 +60,10 @@ class LanguageController extends AController
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $this->h1 = $model->name;
+        $this->h1 = $model->name_ru;
         $this->breadcrumbs = array(
             $this->title => array('index'),
-            $model->name,
+            $this->h1,
         );
         $this->render('view', array('model' => $model));
     }

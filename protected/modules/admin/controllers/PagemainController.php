@@ -3,6 +3,7 @@
 class PagemainController extends AController
 {
     public $h1 = 'Главная страница';
+    public $h1_edit = 'Редактирование страницы';
     public $title = 'Главная страница';
     public $model_name = 'PageMain';
 
@@ -20,7 +21,7 @@ class PagemainController extends AController
 
     public function actionUpdate()
     {
-        $this->h1 = 'Редактирование страницы';
+        $this->h1 = $this->h1_edit;
         $model = $this->getModel()->findByPk(1);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');

@@ -3,6 +3,7 @@
 class SlideController extends AController
 {
     public $h1 = 'Слайды';
+    public $h1_edit = 'Загрузка слайдов';
     public $title = 'Слайды';
     public $model_name = 'Slide';
 
@@ -23,7 +24,7 @@ class SlideController extends AController
 
     public function actionUpdate()
     {
-        $this->h1 = 'Загрузка слайдов';
+        $this->h1 = $this->h1_edit;
         $this->breadcrumbs = array(
             $this->title => array('index'),
             $this->h1,

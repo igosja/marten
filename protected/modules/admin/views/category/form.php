@@ -1,7 +1,8 @@
 <?php
 /**
+ * @var $a_category array
  * @var $form CActiveForm
- * @var $model PageMain
+ * @var $model Category
  */
 ?>
 <div class="row">
@@ -11,7 +12,7 @@
             <li>
                 <?= CHtml::link(
                     'Назад',
-                    array('index'),
+                    isset($model->id) ? array('view', 'id' => $model->id) : array('index'),
                     array('class' => 'btn btn-default')
                 ); ?>
             </li>
@@ -32,6 +33,25 @@
             <div class="tab-pane fade in active" id="main">
                 <table class="table table-striped table-bordered table-hover">
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'parent_id'); ?></td>
+                        <td>
+                            <?= $form->dropDownList(
+                                $model,
+                                'parent_id',
+                                $a_category,
+                                array('empty' => 'Выберите категорию', 'class' => 'form-control')
+                            ); ?>
+                            <?= $form->error($model, 'parent_id'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'name_ru'); ?></td>
+                        <td>
+                            <?= $form->textField($model, 'name_ru', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'name_ru'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'h1_ru'); ?></td>
                         <td>
                             <?= $form->textField($model, 'h1_ru', array('class' => 'form-control')); ?>
@@ -39,10 +59,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ru'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'name_ua'); ?></td>
                         <td>
-                            <?= $form->textarea($model, 'text_ru', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_ru'); ?>
+                            <?= $form->textField($model, 'name_ua', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'name_ua'); ?>
                         </td>
                     </tr>
                     <tr>
@@ -50,13 +70,6 @@
                         <td>
                             <?= $form->textField($model, 'h1_ua', array('class' => 'form-control')); ?>
                             <?= $form->error($model, 'h1_ua'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ua'); ?></td>
-                        <td>
-                            <?= $form->textarea($model, 'text_ua', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_ua'); ?>
                         </td>
                     </tr>
                 </table>

@@ -10,7 +10,7 @@ class Slide extends CActiveRecord
     public function rules()
     {
         return array(
-            array('image_id', 'numerical'),
+            array('image_id, order, status', 'numerical'),
             array('image_id', 'required'),
         );
     }

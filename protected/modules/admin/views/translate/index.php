@@ -21,9 +21,9 @@
         'source.category',
         'source.message',
         array(
-            'template' => '{update}',
             'class' => 'CButtonColumn',
             'headerHtmlOptions' => array('class' => 'col-lg-1'),
+            'template' => '{update}',
         ),
     );
     $this->widget('zii.widgets.grid.CGridView', array(

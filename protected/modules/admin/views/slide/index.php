@@ -67,9 +67,9 @@
             }
         ),
         array(
-            'template' => '{delete}',
             'class' => 'CButtonColumn',
             'headerHtmlOptions' => array('class' => 'col-lg-1'),
+            'template' => '{delete}',
         ),
     );
     $this->widget('zii.widgets.grid.CGridView', array(

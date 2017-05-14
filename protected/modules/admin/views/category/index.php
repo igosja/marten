@@ -1,11 +1,20 @@
 <?php
 /**
- * @var $model Language
+ * @var $model Category
  */
 ?>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header text-center"><?= $this->h1; ?></h1>
+        <ul class="list-inline preview-links text-center">
+            <li>
+                <?= CHtml::link(
+                    'Добавить',
+                    array('update'),
+                    array('class' => 'btn btn-default')
+                ); ?>
+            </li>
+        </ul>
     </div>
 </div>
 <?= $this->renderPartial('/include/grid-view-text'); ?>
@@ -26,11 +35,7 @@
             'sortable' => false,
         ),
         array(
-            'name' => 'code',
-            'sortable' => false,
-        ),
-        array(
-            'name' => 'name',
+            'name' => 'name_ru',
             'sortable' => false,
         ),
         array(
@@ -52,14 +57,13 @@
                                 data-toggle="toggle"
                                 data-size="mini"
                                 data-onstyle="success"
-                              />';
+                          />';
                 return $input;
             }
         ),
         array(
             'class' => 'CButtonColumn',
             'headerHtmlOptions' => array('class' => 'col-lg-1'),
-            'template' => '{view} {update}',
         ),
     );
     $this->widget('zii.widgets.grid.CGridView', array(

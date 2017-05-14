@@ -3,6 +3,7 @@
 class TranslateController extends AController
 {
     public $h1 = 'Переводы';
+    public $h1_edit = 'Редактирование перевода';
     public $title = 'Переводы';
     public $model_name = 'Message';
 
@@ -22,6 +23,11 @@ class TranslateController extends AController
 
     public function actionUpdate($id)
     {
+        $this->h1 = $this->h1_edit;
+        $this->breadcrumbs = array(
+            $this->title => array('index'),
+            $this->h1,
+        );
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -32,10 +38,7 @@ class TranslateController extends AController
                 $this->redirect(array('index'));
             }
         }
-        $this->h1 = 'Редактирование перевода.<br/>(' . $model->source->category . ', ' . $model->source->message . ', ' . $model->language . ')';
-        $this->breadcrumbs = array(
-            $this->title => array('index'),
-        );
+        $this->h1 = $this->h1 . '<br/>(' . $model->source->category . ', ' . $model->source->message . ', ' . $model->language . ')';
         $this->render('form', array('model' => $model));
     }
 
