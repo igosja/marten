@@ -4,6 +4,7 @@
 
 class Controller extends CController
 {
+    public $a_category = array();
     public $a_language = array();
     public $breadcrumbs = array();
     public $layout = 'main';
@@ -14,6 +15,8 @@ class Controller extends CController
 
     public function init()
     {
+        $a_category = Category::model()->findAllByAttributes(array('status' => 1), array('order' => 'parent_id, `order`'));
+        $this->a_category = Category::model()->getTreeMenu($a_category);
         $this->a_language = Language::model()->findAllByAttributes(
             array('status' => 1),
             array('select' => array('code', 'name'), 'order' => '`order`')

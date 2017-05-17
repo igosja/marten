@@ -50,7 +50,7 @@ class CategoryController extends AController
             'select' => array('id', 'name_ru', 'parent_id'),
             'order' => 'parent_id, `order`'
         ));
-        $a_category = $this->getModel()->getTree($a_category);
+        $a_category = $this->getModel()->getTreeAdmin($a_category);
         $this->render('form', array('a_category' => $a_category, 'model' => $model));
     }
 

@@ -58,6 +58,30 @@
     array('contact/index')
 ); ?>
 <br/>
+Логотип
+<br/>
+Название
+<br/>
+Адрес
+<br/>
+Звоните
+<br/>
+Телефоны
+<br/>
+<?php foreach ($this->a_category as $item) { ?>
+    <?= $item['name']; ?>
+    <br/>
+    <?php if (isset($item['children'])) { ?>
+        <?php foreach ($item['children'] as $item1) { ?>
+            <?= $item1['name']; ?>
+            <br/>
+            <?php foreach ($item1['children'] as $item2) { ?>
+                <?= $item2['name']; ?>
+                <br/>
+            <?php } ?>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>
 <?= $content; ?>
 <script src="/js/jquery.js"></script>
 <script src="/js/site.js"></script>
