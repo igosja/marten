@@ -6,9 +6,9 @@ class m170513_172637_slide extends CDbMigration
     {
         $this->createTable('slide', array(
             'id' => 'pk',
-            'image_id' => 'int(11) DEFAULT 0',
-            'order' => 'int(11) DEFAULT 0',
-            'status' => 'tinyint(1) DEFAULT 1',
+            'image_id' => 'int(11) default 0',
+            'order' => 'int(11) default 0',
+            'status' => 'tinyint(1) default 1',
         ));
 
         $this->createIndex('order', 'slide', 'order');

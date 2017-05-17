@@ -29,8 +29,8 @@
 ); ?>
 <br/>
 <?= CHtml::link(
-    Yii::t('views.layouts.main', 'link-article'),
-    array('article/index')
+    Yii::t('views.layouts.main', 'link-news'),
+    array('news/index')
 ); ?>
 <br/>
 <?= CHtml::link(

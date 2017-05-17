@@ -6,11 +6,11 @@ class m170513_172927_resize extends CDbMigration
     {
         $this->createTable('resize', array(
             'id' => 'pk',
-            'cut' => 'tinyint(1) DEFAULT 0',
-            'height' => 'int(11) DEFAULT 0',
-            'image_id' => 'int(11) DEFAULT 0',
+            'cut' => 'tinyint(1) default 0',
+            'height' => 'int(11) default 0',
+            'image_id' => 'int(11) default 0',
             'url' => 'varchar(255) NOT NULL',
-            'width' => 'int(11) DEFAULT 0',
+            'width' => 'int(11) default 0',
         ));
 
         $this->createIndex('cut', 'resize', 'cut');

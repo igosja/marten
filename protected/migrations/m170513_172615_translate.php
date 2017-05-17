@@ -28,7 +28,7 @@ class m170513_172615_translate extends CDbMigration
 
         $this->createTable($messageTable, array(
             'id' => 'bigint',
-            'language' => "varchar(16) NOT NULL DEFAULT '{$language}'",
+            'language' => "varchar(16) NOT NULL default '{$language}'",
             'translation' => 'text',
             'timecreated' => 'bigint',
             'timemodified' => 'bigint',
