@@ -26,26 +26,20 @@
     <meta http-equiv="content-language" content="<?= Yii::app()->language; ?>"/>
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900&amp;subset=cyrillic-ext' rel='stylesheet'
-          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900&amp;subset=cyrillic-ext' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.min.css">
     <link rel="stylesheet" href="/css/libs.css">
     <link rel="stylesheet" href="/css/main.css">
     <!--<link rel="stylesheet" href="/css/mobile.css">	-->
-
-    <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="/js/vendor/libs.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/site.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a target="_blank" rel="nofollow"
-                                                                                     href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
+<p class="browsehappy">
+    You are using an <strong>outdated</strong> browser. Please
+    <a target="_blank" rel="nofollow" href="http://browsehappy.com/">upgrade your browser</a>
+    to improve your experience.
+</p>
 <![endif]-->
 <div class="sitewrap">
     <header class="clearfix">
@@ -112,7 +106,7 @@
         <div class="header-bot">
             <div class="wrap clearfix">
                 <?= CHtml::link(
-                    '<img src="/img/logo.png" alt="">',
+                    '<img src="/img/logo.png" alt="Marten">',
                     array('index/index')
                 ); ?>
                 <div class="header-bot__l">
@@ -155,27 +149,54 @@
             </ul>
         </nav>
     </div>
-
     <?= $content; ?>
-
     <div class="clearfix-footer"></div>
 </div>
 <footer>
     <div class="footer-top">
         <div class="wrap clearfix">
             <div class="footer-menu">
-                <h3 class="footer-menu__title">КТО МЫ?</h3>
+                <h3 class="footer-menu__title">
+                    <?= Yii::t('views.layouts.main', 'footer-who-we-are'); ?>
+                </h3>
                 <ul>
-                    <li><a href="javascript:">О компании</a></li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-about-us'),
+                            array('about/index')
+                        ); ?>
+                    </li>
                     <li><a href="javascript:">Реализованные проекты</a></li>
-                    <li><a href="javascript:">Статьи</a></li>
-                    <li><a href="javascript:">Видео</a></li>
-                    <li><a href="javascript:">Отзывы</a></li>
-                    <li><a href="javascript:">Контакты</a></li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-news'),
+                            array('news/index')
+                        ); ?>
+                    </li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-video'),
+                            array('video/index')
+                        ); ?>
+                    </li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-review'),
+                            array('review/index')
+                        ); ?>
+                    </li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-contact'),
+                            array('contact/index')
+                        ); ?>
+                    </li>
                 </ul>
             </div>
             <div class="footer-menu">
-                <h3 class="footer-menu__title">ПРОДУКЦИЯ</h3>
+                <h3 class="footer-menu__title">
+                    <?= Yii::t('views.layouts.main', 'footer-production'); ?>
+                </h3>
                 <ul>
                     <li><a href="javascript:">Традиционные котлы</a></li>
                     <li><a href="javascript:">Котлы длительного горения</a></li>
@@ -188,16 +209,30 @@
                 </ul>
             </div>
             <div class="footer-menu">
-                <h3 class="footer-menu__title">Услуги</h3>
+                <h3 class="footer-menu__title">
+                    <?= Yii::t('views.layouts.main', 'footer-services'); ?>
+                </h3>
                 <ul>
-                    <li><a href="javascript:">Оплата и доставка</a></li>
-                    <li><a href="javascript:">Гарантии</a></li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-payment'),
+                            array('payment/index')
+                        ); ?>
+                    </li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-guarantee'),
+                            array('guarantee/index')
+                        ); ?>
+                    </li>
                     <li><a href="javascript:">Котлы в кредит</a></li>
                     <li><a href="javascript:">Дилерам</a></li>
                 </ul>
             </div>
             <div class="footer-menu">
-                <h3 class="footer-menu__title">Контакты</h3>
+                <h3 class="footer-menu__title">
+                    <?= Yii::t('views.layouts.main', 'footer-contacts'); ?>
+                </h3>
                 <ul>
                     <li class="footer-menu__ic1">г. Киев, пр. Леся Курбаса 1а</li>
                     <li class="footer-menu__ic2"><a href="tel:0501234567">(050) 12 34 567</a></li>
@@ -214,13 +249,22 @@
     <div class="footer-bottom">
         <div class="wrap clearfix">
             <div class="footer-copy">
-                <img src="/img/logo-bottom.png" alt=""><span>© 2008—2015  Все права защищены</span>
+                <img src="/img/logo-bottom.png" alt="Marten">
+                <span>
+                    © 2008—<?= date('Y'); ?>
+                    <?= Yii::t('views.layouts.main', 'rights-reserved'); ?>
+                </span>
             </div>
             <div class="footer-bottom__r clearfix">
                 <div class="footer-frog">
-                    <span>Создание сайтов —</span> <img src="/img/frog.png" alt="">
+                    <span>
+                        <?= Yii::t('views.layouts.main', 'site-creation'); ?> —
+                    </span>
+                    <img src="/img/frog.png" alt="Gabbe">
                 </div>
-                <a href="javascript:" id="to-top"><img src="/img/to-top.png" alt=""></a>
+                <a href="javascript:" id="to-top">
+                    <img src="/img/to-top.png" alt="to top">
+                </a>
             </div>
         </div>
     </div>
@@ -230,5 +274,11 @@
     <div class="wrap">
     </div>
 </section>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="/js/vendor/libs.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/site.js"></script>
 </body>
 </html>
