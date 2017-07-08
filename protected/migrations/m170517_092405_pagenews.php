@@ -16,7 +16,16 @@ class m170517_092405_pagenews extends CDbMigration
             'seo_keywords_ua' => 'text not null',
         ));
 
-        $this->insert('pagenews', array('id' => null));
+        $this->insert('pagenews', array(
+            'h1_ru' => 'Статьи',
+            'h1_ua' => 'Статті',
+            'seo_title_ru' => 'Статьи',
+            'seo_title_ua' => 'Статті',
+            'seo_description_ru' => 'Статьи',
+            'seo_description_ua' => 'Статті',
+            'seo_keywords_ru' => 'Статьи',
+            'seo_keywords_ua' => 'Статті',
+        ));
     }
 
     public function down()

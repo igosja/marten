@@ -19,14 +19,22 @@
     </div>
 <?php
 $attributes = array(
-    'h1_ua',
-    'seo_title_ua',
-    'seo_description_ua',
-    'seo_keywords_ua',
     'h1_ru',
+    array(
+        'type' => 'raw',
+        'name' => 'text_ru',
+    ),
     'seo_title_ru',
     'seo_description_ru',
     'seo_keywords_ru',
+    'h1_ua',
+    array(
+        'type' => 'raw',
+        'name' => 'text_ua',
+    ),
+    'seo_title_ua',
+    'seo_description_ua',
+    'seo_keywords_ua',
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,

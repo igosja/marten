@@ -11,7 +11,7 @@ class PageVideo extends CActiveRecord
     {
         return array(
             array('h1_ru, h1_ua, seo_title_ru, seo_title_ua', 'length', 'max' => 255),
-            array('seo_description_ru, seo_description_ua, seo_keywords_ru, seo_keywords_ua', 'safe'),
+            array('text_ru, text_ua, seo_description_ru, seo_description_ua, seo_keywords_ru, seo_keywords_ua', 'safe'),
         );
     }
 
@@ -20,6 +20,8 @@ class PageVideo extends CActiveRecord
         return array(
             'h1_ru' => 'H1 (Русский)',
             'h1_ua' => 'H1 (Українська)',
+            'text_ru' => 'Текст (Русский)',
+            'text_ua' => 'Текст (Українська)',
             'seo_title_ru' => 'SEO title (Русский)',
             'seo_title_ua' => 'SEO title (Українська)',
             'seo_description_ru' => 'SEO description (Русский)',

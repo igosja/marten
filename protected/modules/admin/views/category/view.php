@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $model Language
+ * @var $model Category
  */
 ?>
     <div class="row">

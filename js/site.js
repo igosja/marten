@@ -7,5 +7,34 @@ jQuery(document).ready(function ($) {
     $('.change-language').on('click', function() {
         language_select.val($(this).data('language'));
         language_select.trigger('change');
-    })
+    });
+
+    $('.video-more').on('click', function(){
+        var button = $(this);
+        var videocategory = button.data('videocategory');
+        var offset = button.data('offset');
+        var video_div = button.parent().find('.clearfix');
+
+        $.ajax({
+            beforeSend: function() {
+                button.hide();
+            },
+            url: '/video/more/' + videocategory + '?offset=' + offset,
+            success: function (data) {
+                video_div.append(data);
+                $.ajax({
+                    dataType: 'json',
+                    url: '/video/check/' + videocategory + '?offset=' + offset,
+                    success: function (data) {
+                        if (true === data.remove) {
+                            button.remove();
+                        } else {
+                            button.data('offset', data.offset);
+                            button.show();
+                        }
+                    }
+                });
+            }
+        });
+    });
 });

@@ -26,14 +26,16 @@
     <meta http-equiv="content-language" content="<?= Yii::app()->language; ?>"/>
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900&amp;subset=cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,900&amp;subset=cyrillic-ext' rel='stylesheet'
+          type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.min.css">
     <link rel="stylesheet" href="/css/libs.css">
     <link rel="stylesheet" href="/css/main.css">
     <!--<link rel="stylesheet" href="/css/mobile.css">	-->
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
+<body class="inn-page">
 <!--[if lt IE 7]>
 <p class="browsehappy">
     You are using an <strong>outdated</strong> browser. Please
@@ -107,17 +109,25 @@
             <div class="wrap clearfix">
                 <?= CHtml::link(
                     '<img src="/img/logo.png" alt="Marten">',
-                    array('index/index')
+                    array('index/index'),
+                    array('class' => 'logo')
                 ); ?>
                 <div class="header-bot__l">
-                    <span>г. Киев, пр. Леся Курбаса 1а</span>
-                    <span>пн-пт  9:00 – 20:00,  сб-вс  10:00 – 17:00</span>
+                    <span>
+                        <?= $this->contact['address_head_' . Yii::app()->language]; ?>
+                    </span>
+                    <span>
+                        <?= Yii::t('views.layouts.main', 'monday'); ?>
+                        <?= $this->contact['hours_monday']; ?>,
+                        <?= Yii::t('views.layouts.main', 'saturday'); ?>
+                        <?= $this->contact['hours_saturday']; ?>
+                    </span>
                 </div>
                 <div class="header-bot__r clearfix">
-                    <a href="javascript:;" class="header-bot__btn">Заказать звонок</a>
+                    <a href="javascript:" class="header-bot__btn"><?= Yii::t('views.layouts.main', 'call-me'); ?></a>
                     <div class="header-bot__phones">
-                        <a href="tel:0981234567">(098) 12 34 567</a>
-                        <a href="tel:0501234567">(050) 12 34 567</a>
+                        <a href="tel:<?= $this->contact['phone_kyivstar']; ?>"><?= $this->contact['phone_kyivstar']; ?></a>
+                        <a href="tel:<?= $this->contact['phone_umc']; ?>"><?= $this->contact['phone_umc']; ?></a>
                     </div>
                 </div>
             </div>
@@ -234,10 +244,16 @@
                     <?= Yii::t('views.layouts.main', 'footer-contacts'); ?>
                 </h3>
                 <ul>
-                    <li class="footer-menu__ic1">г. Киев, пр. Леся Курбаса 1а</li>
-                    <li class="footer-menu__ic2"><a href="tel:0501234567">(050) 12 34 567</a></li>
-                    <li class="footer-menu__ic3"><a href="tel:0981234567">(098) 12 34 567</a></li>
-                    <li><a href="tel:0631234567">(063) 12 34 567</a></li>
+                    <li class="footer-menu__ic1">
+                        <?= $this->contact['address_head_' . Yii::app()->language]; ?>
+                    </li>
+                    <li class="footer-menu__ic2"><a
+                                href="tel:<?= $this->contact['phone_umc']; ?>"><?= $this->contact['phone_umc']; ?></a>
+                    </li>
+                    <li class="footer-menu__ic3"><a
+                                href="tel:<?= $this->contact['phone_kyivstar']; ?>"><?= $this->contact['phone_kyivstar']; ?></a>
+                    </li>
+                    <li><a href="tel:<?= $this->contact['phone_life']; ?>"><?= $this->contact['phone_life']; ?></a></li>
                     <li>
                         <a href="javascript:" class="footer-facebook"></a>
                         <a href="javascript:" class="footer-twitter"></a>
@@ -280,5 +296,8 @@
 <script src="/js/vendor/libs.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/site.js"></script>
+<?php if ('contact' == $this->uniqueid) { ?>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAYBg8KC7jzGXqsJO4ZvBUBr-zHT_0qm2s&callback=initMap"></script>
+<?php } ?>
 </body>
 </html>
