@@ -1,10 +1,9 @@
 <?php
 /**
- * @var $margin boolean
  * @var $video Video
  */
 ?>
-<div class="video-item <?= $margin ? 'video-item-margin' : ''; ?>">
+<div class="video-item">
     <iframe
             src="https://www.youtube.com/embed/<?= $video['code']; ?>"
             frameborder="0"

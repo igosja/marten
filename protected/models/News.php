@@ -2,6 +2,8 @@
 
 class News extends CActiveRecord
 {
+    const ON_PAGE = 6;
+
     public function tableName()
     {
         return 'news';

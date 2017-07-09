@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $model PageMain
+ * @var $model PageConsult
  */
 ?>
     <div class="row">
@@ -10,7 +10,7 @@
                 <li>
                     <?= CHtml::link(
                         'Редактировать',
-                        array('update', 'id' => $model->id),
+                        array('update', 'id' => $model->primaryKey),
                         array('class' => 'btn btn-default')
                     ); ?>
                 </li>
@@ -19,14 +19,32 @@
     </div>
 <?php
 $attributes = array(
-    'h1_ua',
-    'seo_title_ua',
-    'seo_description_ua',
-    'seo_keywords_ua',
+    'bread_ru',
     'h1_ru',
+    array(
+        'name' => 'text_1_ru',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'text_2_ru',
+        'type' => 'raw',
+    ),
     'seo_title_ru',
     'seo_description_ru',
     'seo_keywords_ru',
+    'bread_ua',
+    'h1_ua',
+    array(
+        'name' => 'text_1_ua',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'text_2_ua',
+        'type' => 'raw',
+    ),
+    'seo_title_ua',
+    'seo_description_ua',
+    'seo_keywords_ua',
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,

@@ -1,7 +1,7 @@
 <?php
 /**
  * @var $form CActiveForm
- * @var $model Category
+ * @var $model VideoCategory
  */
 ?>
 <div class="row">

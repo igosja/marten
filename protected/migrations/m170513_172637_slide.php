@@ -10,9 +10,6 @@ class m170513_172637_slide extends CDbMigration
             'order' => 'int(11) default 0',
             'status' => 'tinyint(1) default 1',
         ));
-
-        $this->createIndex('order', 'slide', 'order');
-        $this->createIndex('status', 'slide', 'status');
     }
 
     public function down()

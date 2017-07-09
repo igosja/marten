@@ -4,7 +4,7 @@ class VideoController extends Controller
 {
     public function actionIndex()
     {
-        $a_videocategory = Videocategory::model()->findAllByAttributes(
+        $a_videocategory = VideoCategory::model()->findAllByAttributes(
             array('status' => 1),
             array('order' => `order`)
         );
@@ -23,10 +23,14 @@ class VideoController extends Controller
     {
         $a_video = Video::model()->findAllByAttributes(
             array('status' => 1, 'videocategory_id' => $id),
-            array('order' => 'id DESC', 'offset' => Yii::app()->request->getQuery('offset', 3), 'limit' => 3)
+            array(
+                'order' => 'id DESC',
+                'offset' => Yii::app()->request->getQuery('offset', 0) + Video::ON_PAGE,
+                'limit' => Video::ON_PAGE
+            )
         );
         foreach ($a_video as $item) {
-            $this->renderPartial('item', array('video' => $item, 'margin' => true));
+            $this->renderPartial('item', array('video' => $item));
         }
     }
 
@@ -35,9 +39,9 @@ class VideoController extends Controller
         $count = Video::model()->countByAttributes(
             array('status' => 1, 'videocategory_id' => $id)
         );
-        $offset = (int) Yii::app()->request->getQuery('offset', 3) + 3;
+        $offset = (int) Yii::app()->request->getQuery('offset', 0) + Video::ON_PAGE;
         $remove = false;
-        if ($count <= $offset) {
+        if ($count <= $offset + Video::ON_PAGE) {
             $remove = true;
         }
         print CJSON::encode(array('remove' => $remove, 'offset' => $offset));

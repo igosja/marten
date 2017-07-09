@@ -5,7 +5,7 @@ class VideocategoryController extends AController
     public $h1 = 'Категории';
     public $h1_edit = 'Редактирование категории';
     public $title = 'Категории';
-    public $model_name = 'Videocategory';
+    public $model_name = 'VideoCategory';
 
     public function actionIndex()
     {

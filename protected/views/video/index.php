@@ -14,11 +14,11 @@
                     <h3 class="video-title"><?= $item['name_' . Yii::app()->language] ?></h3>
                     <div class="clearfix">
                         <?php foreach ($item->video as $video) { ?>
-                            <?= $this->renderPartial('item', array('video' => $video, 'margin' => false)); ?>
+                            <?= $this->renderPartial('item', array('video' => $video)); ?>
                         <?php } ?>
                     </div>
-                    <?php if (count($item->countvideo) > 3) { ?>
-                        <a href="javascript:" class="video-more" data-videocategory="<?= $item->primaryKey; ?>" data-offset="3">
+                    <?php if (count($item->countvideo) > Video::ON_PAGE) { ?>
+                        <a href="javascript:" class="video-more" data-videocategory="<?= $item->primaryKey; ?>" data-offset="0">
                             <?= Yii::t('views.video.main', 'link-more'); ?>
                         </a>
                     <?php } ?>

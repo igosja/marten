@@ -44,7 +44,7 @@ class VideoController extends AController
         if (0 != $id) {
             $this->breadcrumbs[$model->code] = array('view', 'id' => $model->primaryKey);
         }
-        $a_videocategory = Videocategory::model()->findAll(array('order' => 'name_ru'));
+        $a_videocategory = VideoCategory::model()->findAll(array('order' => 'name_ru'));
         $this->render('form', array('model' => $model, 'a_videocategory' => $a_videocategory));
     }
 

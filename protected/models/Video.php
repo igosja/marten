@@ -2,6 +2,8 @@
 
 class Video extends CActiveRecord
 {
+    const ON_PAGE = 3;
+
     public function tableName()
     {
         return 'video';
@@ -38,7 +40,7 @@ class Video extends CActiveRecord
     public function relations()
     {
         return array(
-            'videocategory' => array(self::HAS_ONE, 'Videocategory', array('id' => 'videocategory_id')),
+            'VideoCategory' => array(self::HAS_ONE, 'VideoCategory', array('id' => 'videocategory_id')),
         );
     }
 

@@ -1,12 +1,19 @@
 <?php
 /**
- * @var $model PageMain
+ * @var $model Consult
  */
 ?>
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header text-center"><?= $this->h1; ?></h1>
             <ul class="list-inline preview-links text-center">
+                <li>
+                    <?= CHtml::link(
+                        'Список',
+                        array('index'),
+                        array('class' => 'btn btn-default')
+                    ); ?>
+                </li>
                 <li>
                     <?= CHtml::link(
                         'Редактировать',
@@ -19,14 +26,24 @@
     </div>
 <?php
 $attributes = array(
-    'h1_ua',
-    'seo_title_ua',
-    'seo_description_ua',
-    'seo_keywords_ua',
-    'h1_ru',
-    'seo_title_ru',
-    'seo_description_ru',
-    'seo_keywords_ru',
+    'id',
+    'name_ru',
+    'text_ru',
+    'name_ua',
+    'text_ua',
+    array(
+        'name' => 'status',
+        'type' => 'raw',
+        'value' => '<input
+            class="status"
+            data-id="' . $model->id . '"
+            data-onstyle="success"
+            data-size="mini"
+            data-toggle="toggle"
+            type="checkbox"
+            ' . ($model->status ? 'checked' : '') . '
+          />',
+    ),
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,

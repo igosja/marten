@@ -10,7 +10,7 @@
                 <li>
                     <?= CHtml::link(
                         'Редактировать',
-                        array('update', 'id' => $model->id),
+                        array('update', 'id' => $model->primaryKey),
                         array('class' => 'btn btn-default')
                     ); ?>
                 </li>

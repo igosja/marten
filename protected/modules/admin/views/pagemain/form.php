@@ -32,6 +32,13 @@
             <div class="tab-pane fade in active" id="main">
                 <table class="table table-striped table-bordered table-hover">
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'video'); ?></td>
+                        <td>
+                            <?= $form->textField($model, 'video', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'video'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'h1_ru'); ?></td>
                         <td>
                             <?= $form->textField($model, 'h1_ru', array('class' => 'form-control')); ?>
@@ -39,10 +46,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ru'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_ru'); ?></td>
                         <td>
-                            <?= $form->textarea($model, 'text_ru', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_ru'); ?>
+                            <?= $form->textArea($model, 'text_1_ru', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_1_ru'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_2_ru'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'text_2_ru', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_2_ru'); ?>
                         </td>
                     </tr>
                     <tr>
@@ -53,10 +67,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_ua'); ?></td>
                         <td>
-                            <?= $form->textarea($model, 'text_ua', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_ua'); ?>
+                            <?= $form->textArea($model, 'text_1_ua', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_1_ua'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_2_ua'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'text_2_ua', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_2_ua'); ?>
                         </td>
                     </tr>
                 </table>

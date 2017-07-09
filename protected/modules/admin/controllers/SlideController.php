@@ -92,6 +92,13 @@ class SlideController extends AController
                 $o_image->save();
                 $image_id = $o_image->primaryKey;
                 $model = $this->getModel();
+                $max_order = $this->getModel()->find(array('order' => '`order` DESC'));
+                if ($max_order) {
+                    $max_order = $max_order->order + 1;
+                } else {
+                    $max_order = 0;
+                }
+                $model->order = $max_order;
                 $model->image_id = $image_id;
                 $model->save();
             }

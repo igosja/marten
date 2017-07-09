@@ -35,7 +35,7 @@
     <!--<link rel="stylesheet" href="/css/mobile.css">	-->
     <link rel="stylesheet" href="/css/site.css">
 </head>
-<body class="inn-page">
+<body <?php if ('index' != $this->uniqueId) { ?>class="inn-page"<?php } ?>>
 <!--[if lt IE 7]>
 <p class="browsehappy">
     You are using an <strong>outdated</strong> browser. Please
@@ -124,7 +124,7 @@
                     </span>
                 </div>
                 <div class="header-bot__r clearfix">
-                    <a href="javascript:" class="header-bot__btn"><?= Yii::t('views.layouts.main', 'call-me'); ?></a>
+                    <a href="javascript:" data-selector="form-call" class="header-bot__btn overlayElementTrigger"><?= Yii::t('views.layouts.main', 'call-me'); ?></a>
                     <div class="header-bot__phones">
                         <a href="tel:<?= $this->contact['phone_kyivstar']; ?>"><?= $this->contact['phone_kyivstar']; ?></a>
                         <a href="tel:<?= $this->contact['phone_umc']; ?>"><?= $this->contact['phone_umc']; ?></a>
@@ -142,7 +142,7 @@
                         <?php if (isset($item['children']) && $item['children']) { ?>
                             <ul>
                                 <?php foreach ($item['children'] as $item1) { ?>
-                                    <li><?= $item1['name']; ?>
+                                    <li><a href="javascript:;"><?= $item1['name']; ?><span></span></a>
                                         <?php if (isset($item1['children']) && $item1['children']) { ?>
                                             <ul>
                                                 <?php foreach ($item1['children'] as $item2) { ?>
@@ -176,7 +176,12 @@
                             array('about/index')
                         ); ?>
                     </li>
-                    <li><a href="javascript:">Реализованные проекты</a></li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-project'),
+                            array('project/index')
+                        ); ?>
+                    </li>
                     <li>
                         <?= CHtml::link(
                             Yii::t('views.layouts.main', 'footer-link-news'),
@@ -208,14 +213,9 @@
                     <?= Yii::t('views.layouts.main', 'footer-production'); ?>
                 </h3>
                 <ul>
-                    <li><a href="javascript:">Традиционные котлы</a></li>
-                    <li><a href="javascript:">Котлы длительного горения</a></li>
-                    <li><a href="javascript:">Пеллетные котлы</a></li>
-                    <li><a href="javascript:">Котлы большой мощности</a></li>
-                    <li><a href="javascript:">Модульные котельные</a></li>
-                    <li><a href="javascript:">Баки теплоаккумуляторы</a></li>
-                    <li><a href="javascript:">Дымоходы</a></li>
-                    <li><a href="javascript:">Запчасти и доп. материалы</a></li>
+                    <?php foreach ($this->a_category as $item) { ?>
+                        <li><a href="javascript:"><?= $item['name']; ?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="footer-menu">
@@ -235,8 +235,18 @@
                             array('guarantee/index')
                         ); ?>
                     </li>
-                    <li><a href="javascript:">Котлы в кредит</a></li>
-                    <li><a href="javascript:">Дилерам</a></li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-credit'),
+                            array('credit/index')
+                        ); ?>
+                    </li>
+                    <li>
+                        <?= CHtml::link(
+                            Yii::t('views.layouts.main', 'footer-link-dealer'),
+                            array('dealer/index')
+                        ); ?>
+                    </li>
                 </ul>
             </div>
             <div class="footer-menu">
@@ -247,13 +257,21 @@
                     <li class="footer-menu__ic1">
                         <?= $this->contact['address_head_' . Yii::app()->language]; ?>
                     </li>
-                    <li class="footer-menu__ic2"><a
-                                href="tel:<?= $this->contact['phone_umc']; ?>"><?= $this->contact['phone_umc']; ?></a>
+                    <li class="footer-menu__ic2">
+                        <a href="tel:<?= $this->contact['phone_umc']; ?>">
+                            <?= $this->contact['phone_umc']; ?>
+                        </a>
                     </li>
-                    <li class="footer-menu__ic3"><a
-                                href="tel:<?= $this->contact['phone_kyivstar']; ?>"><?= $this->contact['phone_kyivstar']; ?></a>
+                    <li class="footer-menu__ic3">
+                        <a href="tel:<?= $this->contact['phone_kyivstar']; ?>">
+                            <?= $this->contact['phone_kyivstar']; ?>
+                        </a>
                     </li>
-                    <li><a href="tel:<?= $this->contact['phone_life']; ?>"><?= $this->contact['phone_life']; ?></a></li>
+                    <li>
+                        <a href="tel:<?= $this->contact['phone_life']; ?>">
+                            <?= $this->contact['phone_life']; ?>
+                        </a>
+                    </li>
                     <li>
                         <a href="javascript:" class="footer-facebook"></a>
                         <a href="javascript:" class="footer-twitter"></a>
@@ -288,6 +306,29 @@
 <section class="overlay-forms">
     <div class="form-overlay"></div>
     <div class="wrap">
+        <!-- заказать звонок -->
+        <div class="of-form form-call">
+            <a href="javascript:;" class="of-close"></a href="">
+            <form>
+                <div class="of-form__title"><?= Yii::t('views.layouts.main', 'form-call-me'); ?></div>
+                <div class="of-wrap clearfix">
+                    <label class="of-label">Ваше Имя:<span></span></label>
+                    <input type="text" class="of-input of-input_name" required/>
+                    <label class="of-label">Телефон:<span></span></label>
+                    <input type="tel" class="of-input of-input_phone phone_mask" required/>
+                    <a href="javascript:;" class="of-show">
+                        <?= Yii::t('views.layouts.main', 'form-info'); ?>
+                    </a>
+                    <textarea class="of-textarea"></textarea>
+                    <a href="javascript:;" class="of-submit of-submit-form">
+                        <?= Yii::t('views.layouts.main', 'form-submit'); ?>
+                    </a>
+                    <div class="of-note">
+                        <span></span>— <?= Yii::t('views.layouts.main', 'form-required'); ?>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

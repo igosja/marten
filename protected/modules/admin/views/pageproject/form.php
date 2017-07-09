@@ -1,7 +1,7 @@
 <?php
 /**
  * @var $form CActiveForm
- * @var $model PageMain
+ * @var $model PageProject
  */
 ?>
 <div class="row">
@@ -39,10 +39,24 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ru'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'text_ru', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_ru'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'h1_ua'); ?></td>
                         <td>
                             <?= $form->textField($model, 'h1_ua', array('class' => 'form-control')); ?>
                             <?= $form->error($model, 'h1_ua'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ua'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'text_ua', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_ua'); ?>
                         </td>
                     </tr>
                 </table>

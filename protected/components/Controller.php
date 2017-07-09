@@ -26,7 +26,7 @@ class Controller extends CController
             Yii::app()->language = $language;
         } else {
             $language = Language::model()->find(array('select' => array('code'), 'order' => '`order`'));
-            Yii::app()->language = $language->code;
+            Yii::app()->language = $language['code'];
         }
         $this->contact = Contact::model()->findByAttributes(
             array('id' => 1),

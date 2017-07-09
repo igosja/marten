@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $model Videocategory
+ * @var $model VideoCategory
  */
 ?>
     <div class="row">

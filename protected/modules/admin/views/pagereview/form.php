@@ -1,7 +1,7 @@
 <?php
 /**
  * @var $form CActiveForm
- * @var $model PageMain
+ * @var $model PageReview
  */
 ?>
 <div class="row">

@@ -1,11 +1,11 @@
 <?php
 
-class PageobjectController extends AController
+class PagedealerController extends AController
 {
-    public $h1 = 'Объекты';
-    public $h1_edit = 'Объекты';
-    public $title = 'Объекты';
-    public $model_name = 'PageObject';
+    public $h1 = 'Диллерам';
+    public $h1_edit = 'Диллерам';
+    public $title = 'Диллерам';
+    public $model_name = 'PageDealer';
 
     public function actionIndex()
     {

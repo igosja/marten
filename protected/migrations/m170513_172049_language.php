@@ -1,6 +1,6 @@
 <?php
 
-class m170513_172049_langauge extends CDbMigration
+class m170513_172049_language extends CDbMigration
 {
     public function up()
     {
@@ -11,9 +11,6 @@ class m170513_172049_langauge extends CDbMigration
             'order' => 'tinyint(1) default 0',
             'status' => 'tinyint(1) default 1',
         ));
-
-        $this->createIndex('order', 'language', 'order');
-        $this->createIndex('status', 'language', 'status');
 
         $this->insertMultiple('language', array(
             array('code' => 'ua', 'name' => 'Ua', 'order' => 0),

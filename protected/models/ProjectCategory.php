@@ -1,16 +1,16 @@
 <?php
 
-class Videocategory extends CActiveRecord
+class ProjectCategory extends CActiveRecord
 {
     public function tableName()
     {
-        return 'videocategory';
+        return 'projectcategory';
     }
 
     public function rules()
     {
         return array(
-            array('name_ru, name_ua', 'length', 'max' => 255),
+            array('name_ru, name_ua, url', 'length', 'max' => 255),
             array('order, status', 'numerical'),
         );
     }
@@ -20,6 +20,7 @@ class Videocategory extends CActiveRecord
         return array(
             'name_ru' => 'Название (Русский)',
             'name_ua' => 'Название (Українська)',
+            'url' => 'ЧП-URL',
             'status' => 'Статус',
         );
     }
@@ -34,26 +35,6 @@ class Videocategory extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
-    }
-
-    public function relations()
-    {
-        return array(
-            'video' => array(
-                self::HAS_MANY,
-                'Video',
-                array('videocategory_id' => 'id'),
-                'condition' => 'status=1',
-                'order' => 'id DESC',
-                'limit' => 3,
-            ),
-            'countvideo' => array(
-                self::HAS_MANY,
-                'Video',
-                array('videocategory_id' => 'id'),
-                'condition' => 'status=1',
-            )
-        );
     }
 
     public static function model($className = __CLASS__)
