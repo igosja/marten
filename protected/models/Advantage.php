@@ -4,7 +4,7 @@ class Advantage extends CActiveRecord
 {
     public function tableName()
     {
-        return 'Advantage';
+        return 'advantage';
     }
 
     public function rules()
