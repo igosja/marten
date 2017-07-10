@@ -45,7 +45,7 @@ class Controller extends CController
             $this->callme->attributes = $data;
             if ($this->callme->validate()) {
                 $this->callme->send();
-                $this->refresh();
+//                $this->refresh();
             }
         }
         $clientScript = Yii::app()->getClientScript();
