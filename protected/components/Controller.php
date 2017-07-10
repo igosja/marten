@@ -1,6 +1,6 @@
 <?php
 
-//\usr\local\php5\php.exe
+//\usr\local\php5\php.exe www\protected\yiic migrate
 
 class Controller extends CController
 {
