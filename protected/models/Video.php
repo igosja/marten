@@ -40,7 +40,7 @@ class Video extends CActiveRecord
     public function relations()
     {
         return array(
-            'VideoCategory' => array(self::HAS_ONE, 'VideoCategory', array('id' => 'videocategory_id')),
+            'videocategory' => array(self::HAS_ONE, 'VideoCategory', array('id' => 'videocategory_id')),
         );
     }
 
