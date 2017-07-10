@@ -17,8 +17,6 @@ class Controller extends CController
 
     public function init()
     {
-        $a_category = Category::model()->findAllByAttributes(array('status' => 1), array('order' => 'parent_id, `order`'));
-        $this->a_category = Category::model()->getTreeMenu($a_category);
         $this->a_language = Language::model()->findAllByAttributes(
             array('status' => 1),
             array('select' => array('code', 'name'), 'order' => '`order`')
@@ -29,6 +27,8 @@ class Controller extends CController
             $language = Language::model()->find(array('select' => array('code'), 'order' => '`order`'));
             Yii::app()->language = $language['code'];
         }
+        $a_category = Category::model()->findAllByAttributes(array('status' => 1), array('order' => 'parent_id, `order`'));
+        $this->a_category = Category::model()->getTreeMenu($a_category);
         $this->contact = Contact::model()->findByAttributes(
             array('id' => 1),
             array('select' => array(
