@@ -40,14 +40,6 @@ class Controller extends CController
                 'phone_umc',
             ))
         );
-        $this->callme = new CallMe();
-        if ($data = Yii::app()->request->getPost('CallMe')) {
-            $this->callme->attributes = $data;
-            if ($this->callme->validate()) {
-                $this->callme->send();
-//                $this->refresh();
-            }
-        }
         $clientScript = Yii::app()->getClientScript();
         $clientScript->scriptMap = array(
             'jquery.js' => false,
@@ -63,6 +55,14 @@ class Controller extends CController
                 $redirect['id'] = Yii::app()->request->getQuery('id');
             }
             $this->redirect($redirect);
+        }
+        $this->callme = new CallMe();
+        if ($data = Yii::app()->request->getPost('CallMe')) {
+            $this->callme->attributes = $data;
+            if ($this->callme->validate()) {
+                $this->callme->send();
+                $this->refresh();
+            }
         }
         return $action;
     }
