@@ -47,4 +47,11 @@ class TranslateController extends AController
         $model = new $this->model_name($search);
         return $model;
     }
+
+    public function actionExtract()
+    {
+        $model = new ExtractMessage();
+        $model->extract();
+        $this->redirect('index');
+    }
 }

@@ -3,7 +3,7 @@ function initialize(lat, lng) {
     var mapOptions = {
         zoom: 16,
         center: myLatlng
-    }
+    };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
     var marker = new google.maps.Marker({
         position: myLatlng,
@@ -105,7 +105,6 @@ jQuery(document).ready(function ($) {
         responsiveRefreshRate: 1,
         pagination: true,
         navigationText: false,
-        navigation: true,
         autoPlay: 5000,
         transitionStyle: "fade"
     });
@@ -131,7 +130,6 @@ jQuery(document).ready(function ($) {
         responsiveRefreshRate: 1,
         pagination: true,
         navigationText: false,
-        navigation: true,
         autoPlay: false
     });
 
@@ -144,42 +142,6 @@ jQuery(document).ready(function ($) {
             $(".of-textarea").slideDown();
             $(this).toggleClass('active');
         }
-    });
-
-    $(".of-submit-form").click(function () {
-        console.log(1);
-        var name = $(this).parents().children(".of-input_name");
-        if ($.trim(name.val()) == "") {
-            name.addClass("form_error");
-            return false;
-        }
-        else {
-            name.removeClass("form_error");
-        }
-
-        var phone = $(this).parents().children(".of-input_phone");
-        if ($.trim(phone.val()) == "") {
-            phone.addClass("form_error");
-            return false;
-        }
-        else {
-            phone.removeClass("form_error");
-        }
-
-        if ($('.overlay-forms').is(':visible')) {
-            //$('.form-order').hide();
-            phone.val("");
-            name.val("");
-            //$('.form-thanks').show();
-        }
-        else {
-            //$('.overlay-forms').show();
-            phone.val("");
-            name.val("");
-
-            //$('.form-thanks').show();
-        }
-
     });
 
     $(".phone_mask").mask("(999) 999-99-99");

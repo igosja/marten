@@ -66,7 +66,7 @@
                     <?= $form->textarea($model, 'text', array('class' => 'form__textarea')); ?>
                     <?= $form->error($model, 'text'); ?>
                     <?= CHtml::submitButton(
-                        Yii::t('views.contact.index', 'button_submit'),
+                        Yii::t('views.contact.index', 'button-submit'),
                         array('class' => 'form__btn form__btn__contacts')
                     ); ?>
                     <div class="form__note"><?= Yii::t('views.contact.index', 'required'); ?></div>

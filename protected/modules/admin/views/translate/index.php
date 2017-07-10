@@ -8,6 +8,15 @@
         <h1 class="page-header text-center"><?= $this->h1; ?></h1>
     </div>
 </div>
+<ul class="list-inline preview-links text-center">
+    <li>
+        <?= CHtml::link(
+            'Обновить',
+            array('extract'),
+            array('class' => 'btn btn-default')
+        ); ?>
+    </li>
+</ul>
 <?= $this->renderPartial('/include/grid-view-text'); ?>
 <div class="col-lg-12">
     <?php

@@ -22,7 +22,7 @@
         </div>
         <?php if ($more) { ?>
             <a href="javascript:" class="art-more" data-offset="<?= $offset; ?>">
-                <?= Yii::t('views.contact.index', 'link-more'); ?>
+                <?= Yii::t('views.news.index', 'link-more'); ?>
             </a>
         <?php } ?>
         <div class="pager clearfix">

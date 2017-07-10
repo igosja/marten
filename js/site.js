@@ -94,4 +94,17 @@ jQuery(document).ready(function ($) {
             }
         });
     });
+
+    if ('' !== $('.errorMessage').html()) {
+        var form_id = $('.errorMessage').closest('form').attr('id');
+        if ('form-call-me' === form_id) {
+            if ($('.overlay-forms').is(':visible')) {
+                $('.of-form').stop().fadeOut();
+            } else {
+                $('.overlay-forms').stop().fadeIn();
+            }
+
+            $('.form-call').stop().fadeIn();
+        }
+    }
 });

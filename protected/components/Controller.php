@@ -7,6 +7,7 @@ class Controller extends CController
     public $a_category = array();
     public $a_language = array();
     public $breadcrumbs = array();
+    public $callme;
     public $contact;
     public $layout = 'main';
     public $og_image;
@@ -39,6 +40,14 @@ class Controller extends CController
                 'phone_umc',
             ))
         );
+        $this->callme = new CallMe();
+        if ($data = Yii::app()->request->getPost('CallMe')) {
+            $this->callme->attributes = $data;
+            if ($this->callme->validate()) {
+                $this->callme->send();
+                $this->refresh();
+            }
+        }
         $clientScript = Yii::app()->getClientScript();
         $clientScript->scriptMap = array(
             'jquery.js' => false,

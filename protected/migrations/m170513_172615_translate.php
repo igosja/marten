@@ -6,51 +6,36 @@ class m170513_172615_translate extends CDbMigration
 
     public function safeUp()
     {
-        $language = Yii::app()->language;
-        if (!$msgComponent = Yii::app()->getComponent($this->dbMessageSourceComponent)) {
-            throw new CException('Error: CDbMessageSource component with name "' .
-                $this->dbMessageSourceComponent . '" not found: check "components" section in your config.php');
-        }
-        $sourceMessageTable = $msgComponent->sourceMessageTable;
-        $messageTable = $msgComponent->translatedMessageTable;
-
-        $this->createTable($sourceMessageTable, array(
-            'id' => 'bigpk',
+        $this->createTable('i18n_source_messages', array(
+            'id' => 'pk',
             'category' => 'string',
             'message' => 'text',
-            'timecreated' => 'bigint',
-            'timemodified' => 'bigint',
+            'timecreated' => 'int(11) default 0',
+            'timemodified' => 'int(11) default 0',
         ));
 
-        $this->createIndex('idx_category', $sourceMessageTable, 'category');
-        $this->createIndex('idx_timecreated', $sourceMessageTable, 'timecreated');
-        $this->createIndex('idx_timemodified', $sourceMessageTable, 'timemodified');
+        $this->createIndex('idx_category', 'i18n_source_messages', 'category');
+        $this->createIndex('idx_timecreated', 'i18n_source_messages', 'timecreated');
+        $this->createIndex('idx_timemodified', 'i18n_source_messages', 'timemodified');
 
-        $this->createTable($messageTable, array(
-            'id' => 'bigint',
-            'language' => "varchar(16) NOT NULL default '{$language}'",
+        $this->createTable('i18n_translated_messages', array(
+            'message_id' => 'pk',
+            'id' => 'int(11) default 0',
+            'language' => "varchar(16) default 'ru'",
             'translation' => 'text',
-            'timecreated' => 'bigint',
-            'timemodified' => 'bigint',
+            'timecreated' => 'int(11) default 0',
+            'timemodified' => 'int(11) default 0',
         ));
 
-        $this->createIndex('idx_id', $messageTable, 'id');
-        $this->createIndex('idx_language', $messageTable, 'language');
-        $this->createIndex('idx_timecreated', $messageTable, 'timecreated');
-        $this->createIndex('idx_timemodified', $messageTable, 'timemodified');
+        $this->createIndex('idx_id', 'i18n_translated_messages', 'id');
+        $this->createIndex('idx_language', 'i18n_translated_messages', 'language');
+        $this->createIndex('idx_timecreated', 'i18n_translated_messages', 'timecreated');
+        $this->createIndex('idx_timemodified', 'i18n_translated_messages', 'timemodified');
     }
-
 
     public function safeDown()
     {
-        if (!$msgComponent = Yii::app()->getComponent($this->dbMessageSourceComponent)) {
-            throw new CException('Error: CDbMessageSource component with name ' . $this->dbMessageSourceComponent .
-                ' not found: check your config.php');
-        }
-        $sourceMessageTable = $msgComponent->sourceMessageTable;
-        $messageTable = $msgComponent->translatedMessageTable;
-
-        $this->dropTable($sourceMessageTable);
-        $this->dropTable($messageTable);
+        $this->dropTable('i18n_source_messages');
+        $this->dropTable('i18n_translated_messages');
     }
 }

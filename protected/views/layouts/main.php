@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $content string
+ * @var $form CActiveForm
  */
 ?>
 <!DOCTYPE html>
@@ -308,26 +309,42 @@
     <div class="wrap">
         <!-- заказать звонок -->
         <div class="of-form form-call">
-            <a href="javascript:;" class="of-close"></a href="">
-            <form>
+            <a href="javascript:" class="of-close"></a>
+            <?php $form = $this->beginWidget('CActiveForm', array(
+                'enableAjaxValidation' => false,
+                'enableClientValidation' => true,
+                'id' => 'form-call-me'
+            )); ?>
                 <div class="of-form__title"><?= Yii::t('views.layouts.main', 'form-call-me'); ?></div>
                 <div class="of-wrap clearfix">
-                    <label class="of-label">Ваше Имя:<span></span></label>
-                    <input type="text" class="of-input of-input_name" required/>
-                    <label class="of-label">Телефон:<span></span></label>
-                    <input type="tel" class="of-input of-input_phone phone_mask" required/>
-                    <a href="javascript:;" class="of-show">
+                    <?= CHtml::label(
+                        Yii::t('views.layout.index', 'form-call-me-label-name') . ' <span></span>',
+                        '',
+                        array('class' => 'of-label')
+                    ); ?>
+                    <?= $form->textField($this->callme, 'name', array('class' => 'of-input of-input_name')); ?>
+                    <?= $form->error($this->callme, 'name'); ?>
+                    <?= CHtml::label(
+                        Yii::t('views.layout.index', 'form-call-me-label-phone') . ' <span></span>',
+                        '',
+                        array('class' => 'of-label')
+                    ); ?>
+                    <?= $form->textField($this->callme, 'phone', array('class' => 'of-input of-input_phone phone_mask')); ?>
+                    <?= $form->error($this->callme, 'phone'); ?>
+                    <a href="javascript:" class="of-show">
                         <?= Yii::t('views.layouts.main', 'form-info'); ?>
                     </a>
-                    <textarea class="of-textarea"></textarea>
-                    <a href="javascript:;" class="of-submit of-submit-form">
-                        <?= Yii::t('views.layouts.main', 'form-submit'); ?>
-                    </a>
+                    <?= $form->textArea($this->callme, 'text', array('class' => 'of-textarea')); ?>
+                    <?= $form->error($this->callme, 'text'); ?>
+                    <?= CHtml::submitButton(
+                        Yii::t('views.layouts.main', 'button-submit'),
+                        array('class' => 'of-submit of-submit-form')
+                    ); ?>
                     <div class="of-note">
-                        <span></span>— <?= Yii::t('views.layouts.main', 'form-required'); ?>
+                        <span></span><?= Yii::t('views.layouts.main', 'form-required'); ?>
                     </div>
                 </div>
-            </form>
+            <?php $this->endWidget(); ?>
         </div>
     </div>
 </section>

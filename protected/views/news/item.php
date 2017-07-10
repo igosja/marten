@@ -25,7 +25,7 @@
         <br/>
         ...
         <?= CHtml::link(
-            Yii::t('views.contact.index', 'link-detail'),
+            Yii::t('views.news.item', 'link-detail'),
             array('news/view', 'id' => $item['url']),
             array('class' => 'art__i__title')
         ); ?>

@@ -18,27 +18,24 @@ class Feedback extends CFormModel
     public function attributeLabels()
     {
         return array(
-            'email' => Yii::t('models.FormContact', 'label-email'),
-            'name' => Yii::t('models.FormContact', 'label-name'),
-            'text' => Yii::t('models.FormContact', 'label-text'),
+            'email' => Yii::t('models.Feedback', 'label-email'),
+            'name' => Yii::t('models.Feedback', 'label-name'),
+            'text' => Yii::t('models.Feedback', 'label-text'),
         );
     }
 
     public function send()
     {
         $text = 'Имя - ' . $this->name;
-        if ($this->telephone) {
-            $text .= 'Телефон - ' . $this->telephone;
-        }
         if ($this->email) {
-            $text .= 'Email - ' . $this->email;
+            $text .= '<br/>Email - ' . $this->email;
         }
         if ($this->text) {
-            $text .= 'Комментарий - ' . $this->text;
+            $text .= '<br/>Комментарий - ' . $this->text;
         }
-        $contact = PageContact::model()->findByPk(1);
+        $contact = Contact::model()->findByPk(1);
         $mail = new Mail();
-        $mail->setTo($contact->email);
+        $mail->setTo($contact['email']);
         $mail->setSubject('Клиент написал через обратную связь на сайте');
         $mail->setHtml($text);
         $mail->send();
