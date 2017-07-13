@@ -24,6 +24,7 @@
         <?php $form = $this->beginWidget('CActiveForm', array(
             'enableAjaxValidation' => false,
             'enableClientValidation' => true,
+            'htmlOptions' => array('enctype' => 'multipart/form-data'),
         )); ?>
         <ul class="nav nav-tabs">
             <li class="active"><a href="#main" data-toggle="tab">Общая информация</a></li>
@@ -38,17 +39,32 @@
                             <?= $form->dropDownList(
                                 $model,
                                 'parent_id',
-                                $a_category,
+                                CHtml::listData($a_category, 'id', 'h1_ru'),
                                 array('empty' => 'Выберите категорию', 'class' => 'form-control')
                             ); ?>
                             <?= $form->error($model, 'parent_id'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'name_ru'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'url'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'name_ru', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'name_ru'); ?>
+                            <?= $form->textField($model, 'url', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'url'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'image_id'); ?></td>
+                        <td>
+                            <?php if (isset($model->image->url)) { ?>
+                                <div class="col-lg-6">
+                                    <a href="javascript:" class="thumbnail">
+                                        <img src="<?= $model->image->url ?>"/>
+                                    </a>
+                                </div>
+                                <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $model->image_id)); ?>
+                            <?php } else { ?>
+                                <input type="file" name="image" class="form-control"/>
+                            <?php } ?>
                         </td>
                     </tr>
                     <tr>
@@ -59,10 +75,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'name_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ru'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'name_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'name_ua'); ?>
+                            <?= $form->textArea($model, 'text_ru', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_ru'); ?>
                         </td>
                     </tr>
                     <tr>
@@ -70,6 +86,13 @@
                         <td>
                             <?= $form->textField($model, 'h1_ua', array('class' => 'form-control')); ?>
                             <?= $form->error($model, 'h1_ua'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ua'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'text_ua', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_ua'); ?>
                         </td>
                     </tr>
                 </table>

@@ -35,7 +35,7 @@
             'sortable' => false,
         ),
         array(
-            'name' => 'name_ru',
+            'name' => 'h1_ru',
             'sortable' => false,
         ),
         array(

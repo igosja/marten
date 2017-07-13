@@ -125,7 +125,9 @@
                     </span>
                 </div>
                 <div class="header-bot__r clearfix">
-                    <a href="javascript:" data-selector="form-call" class="header-bot__btn overlayElementTrigger"><?= Yii::t('views.layouts.main', 'call-me'); ?></a>
+                    <a href="javascript:" data-selector="form-call" class="header-bot__btn overlayElementTrigger">
+                        <?= Yii::t('views.layouts.main', 'call-me'); ?>
+                    </a>
                     <div class="header-bot__phones">
                         <a href="tel:<?= $this->contact['phone_kyivstar']; ?>"><?= $this->contact['phone_kyivstar']; ?></a>
                         <a href="tel:<?= $this->contact['phone_umc']; ?>"><?= $this->contact['phone_umc']; ?></a>
@@ -139,18 +141,20 @@
             <ul>
                 <?php foreach ($this->a_category as $item) { ?>
                     <li>
-                        <a href="javascript:" class="drop"><span><?= $item['name']; ?></span></a>
+                        <?= CHtml::link(
+                            '<span>' . $item['name'] . '</span>',
+                            array('category/view', 'id' => $item['url']),
+                            array('class' => 'drop')
+                        ); ?>
                         <?php if (isset($item['children']) && $item['children']) { ?>
                             <ul>
-                                <?php foreach ($item['children'] as $item1) { ?>
-                                    <li><a href="javascript:;"><?= $item1['name']; ?><span></span></a>
-                                        <?php if (isset($item1['children']) && $item1['children']) { ?>
-                                            <ul>
-                                                <?php foreach ($item1['children'] as $item2) { ?>
-                                                    <li><a href="javascript:"><?= $item2['name']; ?></a></li>
-                                                <?php } ?>
-                                            </ul>
-                                        <?php } ?>
+                                <?php foreach ($item['children'] as $child) { ?>
+                                    <li>
+                                        <?= CHtml::link(
+                                            $child['name'] . '<span></span>',
+                                            array('category/view', 'id' => $child['url']),
+                                            array('class' => 'drop')
+                                        ); ?>
                                     </li>
                                 <?php } ?>
                             </ul>
@@ -315,35 +319,35 @@
                 'enableClientValidation' => true,
                 'id' => 'form-call-me'
             )); ?>
-                <div class="of-form__title"><?= Yii::t('views.layouts.main', 'form-call-me'); ?></div>
-                <div class="of-wrap clearfix">
-                    <?= CHtml::label(
-                        Yii::t('views.layout.index', 'form-call-me-label-name') . ' <span></span>',
-                        '',
-                        array('class' => 'of-label')
-                    ); ?>
-                    <?= $form->textField($this->callme, 'name', array('class' => 'of-input of-input_name')); ?>
-                    <?= $form->error($this->callme, 'name'); ?>
-                    <?= CHtml::label(
-                        Yii::t('views.layout.index', 'form-call-me-label-phone') . ' <span></span>',
-                        '',
-                        array('class' => 'of-label')
-                    ); ?>
-                    <?= $form->textField($this->callme, 'phone', array('class' => 'of-input of-input_phone phone_mask')); ?>
-                    <?= $form->error($this->callme, 'phone'); ?>
-                    <a href="javascript:" class="of-show">
-                        <?= Yii::t('views.layouts.main', 'form-info'); ?>
-                    </a>
-                    <?= $form->textArea($this->callme, 'text', array('class' => 'of-textarea')); ?>
-                    <?= $form->error($this->callme, 'text'); ?>
-                    <?= CHtml::submitButton(
-                        Yii::t('views.layouts.main', 'button-submit'),
-                        array('class' => 'of-submit of-submit-form')
-                    ); ?>
-                    <div class="of-note">
-                        <span></span><?= Yii::t('views.layouts.main', 'form-required'); ?>
-                    </div>
+            <div class="of-form__title"><?= Yii::t('views.layouts.main', 'form-call-me'); ?></div>
+            <div class="of-wrap clearfix">
+                <?= CHtml::label(
+                    Yii::t('views.layout.index', 'form-call-me-label-name') . ' <span></span>',
+                    '',
+                    array('class' => 'of-label')
+                ); ?>
+                <?= $form->textField($this->callme, 'name', array('class' => 'of-input of-input_name')); ?>
+                <?= $form->error($this->callme, 'name'); ?>
+                <?= CHtml::label(
+                    Yii::t('views.layout.index', 'form-call-me-label-phone') . ' <span></span>',
+                    '',
+                    array('class' => 'of-label')
+                ); ?>
+                <?= $form->textField($this->callme, 'phone', array('class' => 'of-input of-input_phone phone_mask')); ?>
+                <?= $form->error($this->callme, 'phone'); ?>
+                <a href="javascript:" class="of-show">
+                    <?= Yii::t('views.layouts.main', 'form-info'); ?>
+                </a>
+                <?= $form->textArea($this->callme, 'text', array('class' => 'of-textarea')); ?>
+                <?= $form->error($this->callme, 'text'); ?>
+                <?= CHtml::submitButton(
+                    Yii::t('views.layouts.main', 'button-submit'),
+                    array('class' => 'of-submit of-submit-form')
+                ); ?>
+                <div class="of-note">
+                    <span></span><?= Yii::t('views.layouts.main', 'form-required'); ?>
                 </div>
+            </div>
             <?php $this->endWidget(); ?>
         </div>
     </div>

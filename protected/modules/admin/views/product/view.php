@@ -33,7 +33,7 @@ $attributes = array(
     array(
         'name' => 'url',
         'type' => 'raw',
-        'value' => $model->url,
+        'value' => CHtml::link($model->url, array('/product/view', 'id' => $model->url), array('target' => '_blank'))
     ),
     array(
         'name' => 'category_id',

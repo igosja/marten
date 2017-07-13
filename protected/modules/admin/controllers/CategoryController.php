@@ -35,7 +35,22 @@ class CategoryController extends AController
         }
         if ($data = Yii::app()->request->getPost($this->model_name)) {
             $model->attributes = $data;
+            if (0 == $id) {
+                $max_order = $this->getModel()->find(array('order' => '`order` DESC'));
+                if ($max_order) {
+                    $max_order = $max_order->order + 1;
+                } else {
+                    $max_order = 0;
+                }
+                $model->order = $max_order;
+            }
             if ($model->save()) {
+                $model = $this->getModel()->findByPk($model->primaryKey);
+                if (empty($model->url)) {
+                    $model->url = $model->primaryKey . '-' . str_replace($this->rus, $this->lat, $model->h1_ru);
+                    $model->save();
+                }
+                $this->uploadImage($model->primaryKey);
                 $this->redirect(array('view', 'id' => $model->primaryKey));
             }
         }
@@ -43,14 +58,17 @@ class CategoryController extends AController
             $this->title => array('index'),
         );
         if (0 != $id) {
-            $this->breadcrumbs[$model->name_ru] = array('view', 'id' => $model->primaryKey);
+            $this->breadcrumbs[$model->h1_ru] = array('view', 'id' => $model->primaryKey);
         }
-        $a_category = $this->getModel()->findAll(array(
+        $a_category = $this->getModel()->findAllByAttributes(array('parent_id' => 0), array(
             'condition' => 'id!=' . $id,
-            'select' => array('id', 'name_ru', 'parent_id'),
+            'select' => array('id', 'h1_ru'),
             'order' => 'parent_id, `order`'
         ));
-        $a_category = $this->getModel()->getTreeAdmin($a_category);
+        $o_category = new Category();
+        $o_category->id = 0;
+        $o_category->h1_ru = 'Главная';
+        $a_category = array_merge(array($o_category), $a_category);
         $this->render('form', array('a_category' => $a_category, 'model' => $model));
     }
 
@@ -60,7 +78,7 @@ class CategoryController extends AController
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $this->h1 = $model->name_ru;
+        $this->h1 = $model->h1_ru;
         $this->breadcrumbs = array(
             $this->title => array('index'),
             $this->h1,
@@ -102,6 +120,25 @@ class CategoryController extends AController
                 $model->order++;
                 $model->save();
             }
+        }
+    }
+
+    public function uploadImage($id)
+    {
+        if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+            $image = $_FILES['image'];
+            $ext = $image['name'];
+            $ext = explode('.', $ext);
+            $ext = end($ext);
+            $file = $image['tmp_name'];
+            $image_url = ImageIgosja::put_file($file, $ext);
+            $o_image = new Image();
+            $o_image->url = $image_url;
+            $o_image->save();
+            $image_id = $o_image->id;
+            $model = $this->getModel()->findByPk($id);
+            $model->image_id = $image_id;
+            $model->save();
         }
     }
 

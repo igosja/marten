@@ -31,12 +31,26 @@ $attributes = array(
         'name' => 'parent_id',
         'value' => isset($model->category->name_ru) ? $model->category->name_ru : 'Главная',
     ),
-    'name_ru',
+    array(
+        'name' => 'url',
+        'type' => 'raw',
+        'value' => CHtml::link($model->url, array('/category/view', 'id' => $model->url), array('target' => '_blank'))
+    ),
+    array(
+        'name' => 'image_id',
+        'type' => 'raw',
+        'value' => (isset($model->image->url)) ?
+            ('<div class="col-lg-6">
+                <a href="javascript:;" class="thumbnail">
+                    <img src="' . $model->image->url . '"/>
+                </a>
+            </div>') :
+            '',
+    ),
     'h1_ru',
     'seo_title_ru',
     'seo_description_ru',
     'seo_keywords_ru',
-    'name_ua',
     'h1_ua',
     'seo_title_ua',
     'seo_description_ua',
