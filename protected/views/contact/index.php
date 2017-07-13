@@ -10,7 +10,7 @@
         <?= $this->renderPartial('/include/bread'); ?>
         <h1 class="b-title"><?= $o_page['h1_' . Yii::app()->language]; ?></h1>
         <div class="clearfix contacts">
-            <div class="contacts-l">
+            <div class="contacts-l clearfix">
                 <h2 class="payment__item__title"><?= $o_page['company_' . Yii::app()->language]; ?></h2>
                 <div class="contacts-i">
                     <strong><?= Yii::t('views.contact.index', 'address'); ?></strong><br/>
