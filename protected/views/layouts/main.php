@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <!--<link rel="stylesheet" href="/css/mobile.css">	-->
     <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
 </head>
 <body <?php if ('index' != $this->uniqueId) { ?>class="inn-page"<?php } ?>>
 <!--[if lt IE 7]>
@@ -358,6 +359,7 @@
 <script src="/js/vendor/libs.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/site.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <?php if ('contact' == $this->uniqueid) { ?>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAYBg8KC7jzGXqsJO4ZvBUBr-zHT_0qm2s&callback=initMap"></script>
 <?php } ?>

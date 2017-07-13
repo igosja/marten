@@ -70,7 +70,7 @@
                             <?= $form->dropDownList(
                                 $model,
                                 'category_id',
-                                CHtml::listData($a_category, 'id', 'name_ru'),
+                                CHtml::listData($a_category, 'id', 'h1_ru'),
                                 array('empty' => 'Выберите категорию', 'class' => 'form-control')
                             ); ?>
                             <?= $form->error($model, 'category_id'); ?>
