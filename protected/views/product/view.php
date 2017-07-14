@@ -67,6 +67,7 @@
                                     class="power-change"
                                     data-power="<?= $item['simple']['power']; ?>"
                                     data-price="<?= number_format($item['simple']['price'], 0, '', ' '); ?>"
+                                    data-sku="<?= $item['simple']['sku']; ?>"
                                     for="pr-<?= $item['simple']['id']; ?>"
                             >
                                 <?= $item['simple']['power']; ?>
