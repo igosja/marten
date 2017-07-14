@@ -21,21 +21,24 @@
             <?php } ?>
         </div>
     </div>
-    <div class="main-b__info">
-        <div class="wrap clearfix">
-            <h2 class="b-title"><?= Yii::t('views.category.category', 'review'); ?></h2>
-            <div class="review-list clearfix">
-                <?php foreach ($a_review as $item) { ?>
-                    <?= $this->renderPartial('review', array('item' => $item)); ?>
+    <?php if ($a_review) { ?>
+        <div class="main-b__info">
+            <div class="wrap clearfix">
+                <h2 class="b-title"><?= Yii::t('views.category.category', 'review'); ?></h2>
+                <div class="review-list clearfix">
+                    <?php foreach ($a_review as $item) { ?>
+                        <?= $this->renderPartial('review', array('item' => $item)); ?>
+                    <?php } ?>
+                </div>
+                <?php if ($more) { ?>
+                    <a href="javascript:" class="art-more load-review-category" data-offset="0"
+                       data-id="<?= $o_category['id']; ?>">
+                        <?= Yii::t('views.category.category', 'link-more'); ?>
+                    </a>
                 <?php } ?>
             </div>
-            <?php if ($more) { ?>
-                <a href="javascript:" class="art-more load-review-category" data-offset="0" data-id="<?= $o_category['id']; ?>">
-                    <?= Yii::t('views.category.category', 'link-more'); ?>
-                </a>
-            <?php } ?>
         </div>
-    </div>
+    <?php } ?>
     <div class="grey-bg main-b__text grey-bg_in">
         <div class="wrap">
             <?= $o_category['text_' . Yii::app()->language]; ?>
