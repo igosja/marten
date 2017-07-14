@@ -164,7 +164,7 @@
                                                     <ul>
                                                         <li>
                                                             <?= CHtml::link(
-                                                                $child['name'],
+                                                                $product['name'],
                                                                 array('product/view', 'id' => $product['url']),
                                                                 array('class' => 'drop')
                                                             ); ?>
