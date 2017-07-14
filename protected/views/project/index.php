@@ -42,7 +42,7 @@
             <?php } ?>
         </div>
         <?php if ($more) { ?>
-            <a href="javascript:" class="project-more" data-offset="<?= $offset; ?>" data-id="<?= Yii::app()->request->getQuery('id'); ?>">
+            <a href="javascript:" class="art-more load-project" data-offset="<?= $offset; ?>" data-id="<?= Yii::app()->request->getQuery('id'); ?>">
                 <?= Yii::t('views.project.index', 'link-more'); ?>
             </a>
         <?php } ?>

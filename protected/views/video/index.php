@@ -18,7 +18,7 @@
                         <?php } ?>
                     </div>
                     <?php if (count($item->countvideo) > Video::ON_PAGE) { ?>
-                        <a href="javascript:" class="video-more" data-videocategory="<?= $item->primaryKey; ?>" data-offset="0">
+                        <a href="javascript:" class="video-more load-video" data-videocategory="<?= $item->primaryKey; ?>" data-offset="0">
                             <?= Yii::t('views.video.main', 'link-more'); ?>
                         </a>
                     <?php } ?>

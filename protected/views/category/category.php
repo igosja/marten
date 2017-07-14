@@ -1,6 +1,8 @@
 <?php
 /**
  * @var $a_category array
+ * @var $a_review array
+ * @var $more boolean
  * @var $o_category Category
  */
 ?>
@@ -22,39 +24,16 @@
     <div class="main-b__info">
         <div class="wrap clearfix">
             <h2 class="b-title"><?= Yii::t('views.category.category', 'review'); ?></h2>
-            <div class="clearfix">
-                <?php for ($i = 0; $i < 6; $i++) { ?>
-                    <div class="otziv-i">
-                        <div class="otziv-i__info clearfix">
-                            <div class="otziv-i__img">
-                                <img src="/img/trash/kotel-sm.png" alt="">
-                            </div>
-                            <div class="otziv-i__cont">
-                                <div class="otziv-i__name">Виктор</div>
-                                <div class="otziv-i__stars">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span class="none"></span>
-                                </div>
-                                <a href="" class="otziv-i__link">Котел 1 с плитой 120 КВТ</a>
-                            </div>
-                        </div>
-                        <div class="otziv-i__date">
-                            20.01.16 12:07
-                        </div>
-                        <div class="art__i__text">
-                            Мне котел очень понравился у него нет никаких особых дизайнерских решений, но все функции
-                            выполняет и цена, как для твердотопливного, низкая. Кпд у Gorenje ECO HEAT UNI 4 CI всего
-                            скалируется от 67-77%, но я бы сказал, что топливо потребляет умеренно и при это выдает
-                            высокую температуру всех помещениях.<br/>
-                            ... <a href="">Читать весь отзыв</a>
-                        </div>
-                    </div>
+            <div class="review-list clearfix">
+                <?php foreach ($a_review as $item) { ?>
+                    <?= $this->renderPartial('review', array('item' => $item)); ?>
                 <?php } ?>
             </div>
-            <a href="javascript:" class="art-more"><?= Yii::t('views.category.category', 'link-more'); ?></a>
+            <?php if ($more) { ?>
+                <a href="javascript:" class="art-more load-review-category" data-offset="0" data-id="<?= $o_category['id']; ?>">
+                    <?= Yii::t('views.category.category', 'link-more'); ?>
+                </a>
+            <?php } ?>
         </div>
     </div>
     <div class="grey-bg main-b__text grey-bg_in">

@@ -6,19 +6,3 @@
 .video-item {
     margin-bottom: 15px;
 }
-
-.project-more {
-    font-size: 14px;
-    color: #231f20;
-    text-transform: uppercase;
-    display: block;
-    width: 140px;
-    line-height: 20px;
-    height: 20px;
-    margin: 5px auto 0;
-    box-sizing: border-box;
-    padding-left: 28px;
-    font-family: 'PlumbBlack';
-    font-size: 14px;
-    background: url(../img/sprite.png) 0 -540px no-repeat
-}

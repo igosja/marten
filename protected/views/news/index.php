@@ -21,7 +21,7 @@
             <?php } ?>
         </div>
         <?php if ($more) { ?>
-            <a href="javascript:" class="art-more" data-offset="<?= $offset; ?>">
+            <a href="javascript:" class="art-more load-news" data-offset="<?= $offset; ?>">
                 <?= Yii::t('views.news.index', 'link-more'); ?>
             </a>
         <?php } ?>

@@ -14,6 +14,8 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js homepage"> <!--<![endif]-->
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title><?= $this->seo_title; ?></title>
@@ -143,20 +145,46 @@
                 <?php foreach ($this->a_category as $item) { ?>
                     <li>
                         <?= CHtml::link(
-                            '<span>' . $item['name'] . '</span>',
+                            '<span>' . $item['name'] . ((isset($item['children']) || isset($item['product'])) ? '<small></small>' : '') . '</span>',
                             array('category/view', 'id' => $item['url']),
                             array('class' => 'drop')
                         ); ?>
-                        <?php if (isset($item['children']) && $item['children']) { ?>
+                        <?php if ((isset($item['children']) && $item['children']) || (isset($item['product']) && $item['product'])) { ?>
                             <ul>
-                                <?php foreach ($item['children'] as $child) { ?>
-                                    <li>
-                                        <?= CHtml::link(
-                                            $child['name'] . '<span></span>',
-                                            array('category/view', 'id' => $child['url']),
-                                            array('class' => 'drop')
-                                        ); ?>
-                                    </li>
+                                <?php if (isset($item['children']) && $item['children']) { ?>
+                                    <?php foreach ($item['children'] as $child) { ?>
+                                        <li>
+                                            <?= CHtml::link(
+                                                $child['name'] . (isset($child['product']) ? '<span></span>' : ''),
+                                                array('category/view', 'id' => $child['url']),
+                                                array('class' => 'drop')
+                                            ); ?>
+                                            <?php if (isset($child['product']) && $child['product']) { ?>
+                                                <?php foreach ($child['product'] as $product) { ?>
+                                                    <ul>
+                                                        <li>
+                                                            <?= CHtml::link(
+                                                                $child['name'],
+                                                                array('product/view', 'id' => $child['url']),
+                                                                array('class' => 'drop')
+                                                            ); ?>
+                                                        </li>
+                                                    </ul>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </li>
+                                    <?php } ?>
+                                <?php } ?>
+                                <?php if (isset($item['product']) && $item['product']) { ?>
+                                    <?php foreach ($item['product'] as $product) { ?>
+                                        <li>
+                                            <?= CHtml::link(
+                                                $product['name'],
+                                                array('product/view', 'id' => $product['url']),
+                                                array('class' => 'drop')
+                                            ); ?>
+                                        </li>
+                                    <?php } ?>
                                 <?php } ?>
                             </ul>
                         <?php } ?>
@@ -351,10 +379,64 @@
             </div>
             <?php $this->endWidget(); ?>
         </div>
+        <!-- купить -->
+        <div class="of-form form-buy">
+            <a href="javascript:" class="of-close"></a>
+            <?php $form = $this->beginWidget('CActiveForm', array(
+                'enableAjaxValidation' => false,
+                'enableClientValidation' => true,
+                'id' => 'form-order'
+            )); ?>
+            <div class="of-form__title"><?= Yii::t('views.layouts.main', 'form-order'); ?></div>
+            <div class="of-wrap clearfix">
+                <div class="clearfix form-buy__b">
+                    <div class="form-buy__img">
+                        <img src="/img/trash/img-form.png" alt="">
+                    </div>
+                    <div class="form-buy__text">
+                        Котел твердотопливный Atmos DC75SE (пиролизный)
+                    </div>
+                </div>
+                <?= $form->hiddenField($this->order, 'product'); ?>
+                <?= $form->hiddenField($this->order, 'power'); ?>
+                <?= CHtml::label(
+                    Yii::t('views.layout.index', 'form-order-label-name') . ' <span></span>',
+                    '',
+                    array('class' => 'of-label')
+                ); ?>
+                <?= $form->textField($this->order, 'name', array('class' => 'of-input of-input_name')); ?>
+                <?= $form->error($this->order, 'phone'); ?>
+                <?= CHtml::label(
+                    Yii::t('views.layout.index', 'form-order-label-phone') . ' <span></span>',
+                    '',
+                    array('class' => 'of-label')
+                ); ?>
+                <?= $form->textField($this->order, 'phone', array('class' => 'of-input of-input_phone phone_mask')); ?>
+                <?= $form->error($this->order, 'phone'); ?>
+                <?= CHtml::label(
+                    Yii::t('views.layout.index', 'form-order-label-email'),
+                    '',
+                    array('class' => 'of-label')
+                ); ?>
+                <?= $form->textField($this->order, 'email', array('class' => 'of-input of-input_email')); ?>
+                <?= $form->error($this->order, 'email'); ?>
+                <a href="javascript:" class="of-show">
+                    <?= Yii::t('views.layouts.main', 'form-info'); ?>
+                </a>
+                <?= $form->textArea($this->order, 'text', array('class' => 'of-textarea')); ?>
+                <?= $form->error($this->order, 'text'); ?>
+                <?= CHtml::submitButton(
+                    Yii::t('views.layouts.main', 'button-submit'),
+                    array('class' => 'of-submit of-submit-form')
+                ); ?>
+                <div class="of-note">
+                    <span></span><?= Yii::t('views.layouts.main', 'form-required'); ?>
+                </div>
+            </div>
+            <?php $this->endWidget(); ?>
+        </div>
     </div>
 </section>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script src="/js/vendor/libs.js"></script>
 <script src="/js/main.js"></script>

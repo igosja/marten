@@ -8,6 +8,7 @@ class Controller extends CController
     public $a_language = array();
     public $breadcrumbs = array();
     public $callme;
+    public $order;
     public $contact;
     public $layout = 'main';
     public $og_image;
@@ -60,6 +61,14 @@ class Controller extends CController
             $this->callme->attributes = $data;
             if ($this->callme->validate()) {
                 $this->callme->send();
+                $this->refresh();
+            }
+        }
+        $this->order = new Order();
+        if ($data = Yii::app()->request->getPost('Order')) {
+            $this->order->attributes = $data;
+            if ($this->order->validate()) {
+                $this->order->send();
                 $this->refresh();
             }
         }

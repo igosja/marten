@@ -173,6 +173,20 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'size_ru'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'size_ru', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'size_ru'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'size_ua'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'size_ua', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'size_ua'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_ru'); ?></td>
                         <td>
                             <?= $form->textArea($model, 'text_1_ru', array('class' => 'form-control')); ?>
@@ -198,20 +212,6 @@
                         <td>
                             <?= $form->textArea($model, 'text_2_ua', array('class' => 'ckeditor')); ?>
                             <?= $form->error($model, 'text_2_ua'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'size_ru'); ?></td>
-                        <td>
-                            <?= $form->textArea($model, 'size_ru', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'size_ru'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'size_ua'); ?></td>
-                        <td>
-                            <?= $form->textArea($model, 'size_ua', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'size_ua'); ?>
                         </td>
                     </tr>
                 </table>

@@ -77,13 +77,39 @@ class Category extends CActiveRecord
             );
             if ($children) {
                 $a_children = array();
-                foreach ($children as $item) {
-                    $a_children[] = array(
+                for ($j = 0, $count_children = count($children); $j < $count_children; $j++) {
+                    $a_children[$j] = array(
+                        'name' => $children[$j]['h1_' . Yii::app()->language],
+                        'url' => $children[$j]['url'],
+                    );
+                    $product = Product::model()->findAllByAttributes(
+                        array('status' => 1, 'category_id' => $children[$j]['id'])
+                    );
+                    if ($product) {
+                        $a_product = array();
+                        foreach ($product as $item) {
+                            $a_product[] = array(
+                                'name' => $item['h1_' . Yii::app()->language],
+                                'url' => $item['url'],
+                            );
+                        }
+                        $a_children[$j]['product'] = $a_product;
+                    }
+                }
+                $a_tree[$i]['children'] = $a_children;
+            }
+            $product = Product::model()->findAllByAttributes(
+                array('status' => 1, 'category_id' => $a_category[$i]['id'])
+            );
+            if ($product) {
+                $a_product = array();
+                foreach ($product as $item) {
+                    $a_product[] = array(
                         'name' => $item['h1_' . Yii::app()->language],
                         'url' => $item['url'],
                     );
                 }
-                $a_tree[$i]['children'] = $a_children;
+                $a_tree[$i]['product'] = $a_product;
             }
         }
         return $a_tree;

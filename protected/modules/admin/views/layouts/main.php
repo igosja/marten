@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/js/jquery.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -216,7 +217,6 @@
         <?= $content; ?>
     </div>
 </div>
-<script src="/js/jquery.js"></script>
 <script src="/js/ckeditor/ckeditor.js"></script>
 <script src="/js/bootstrap-toggle.min.js"></script>
 <script src="/js/rowsorter.js"></script>

@@ -77,7 +77,8 @@ class Product extends CActiveRecord
         return array(
             'a_also' => array(self::HAS_MANY, 'ProductAlso', array('parent_id' => 'id')),
             'a_image' => array(self::HAS_MANY, 'ProductImage', array('product_id' => 'id')),
-            'a_simple' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id')),
+            'a_simple' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.power ASC', 'with'=>'simple'),
+            'min_price' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.price ASC', 'with'=>'simple'),
             'category' => array(self::HAS_ONE, 'Category', array('id' => 'category_id')),
             'pdf' => array(self::HAS_ONE, 'Image', array('id' => 'pdf_id')),
             'size' => array(self::HAS_ONE, 'Image', array('id' => 'size_id')),

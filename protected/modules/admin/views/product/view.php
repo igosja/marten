@@ -44,51 +44,10 @@ $attributes = array(
         'value' => $model->instock ? 'Да' : 'Нет',
     ),
     array(
-        'name' => 'simple',
-        'value' => $model->instock ? 'Да' : 'Нет',
-    ),
-    'h1_ru',
-    'text_1_ru',
-    array(
-        'name' => 'characteristic_ru',
+        'name' => 'video',
         'type' => 'raw',
+        'value' => 'https://www.youtube.com/watch?v=<strong>' . $model->video . '</strong>',
     ),
-    array(
-        'name' => 'description_ru',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'size_ru',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'text_2_ru',
-        'type' => 'raw',
-    ),
-    'seo_title_ru',
-    'seo_description_ru',
-    'seo_keywords_ru',
-    'h1_ua',
-    'text_1_ua',
-    array(
-        'name' => 'characteristic_ua',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'description_ua',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'size_ua',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'text_2_ua',
-        'type' => 'raw',
-    ),
-    'seo_title_ua',
-    'seo_description_ua',
-    'seo_keywords_ua',
     array(
         'name' => 'size_id',
         'type' => 'raw',
@@ -105,11 +64,48 @@ $attributes = array(
         'type' => 'raw',
         'value' => (isset($model->pdf->url)) ? ('<a href="' . $model->pdf->url . '" target="_blank">Инструкция</a>') : '',
     ),
+    'h1_ru',
+    'text_1_ru',
     array(
-        'name' => 'video',
+        'name' => 'description_ru',
         'type' => 'raw',
-        'value' => 'https://www.youtube.com/watch?v=<strong>' . $model->video . '</strong>',
     ),
+    array(
+        'name' => 'characteristic_ru',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'size_ru',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'text_2_ru',
+        'type' => 'raw',
+    ),
+    'seo_title_ru',
+    'seo_description_ru',
+    'seo_keywords_ru',
+    'h1_ua',
+    'text_1_ua',
+    array(
+        'name' => 'description_ua',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'characteristic_ua',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'size_ua',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'text_2_ua',
+        'type' => 'raw',
+    ),
+    'seo_title_ua',
+    'seo_description_ua',
+    'seo_keywords_ua',
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,
