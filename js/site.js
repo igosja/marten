@@ -202,6 +202,7 @@ jQuery(document).ready(function ($) {
     }
 
     $('.power-change').on('click', function () {
+        $('.tov__art strong').html('№' + $(this).data('sku'));
         $('.tov__price strong').html($(this).data('price') + ' грн');
         $('.tov__btn').data('power', $(this).data('power'));
     });
