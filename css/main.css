@@ -2182,7 +2182,20 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   padding-left: 25px;
 }
 .footer-menu__ic1{
+  position: relative;
+}
+.footer-menu__ic1:after{
+  content: '';
+  display: block;
+  height: 15px;
+  width: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
   background: url(../img/sprite.png) 2px -77px no-repeat;   
+}
+.footer-menu__ic1 br{
+  display: none;
 }
 .footer-menu__ic2{
   background: url(../img/sprite.png) 0 -95px no-repeat;
