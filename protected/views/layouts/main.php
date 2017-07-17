@@ -289,7 +289,7 @@
                 </h3>
                 <ul>
                     <li class="footer-menu__ic1">
-                        <?= $this->contact['address_head_' . Yii::app()->language]; ?>
+                        <?= str_replace($this->contact['address_head_' . Yii::app()->language], ',', ',<br/>'); ?>
                     </li>
                     <li class="footer-menu__ic2">
                         <a href="tel:<?= $this->contact['phone_umc']; ?>">
