@@ -13,7 +13,7 @@ class m170513_172049_language extends CDbMigration
         ));
 
         $this->insertMultiple('language', array(
-            array('code' => 'ua', 'name' => 'Ua', 'order' => 0),
+            array('code' => 'uk', 'name' => 'Ua', 'order' => 0),
             array('code' => 'ru', 'name' => 'Ru', 'order' => 1),
         ));
     }

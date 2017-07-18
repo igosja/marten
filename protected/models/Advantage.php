@@ -10,8 +10,8 @@ class Advantage extends CActiveRecord
     public function rules()
     {
         return array(
-            array('name_ru, name_ua', 'length', 'max' => 255),
-            array('text_ru, text_ua', 'safe'),
+            array('name_ru, name_uk', 'length', 'max' => 255),
+            array('text_ru, text_uk', 'safe'),
             array('order, status', 'numerical'),
         );
     }
@@ -20,9 +20,9 @@ class Advantage extends CActiveRecord
     {
         return array(
             'name_ru' => 'Заголовок (Русский)',
-            'name_ua' => 'Заголовок (Українська)',
+            'name_uk' => 'Заголовок (Українська)',
             'text_ru' => 'Текст (Русский)',
-            'text_ua' => 'Текст (Українська)',
+            'text_uk' => 'Текст (Українська)',
             'status' => 'Статус',
         );
     }

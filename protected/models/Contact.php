@@ -11,15 +11,15 @@ class Contact extends CActiveRecord
     {
         return array(
             array(
-                'address_head_ru, address_head_ua, address_1_ru, address_1_ua, address_2_ru, address_2_ua,
-                 company_ru, company_ua, h1_ru, h1_ua, hours_monday, hours_saturday,
-                 phone_city, phone_kyivstar, phone_life, phone_umc, seo_title_ru, seo_title_ua',
+                'address_head_ru, address_head_uk, address_1_ru, address_1_uk, address_2_ru, address_2_uk,
+                 company_ru, company_uk, h1_ru, h1_uk, hours_monday, hours_saturday,
+                 phone_city, phone_kyivstar, phone_life, phone_umc, seo_title_ru, seo_title_uk',
                 'length',
                 'max' => 255
             ),
             array('email', 'email'),
             array('google_lat, google_lng', 'numerical'),
-            array('seo_description_ru, seo_description_ua, seo_keywords_ru, seo_keywords_ua', 'safe'),
+            array('seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk', 'safe'),
         );
     }
 
@@ -27,18 +27,18 @@ class Contact extends CActiveRecord
     {
         return array(
             'address_head_ru' => 'Адрес в шапке (Русский)',
-            'address_head_ua' => 'Адрес в шапке (Українська)',
+            'address_head_uk' => 'Адрес в шапке (Українська)',
             'address_1_ru' => 'Адрес, 1 строка (Русский)',
-            'address_1_ua' => 'Адрес, 1 строка (Українська)',
+            'address_1_uk' => 'Адрес, 1 строка (Українська)',
             'address_2_ru' => 'Адрес, 2 строка (Русский)',
-            'address_2_ua' => 'Адрес, 2 строка (Українська)',
+            'address_2_uk' => 'Адрес, 2 строка (Українська)',
             'company_ru' => 'Компания (Русский)',
-            'company_ua' => 'Компания (Українська)',
+            'company_uk' => 'Компания (Українська)',
             'email' => 'Email',
             'google_lat' => 'Первая координата Google map',
             'google_lng' => 'Вторая координата Google map',
             'h1_ru' => 'H1 (Русский)',
-            'h1_ua' => 'H1 (Українська)',
+            'h1_uk' => 'H1 (Українська)',
             'hours_monday' => 'Часы работы (пн-пт)',
             'hours_saturday' => 'Часы работы (сб-вс)',
             'phone_city' => 'Телефон (город)',
@@ -46,11 +46,11 @@ class Contact extends CActiveRecord
             'phone_life' => 'Телефон (lifecell)',
             'phone_umc' => 'Телефон (vodafone)',
             'seo_title_ru' => 'SEO title (Русский)',
-            'seo_title_ua' => 'SEO title (Українська)',
+            'seo_title_uk' => 'SEO title (Українська)',
             'seo_description_ru' => 'SEO description (Русский)',
-            'seo_description_ua' => 'SEO description (Українська)',
+            'seo_description_uk' => 'SEO description (Українська)',
             'seo_keywords_ru' => 'SEO keywords (Русский)',
-            'seo_keywords_ua' => 'SEO keywords (Українська)',
+            'seo_keywords_uk' => 'SEO keywords (Українська)',
         );
     }
 

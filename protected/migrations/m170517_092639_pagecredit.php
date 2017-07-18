@@ -7,20 +7,20 @@ class m170517_092639_pagecredit extends CDbMigration
         $this->createTable('pagecredit', array(
             'id' => 'pk',
             'h1_ru' => 'varchar(255) not null',
-            'h1_ua' => 'varchar(255) not null',
+            'h1_uk' => 'varchar(255) not null',
             'text_ru' => 'text not null',
-            'text_ua' => 'text not null',
+            'text_uk' => 'text not null',
             'seo_title_ru' => 'varchar(255) not null',
-            'seo_title_ua' => 'varchar(255) not null',
+            'seo_title_uk' => 'varchar(255) not null',
             'seo_description_ru' => 'text not null',
-            'seo_description_ua' => 'text not null',
+            'seo_description_uk' => 'text not null',
             'seo_keywords_ru' => 'text not null',
-            'seo_keywords_ua' => 'text not null',
+            'seo_keywords_uk' => 'text not null',
         ));
 
         $this->insert('pagecredit', array(
             'h1_ru' => 'Котлы в кредит',
-            'h1_ua' => 'Котли в кредит',
+            'h1_uk' => 'Котли в кредит',
             'text_ru' => '<div class="clearfix">
 <img src="/img/kredit-img.png" alt="" class="img-left">
 <p>Рады сообщить, что Ощадбанком возобновлено кредитование на приобретение энергосберегающих материалов и негазових котлов с компенсацией части суммы кредита в рамках Государственной программы.</p>
@@ -86,7 +86,7 @@ class m170517_092639_pagecredit extends CDbMigration
 <p>Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</p>
 </div>',
-            'text_ua' => '<div class="clearfix">
+            'text_uk' => '<div class="clearfix">
 <img src="/img/kredit-img.png" alt="" class="img-left">
 <p>Рады сообщить, что Ощадбанком возобновлено кредитование на приобретение энергосберегающих материалов и негазових котлов с компенсацией части суммы кредита в рамках Государственной программы.</p>
 <p>На приобретение котла использующего любые виды топлива и энергии (кроме природного газа и электроэнергии) с компенсацией от 20 до 35 процентов суммы кредита (максимум 12 тыс. грн.).</p>
@@ -152,11 +152,11 @@ class m170517_092639_pagecredit extends CDbMigration
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</p>
 </div>',
             'seo_title_ru' => 'Котлы в кредит',
-            'seo_title_ua' => 'Котли в кредит',
+            'seo_title_uk' => 'Котли в кредит',
             'seo_description_ru' => 'Котлы в кредит',
-            'seo_description_ua' => 'Котли в кредит',
+            'seo_description_uk' => 'Котли в кредит',
             'seo_keywords_ru' => 'Котлы в кредит',
-            'seo_keywords_ua' => 'Котли в кредит',
+            'seo_keywords_uk' => 'Котли в кредит',
         ));
     }
 

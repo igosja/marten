@@ -29,7 +29,7 @@ $attributes = array(
     'id',
     'url',
     'name_ru',
-    'name_ua',
+    'name_uk',
     array(
         'name' => 'status',
         'type' => 'raw',

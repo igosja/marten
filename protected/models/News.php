@@ -12,9 +12,9 @@ class News extends CActiveRecord
     public function rules()
     {
         return array(
-            array('h1_ru, h1_ua, seo_title_ru, seo_title_ua, url', 'length', 'max' => 255),
-            array('h1_ru, h1_ua, text_ru, text_ua', 'required'),
-            array('seo_description_ru, seo_description_ua, seo_keywords_ru, seo_keywords_ua', 'safe'),
+            array('h1_ru, h1_uk, seo_title_ru, seo_title_uk, url', 'length', 'max' => 255),
+            array('h1_ru, h1_uk, text_ru, text_uk', 'required'),
+            array('seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk', 'safe'),
         );
     }
 
@@ -24,16 +24,16 @@ class News extends CActiveRecord
             'date' => 'Дата публикации',
             'image_id' => 'Фото',
             'h1_ru' => 'Заголовок (Русский)',
-            'h1_ua' => 'Заголовок (Українська)',
+            'h1_uk' => 'Заголовок (Українська)',
             'text_ru' => 'Текст (Русский)',
-            'text_ua' => 'Текст (Українська)',
+            'text_uk' => 'Текст (Українська)',
             'url' => 'ЧП-URL',
             'seo_title_ru' => 'SEO title (Русский)',
-            'seo_title_ua' => 'SEO title (Українська)',
+            'seo_title_uk' => 'SEO title (Українська)',
             'seo_description_ru' => 'SEO description (Русский)',
-            'seo_description_ua' => 'SEO description (Українська)',
+            'seo_description_uk' => 'SEO description (Українська)',
             'seo_keywords_ru' => 'SEO keywords (Русский)',
-            'seo_keywords_ua' => 'SEO keywords (Українська)',
+            'seo_keywords_uk' => 'SEO keywords (Українська)',
         );
     }
 

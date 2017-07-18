@@ -19,10 +19,10 @@
     </div>
 <?php
 $attributes = array(
-    'h1_ua',
-    'seo_title_ua',
-    'seo_description_ua',
-    'seo_keywords_ua',
+    'h1_uk',
+    'seo_title_uk',
+    'seo_description_uk',
+    'seo_keywords_uk',
     'h1_ru',
     'seo_title_ru',
     'seo_description_ru',

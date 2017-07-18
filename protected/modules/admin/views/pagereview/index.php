@@ -23,10 +23,10 @@ $attributes = array(
     'seo_title_ru',
     'seo_description_ru',
     'seo_keywords_ru',
-    'h1_ua',
-    'seo_title_ua',
-    'seo_description_ua',
-    'seo_keywords_ua',
+    'h1_uk',
+    'seo_title_uk',
+    'seo_description_uk',
+    'seo_keywords_uk',
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,

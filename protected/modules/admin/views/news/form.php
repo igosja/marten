@@ -42,10 +42,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'h1_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'h1_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'h1_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'h1_ua'); ?>
+                            <?= $form->textField($model, 'h1_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'h1_uk'); ?>
                         </td>
                     </tr>
                     <tr>
@@ -78,10 +78,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_uk'); ?></td>
                         <td>
-                            <?= $form->textArea($model, 'text_ua', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_ua'); ?>
+                            <?= $form->textArea($model, 'text_uk', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_uk'); ?>
                         </td>
                     </tr>
                 </table>

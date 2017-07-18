@@ -30,24 +30,24 @@
                 </td>
             </tr>
             <tr>
-                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_title_ua'); ?></td>
+                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_title_uk'); ?></td>
                 <td>
-                    <?php echo $form->textField($model, 'seo_title_ua', array('class' => 'form-control')); ?>
-                    <?php echo $form->error($model, 'seo_title_ua'); ?>
+                    <?php echo $form->textField($model, 'seo_title_uk', array('class' => 'form-control')); ?>
+                    <?php echo $form->error($model, 'seo_title_uk'); ?>
                 </td>
             </tr>
             <tr>
-                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_description_ua'); ?></td>
+                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_description_uk'); ?></td>
                 <td>
-                    <?php echo $form->textArea($model, 'seo_description_ua', array('class' => 'form-control')); ?>
-                    <?php echo $form->error($model, 'seo_description_ua'); ?>
+                    <?php echo $form->textArea($model, 'seo_description_uk', array('class' => 'form-control')); ?>
+                    <?php echo $form->error($model, 'seo_description_uk'); ?>
                 </td>
             </tr>
             <tr>
-                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_keywords_ua'); ?></td>
+                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_keywords_uk'); ?></td>
                 <td>
-                    <?php echo $form->textArea($model, 'seo_keywords_ua', array('class' => 'form-control')); ?>
-                    <?php echo $form->error($model, 'seo_keywords_ua'); ?>
+                    <?php echo $form->textArea($model, 'seo_keywords_uk', array('class' => 'form-control')); ?>
+                    <?php echo $form->error($model, 'seo_keywords_uk'); ?>
                 </td>
             </tr>
         </table>

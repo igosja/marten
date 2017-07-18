@@ -130,38 +130,38 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'company_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'company_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'company_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'company_ua'); ?>
+                            <?= $form->textField($model, 'company_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'company_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'address_1_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'address_1_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'address_1_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'address_1_ua'); ?>
+                            <?= $form->textField($model, 'address_1_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'address_1_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'address_2_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'address_2_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'address_2_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'address_2_ua'); ?>
+                            <?= $form->textField($model, 'address_2_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'address_2_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'address_head_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'address_head_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'address_head_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'address_head_ua'); ?>
+                            <?= $form->textField($model, 'address_head_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'address_head_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'h1_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'h1_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'h1_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'h1_ua'); ?>
+                            <?= $form->textField($model, 'h1_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'h1_uk'); ?>
                         </td>
                     </tr>
                 </table>

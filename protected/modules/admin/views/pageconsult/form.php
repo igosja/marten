@@ -60,31 +60,31 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'bread_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'bread_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'bread_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'bread_ua'); ?>
+                            <?= $form->textField($model, 'bread_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'bread_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'h1_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'h1_uk'); ?></td>
                         <td>
-                            <?= $form->textField($model, 'h1_ua', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'h1_ua'); ?>
+                            <?= $form->textField($model, 'h1_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'h1_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_uk'); ?></td>
                         <td>
-                            <?= $form->textArea($model, 'text_1_ua', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_1_ua'); ?>
+                            <?= $form->textArea($model, 'text_1_uk', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_1_uk'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_2_ua'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_2_uk'); ?></td>
                         <td>
-                            <?= $form->textArea($model, 'text_2_ua', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_2_ua'); ?>
+                            <?= $form->textArea($model, 'text_2_uk', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_2_uk'); ?>
                         </td>
                     </tr>
                 </table>

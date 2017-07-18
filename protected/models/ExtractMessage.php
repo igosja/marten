@@ -133,7 +133,7 @@ class ExtractMessage extends CFormModel
 
     protected function saveMessagesToDb($messages)
     {
-        $languages = array('ru', 'ua');
+        $languages = array('ru', 'uk');
 
         $currentMessages = [];
         $rows = SourceMessage::model()->findAll(array('select' => 'id, category, message'));

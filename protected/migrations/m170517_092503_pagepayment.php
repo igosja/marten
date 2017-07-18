@@ -7,20 +7,20 @@ class m170517_092503_pagepayment extends CDbMigration
         $this->createTable('pagepayment', array(
             'id' => 'pk',
             'h1_ru' => 'varchar(255) not null',
-            'h1_ua' => 'varchar(255) not null',
+            'h1_uk' => 'varchar(255) not null',
             'text_ru' => 'text not null',
-            'text_ua' => 'text not null',
+            'text_uk' => 'text not null',
             'seo_title_ru' => 'varchar(255) not null',
-            'seo_title_ua' => 'varchar(255) not null',
+            'seo_title_uk' => 'varchar(255) not null',
             'seo_description_ru' => 'text not null',
-            'seo_description_ua' => 'text not null',
+            'seo_description_uk' => 'text not null',
             'seo_keywords_ru' => 'text not null',
-            'seo_keywords_ua' => 'text not null',
+            'seo_keywords_uk' => 'text not null',
         ));
 
         $this->insert('pagepayment', array(
             'h1_ru' => 'Оплата и доставка',
-            'h1_ua' => 'Оплата та доставка',
+            'h1_uk' => 'Оплата та доставка',
             'text_ru' => '<div class="payment__item">
 <h2 class="payment__item__title">Самовывоз из магазина:</h2> 
 <ul>
@@ -74,7 +74,7 @@ class m170517_092503_pagepayment extends CDbMigration
 Обращаем ваше внимание, оплата с помощью наложенного платежа требует дополнительных затрат: комиссия в размере 17 грн + 2% от суммы перевода.
 </p>
 </div>',
-            'text_ua' => '<div class="payment__item">
+            'text_uk' => '<div class="payment__item">
 <h2 class="payment__item__title">Самовывоз из магазина:</h2> 
 <ul>
 <li>
@@ -128,11 +128,11 @@ class m170517_092503_pagepayment extends CDbMigration
 </p>
 </div>',
             'seo_title_ru' => 'Оплата и доставка',
-            'seo_title_ua' => 'Оплата та доставка',
+            'seo_title_uk' => 'Оплата та доставка',
             'seo_description_ru' => 'Оплата и доставка',
-            'seo_description_ua' => 'Оплата та доставка',
+            'seo_description_uk' => 'Оплата та доставка',
             'seo_keywords_ru' => 'Оплата и доставка',
-            'seo_keywords_ua' => 'Оплата та доставка',
+            'seo_keywords_uk' => 'Оплата та доставка',
             ));
     }
 

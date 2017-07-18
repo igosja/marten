@@ -40,10 +40,10 @@
                 </td>
             </tr>
             <tr>
-                <td class="col-lg-3"><?= $form->labelEx($model, 'name_ua'); ?></td>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'name_uk'); ?></td>
                 <td>
-                    <?= $form->textField($model, 'name_ua', array('class' => 'form-control')); ?>
-                    <?= $form->error($model, 'name_ua'); ?>
+                    <?= $form->textField($model, 'name_uk', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'name_uk'); ?>
                 </td>
             </tr>
         </table>

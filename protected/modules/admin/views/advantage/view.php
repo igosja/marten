@@ -29,8 +29,8 @@ $attributes = array(
     'id',
     'name_ru',
     'text_ru',
-    'name_ua',
-    'text_ua',
+    'name_uk',
+    'text_uk',
     array(
         'name' => 'status',
         'type' => 'raw',

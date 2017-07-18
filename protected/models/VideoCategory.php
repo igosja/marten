@@ -10,7 +10,7 @@ class VideoCategory extends CActiveRecord
     public function rules()
     {
         return array(
-            array('name_ru, name_ua', 'length', 'max' => 255),
+            array('name_ru, name_uk', 'length', 'max' => 255),
             array('order, status', 'numerical'),
         );
     }
@@ -19,7 +19,7 @@ class VideoCategory extends CActiveRecord
     {
         return array(
             'name_ru' => 'Название (Русский)',
-            'name_ua' => 'Название (Українська)',
+            'name_uk' => 'Название (Українська)',
             'status' => 'Статус',
         );
     }
