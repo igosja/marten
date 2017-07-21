@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="/css/normalize.min.css">
     <link rel="stylesheet" href="/css/libs.css">
     <link rel="stylesheet" href="/css/main.css">
-    <!--<link rel="stylesheet" href="/css/mobile.css">	-->
+    <link rel="stylesheet" href="/css/mobile.css">
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
 </head>
