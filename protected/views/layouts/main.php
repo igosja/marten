@@ -94,11 +94,6 @@
                         </a>
                     <?php } ?>
 
-                    <div class="header-adress-show"></div>
-                    <div class="header-work-show"></div>
-                    <div class="header-phones-show"></div>
-                    <div class="header-menu-show"></div>
-
                     <form method="post" id="language-form" style="display:none;">
                         <label for="language-select">Language</label>
                         <select name="language" id="language-select">
@@ -113,6 +108,11 @@
                         </select>
                     </form>
                 </div>
+
+                <div class="header-adress-show"></div>
+                <div class="header-work-show"></div>
+                <div class="header-phones-show"></div>
+                <div class="header-menu-show"></div>
             </div>
         </div>
         <div class="header-bot">
