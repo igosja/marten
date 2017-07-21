@@ -93,6 +93,12 @@
                             <?= $item->name; ?>
                         </a>
                     <?php } ?>
+
+                    <div class="header-adress-show"></div>
+                    <div class="header-work-show"></div>
+                    <div class="header-phones-show"></div>
+                    <div class="header-menu-show"></div>
+
                     <form method="post" id="language-form" style="display:none;">
                         <label for="language-select">Language</label>
                         <select name="language" id="language-select">
@@ -117,17 +123,19 @@
                     array('class' => 'logo')
                 ); ?>
                 <div class="header-bot__l">
-                    <span>
+                    <span class="header-adress">
+                        <small></small>
                         <?= $this->contact['address_head_' . Yii::app()->language]; ?>
                     </span>
-                    <span>
+                    <span class="header-work">
+                        <small></small>
                         <?= Yii::t('views.layouts.main', 'monday'); ?>
                         <?= $this->contact['hours_monday']; ?>,
                         <?= Yii::t('views.layouts.main', 'saturday'); ?>
                         <?= $this->contact['hours_saturday']; ?>
                     </span>
                 </div>
-                <div class="header-bot__r clearfix">
+                <div class="header-bot__r header-phones clearfix">
                     <a href="javascript:" data-selector="form-call" class="header-bot__btn overlayElementTrigger">
                         <?= Yii::t('views.layouts.main', 'call-me'); ?>
                     </a>
@@ -141,6 +149,7 @@
     </header>
     <div class="wrap">
         <nav class="nav-main">
+            <a href="javascript:;" class="menu-close"></a>
             <ul>
                 <?php foreach ($this->a_category as $item) { ?>
                     <li>
