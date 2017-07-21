@@ -52,7 +52,7 @@ class PHPExcel_Calculation_Functions
 {
 
     /** constants */
-    const COMPATIBILITY_EXCEL      = 'Excel';
+    const COMPATIBILITY_EXCEL      = 'ExcelHelper';
     const COMPATIBILITY_GNUMERIC   = 'Gnumeric';
     const COMPATIBILITY_OPENOFFICE = 'OpenOfficeCalc';
 

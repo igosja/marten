@@ -3,8 +3,12 @@
 class Product extends CActiveRecord
 {
     public $also;
+    public $characteristic_uk_excel;
+    public $characteristic_ru_excel;
     public $image;
     public $simple;
+    public $size_uk_excel;
+    public $size_ru_excel;
 
     public function tableName()
     {
@@ -32,7 +36,9 @@ class Product extends CActiveRecord
             'also' => 'Также покупают',
             'category_id' => 'Категория',
             'characteristic_ru' => 'Характеристики (Русский)',
+            'characteristic_ru_excel' => 'Характеристики (Русский, Excel)',
             'characteristic_uk' => 'Характеристики (Українська)',
+            'characteristic_uk_excel' => 'Характеристики (Українська, Excel)',
             'description_ru' => 'Описание (Русский)',
             'description_uk' => 'Описание (Українська)',
             'h1_ru' => 'Название (Русский)',
@@ -43,7 +49,9 @@ class Product extends CActiveRecord
             'simple' => 'Простые товары',
             'size_id' => 'Габариты',
             'size_ru' => 'Габариты (Русский)',
+            'size_ru_excel' => 'Габариты (Русский, Excel)',
             'size_uk' => 'Габариты (Українська)',
+            'size_uk_excel' => 'Габариты (Українська, Excel)',
             'status' => 'Статус',
             'text_1_ru' => 'Текст вверху (Русский)',
             'text_1_uk' => 'Текст вверху (Українська)',

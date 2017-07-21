@@ -49,6 +49,7 @@ class ProductController extends AController
                 $this->uploadImage($model->primaryKey);
                 $this->uploadPdf($model->primaryKey);
                 $this->uploadSize($model->primaryKey);
+                $this->uploadExcel($model->primaryKey);
                 $this->also($model->primaryKey);
                 $this->simple($model->primaryKey);
                 $this->redirect(array('view', 'id' => $model->primaryKey));
@@ -192,6 +193,45 @@ class ProductController extends AController
             $image_id = $o_image->primaryKey;
             $model = $this->getModel()->findByPk($id);
             $model->size_id = $image_id;
+            $model->save();
+        }
+    }
+
+    public function uploadExcel($id)
+    {
+        if (isset($_FILES['characteristic_ru_excel']['name']) && !empty($_FILES['characteristic_ru_excel']['name'])) {
+            $file = $_FILES['characteristic_ru_excel'];
+            $file = $file['tmp_name'];
+            $table = ExcelHelper::getTable($file);
+            $model = $this->getModel()->findByPk($id);
+            $model->characteristic_ru = $table;
+            $model->save();
+        }
+
+        if (isset($_FILES['characteristic_uk_excel']['name']) && !empty($_FILES['characteristic_uk_excel']['name'])) {
+            $file = $_FILES['characteristic_uk_excel'];
+            $file = $file['tmp_name'];
+            $table = ExcelHelper::getTable($file);
+            $model = $this->getModel()->findByPk($id);
+            $model->characteristic_uk = $table;
+            $model->save();
+        }
+
+        if (isset($_FILES['size_ru_excel']['name']) && !empty($_FILES['size_ru_excel']['name'])) {
+            $file = $_FILES['size_ru_excel'];
+            $file = $file['tmp_name'];
+            $table = ExcelHelper::getTable($file);
+            $model = $this->getModel()->findByPk($id);
+            $model->size_ru = $table;
+            $model->save();
+        }
+
+        if (isset($_FILES['size_uk_excel']['name']) && !empty($_FILES['size_uk_excel']['name'])) {
+            $file = $_FILES['size_uk_excel'];
+            $file = $file['tmp_name'];
+            $table = ExcelHelper::getTable($file);
+            $model = $this->getModel()->findByPk($id);
+            $model->size_uk = $table;
             $model->save();
         }
     }
