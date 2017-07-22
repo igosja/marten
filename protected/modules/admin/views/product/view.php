@@ -40,6 +40,10 @@ $attributes = array(
         'value' => $model->category->h1_ru,
     ),
     array(
+        'name' => 'producttype_id',
+        'value' => $model->producttype->name,
+    ),
+    array(
         'name' => 'instock',
         'value' => $model->instock ? 'Да' : 'Нет',
     ),

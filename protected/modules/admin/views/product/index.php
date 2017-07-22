@@ -27,10 +27,6 @@
         ),
         'name' => 'h1_ru',
         array(
-            'name' => 'date',
-            'type' => 'date'
-        ),
-        array(
             'filter' => false,
             'headerHtmlOptions' => array('class' => 'col-lg-1, col-md-1, col-sm-1, col-xs-1'),
             'name' => 'status',

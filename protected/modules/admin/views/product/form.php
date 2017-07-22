@@ -3,6 +3,7 @@
  * @var $a_also array
  * @var $a_category array
  * @var $a_productsimple array
+ * @var $a_producttype array
  * @var $form CActiveForm
  * @var $model Category
  */
@@ -77,6 +78,18 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'producttype_id'); ?></td>
+                        <td>
+                            <?= $form->dropDownList(
+                                $model,
+                                'producttype_id',
+                                CHtml::listData($a_producttype, 'id', 'name'),
+                                array('empty' => 'Выберите тип', 'class' => 'form-control')
+                            ); ?>
+                            <?= $form->error($model, 'producttype_id'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'simple'); ?></td>
                         <td>
                             <?= $form->checkBoxList(
@@ -113,7 +126,7 @@
                     <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'image'); ?></td>
                         <td>
-                            <input type="file" name="image[]" class="form-control" multiple="multiple" />
+                            <input type="file" name="image[]" class="form-control" multiple />
                         </td>
                     </tr>
                     <tr>

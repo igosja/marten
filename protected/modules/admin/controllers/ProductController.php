@@ -62,9 +62,16 @@ class ProductController extends AController
             $this->breadcrumbs[$model->h1_ru] = array('view', 'id' => $model->primaryKey);
         }
         $a_category = Category::model()->findAll(array('order' => 'h1_ru'));
+        $a_producttype = ProductType::model()->findAll(array('order' => 'name'));
         $a_productsimple = ProductSimple::model()->findAll(array('order' => 'name'));
         $a_also = Product::model()->findAll(array('condition' => 'id!=' . (int)$id, 'order' => 'h1_ru'));
-        $this->render('form', array('model' => $model, 'a_also' => $a_also, 'a_category' => $a_category, 'a_productsimple' => $a_productsimple));
+        $this->render('form', array(
+            'model' => $model,
+            'a_also' => $a_also,
+            'a_category' => $a_category,
+            'a_productsimple' => $a_productsimple,
+            'a_producttype' => $a_producttype,
+        ));
     }
 
     public function actionView($id)

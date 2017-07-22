@@ -1,27 +1,26 @@
 <?php
 
-class ProductSimple extends CActiveRecord
+class ProductType extends CActiveRecord
 {
+    const TYPE_BOILER = 1;
+    const TYPE_FUNNEL = 2;
+
     public function tableName()
     {
-        return 'productsimple';
+        return 'producttype';
     }
 
     public function rules()
     {
         return array(
-            array('power, price', 'numerical'),
-            array('name, sku', 'length', 'max' => 255),
+            array('name', 'length', 'max' => 255),
         );
     }
 
     public function attributeLabels()
     {
         return array(
-            'name' => 'Название (внутреннее)',
-            'power' => 'Мощность/Диаметр',
-            'price' => 'Цена',
-            'sku' => 'Артикул',
+            'name' => 'Название',
         );
     }
 

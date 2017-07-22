@@ -106,6 +106,7 @@ class m170710_091819_translationtext extends CDbMigration
             array('category' => 'views.layout.index', 'message' => 'form-order-label-phone'),
             array('category' => 'views.layout.index', 'message' => 'form-order-label-email'),
             array('category' => 'views.review.index', 'message' => 'link-more'),
+            array('category' => 'views.product.view', 'message' => 'diameter'),
 
         ));
 
@@ -312,6 +313,8 @@ class m170710_091819_translationtext extends CDbMigration
             array('id' => 100, 'language' => 'uk', 'translation' => 'E-MAIL:'),
             array('id' => 101, 'language' => 'ru', 'translation' => 'ЗАГРУЗИТЬ ЕЩЕ'),
             array('id' => 101, 'language' => 'uk', 'translation' => 'ЗАВАНТАЖИТИ ЩЕ'),
+            array('id' => 102, 'language' => 'ru', 'translation' => 'ДИАМЕТР'),
+            array('id' => 102, 'language' => 'uk', 'translation' => 'ДІАМЕТР'),
         ));
     }
 
