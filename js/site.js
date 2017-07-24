@@ -205,6 +205,8 @@ jQuery(document).ready(function ($) {
         $('.tov__art strong').html('№' + $(this).data('sku'));
         $('.tov__price strong').html($(this).data('price') + ' грн');
         $('.tov__btn').data('power', $(this).data('power'));
+        $('#characteristic-span').html($(this).data('characteristic'));
+        $('#size-span').html($(this).data('size'));
     });
 
     $('.tov__btn').on('click', function () {

@@ -3,12 +3,8 @@
 class Product extends CActiveRecord
 {
     public $also;
-    public $characteristic_uk_excel;
-    public $characteristic_ru_excel;
     public $image;
     public $simple;
-    public $size_uk_excel;
-    public $size_ru_excel;
 
     public function tableName()
     {
@@ -23,8 +19,8 @@ class Product extends CActiveRecord
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
-                'characteristic_ru, characteristic_uk, description_ru, description_uk, size_ru, size_uk, text_1_ru,
-                text_1_uk, text_2_ru, text_2_uk, seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk',
+                'description_ru, description_uk, text_1_ru, text_1_uk, text_2_ru, text_2_uk,
+                seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk',
                 'safe'
             ),
         );
@@ -35,10 +31,6 @@ class Product extends CActiveRecord
         return array(
             'also' => 'Также покупают',
             'category_id' => 'Категория',
-            'characteristic_ru' => 'Характеристики (Русский)',
-            'characteristic_ru_excel' => 'Характеристики (Русский, Excel)',
-            'characteristic_uk' => 'Характеристики (Українська)',
-            'characteristic_uk_excel' => 'Характеристики (Українська, Excel)',
             'description_ru' => 'Описание (Русский)',
             'description_uk' => 'Описание (Українська)',
             'h1_ru' => 'Название (Русский)',
@@ -49,10 +41,6 @@ class Product extends CActiveRecord
             'producttype_id' => 'Тип товара',
             'simple' => 'Простые товары',
             'size_id' => 'Габариты',
-            'size_ru' => 'Габариты (Русский)',
-            'size_ru_excel' => 'Габариты (Русский, Excel)',
-            'size_uk' => 'Габариты (Українська)',
-            'size_uk_excel' => 'Габариты (Українська, Excel)',
             'status' => 'Статус',
             'text_1_ru' => 'Текст вверху (Русский)',
             'text_1_uk' => 'Текст вверху (Українська)',

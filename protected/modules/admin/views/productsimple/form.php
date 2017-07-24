@@ -23,6 +23,7 @@
         <?php $form = $this->beginWidget('CActiveForm', array(
             'enableAjaxValidation' => false,
             'enableClientValidation' => true,
+            'htmlOptions' => array('enctype' => 'multipart/form-data'),
         )); ?>
         <table class="table table-striped table-bordered table-hover">
             <tr>
@@ -51,6 +52,58 @@
                 <td>
                     <?= $form->textField($model, 'price', array('class' => 'form-control')); ?>
                     <?= $form->error($model, 'price'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'characteristic_ru_excel'); ?></td>
+                <td>
+                    <input type="file" name="characteristic_ru_excel" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'characteristic_ru'); ?></td>
+                <td>
+                    <?= $form->textArea($model, 'characteristic_ru', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'characteristic_ru'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'characteristic_uk_excel'); ?></td>
+                <td>
+                    <input type="file" name="characteristic_uk_excel" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'characteristic_uk'); ?></td>
+                <td>
+                    <?= $form->textArea($model, 'characteristic_uk', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'characteristic_uk'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'size_ru_excel'); ?></td>
+                <td>
+                    <input type="file" name="size_ru_excel" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'size_ru'); ?></td>
+                <td>
+                    <?= $form->textArea($model, 'size_ru', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'size_ru'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'size_uk_excel'); ?></td>
+                <td>
+                    <input type="file" name="size_uk_excel" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'size_uk'); ?></td>
+                <td>
+                    <?= $form->textArea($model, 'size_uk', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'size_uk'); ?>
                 </td>
             </tr>
         </table>

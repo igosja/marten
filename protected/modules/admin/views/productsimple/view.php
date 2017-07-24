@@ -31,6 +31,22 @@ $attributes = array(
     'sku',
     'power',
     'price',
+    array(
+        'name' => 'characteristic_ru',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'size_ru',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'characteristic_uk',
+        'type' => 'raw',
+    ),
+    array(
+        'name' => 'size_uk',
+        'type' => 'raw',
+    ),
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,

@@ -69,6 +69,8 @@
                                     data-price="<?= number_format($item['simple']['price'], 0, '', ' '); ?>"
                                     data-sku="<?= $item['simple']['sku']; ?>"
                                     for="pr-<?= $item['simple']['id']; ?>"
+                                    data-characteristic="<?= str_replace('"', "'", $item['simple']['characteristic_' . Yii::app()->language]); ?>"
+                                    data-size="<?= str_replace('"', "'", $item['simple']['size_' . Yii::app()->language]); ?>"
                             >
                                 <?= $item['simple']['power']; ?>
                             </label>
@@ -163,10 +165,10 @@
                     </div>
                 </div>
                 <div class="box visible">
-                    <?= $o_product['characteristic_' . Yii::app()->language]; ?>
+                    <span id="characteristic-span"><?= isset($o_product['a_simple'][0]['simple']) ? $o_product['a_simple'][0]['simple']['characteristic_' . Yii::app()->language] : ''; ?></span>
                 </div>
                 <div class="box">
-                    <?= $o_product['size_' . Yii::app()->language]; ?>
+                    <span id="size-span"><?= isset($o_product['a_simple'][0]['simple']) ? $o_product['a_simple'][0]['simple']['size_' . Yii::app()->language] : ''; ?></span>
                     <?php if (isset($o_product['size']['url'])) { ?>
                         <div class="cat__i__img"><img src="<?= $o_product['size']['url']; ?>"/></div>
                     <?php } ?>

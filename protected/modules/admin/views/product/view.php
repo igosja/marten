@@ -75,14 +75,6 @@ $attributes = array(
         'type' => 'raw',
     ),
     array(
-        'name' => 'characteristic_ru',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'size_ru',
-        'type' => 'raw',
-    ),
-    array(
         'name' => 'text_2_ru',
         'type' => 'raw',
     ),
@@ -93,14 +85,6 @@ $attributes = array(
     'text_1_uk',
     array(
         'name' => 'description_uk',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'characteristic_uk',
-        'type' => 'raw',
-    ),
-    array(
-        'name' => 'size_uk',
         'type' => 'raw',
     ),
     array(
