@@ -1,7 +1,6 @@
 <?php
 /**
  * @var $a_also array
- * @var $a_category array
  * @var $a_productsimple array
  * @var $a_producttype array
  * @var $form CActiveForm
@@ -66,18 +65,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'category_id'); ?></td>
-                        <td>
-                            <?= $form->dropDownList(
-                                $model,
-                                'category_id',
-                                CHtml::listData($a_category, 'id', 'h1_ru'),
-                                array('empty' => 'Выберите категорию', 'class' => 'form-control')
-                            ); ?>
-                            <?= $form->error($model, 'category_id'); ?>
-                        </td>
-                    </tr>
-                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'producttype_id'); ?></td>
                         <td>
                             <?= $form->dropDownList(
@@ -121,12 +108,6 @@
                                 array('class' => 'form-control')
                             ); ?>
                             <?= $form->error($model, 'instock'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'image'); ?></td>
-                        <td>
-                            <input type="file" name="image[]" class="form-control" multiple />
                         </td>
                     </tr>
                     <tr>

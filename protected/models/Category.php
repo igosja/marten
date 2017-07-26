@@ -82,13 +82,14 @@ class Category extends CActiveRecord
                         'name' => $children[$j]['h1_' . Yii::app()->language],
                         'url' => $children[$j]['url'],
                     );
-                    $product = Product::model()->findAllByAttributes(
-                        array('status' => 1, 'category_id' => $children[$j]['id'])
+                    $product = Product::model()->with('a_simple.simple')->findAllByAttributes(
+                        array('status' => 1), array('condition' => 'category_id=' . $children[$j]['id'])
                     );
                     if ($product) {
                         $a_product = array();
                         foreach ($product as $item) {
                             $a_product[] = array(
+                                'category' => $children[$j]['id'],
                                 'name' => $item['h1_' . Yii::app()->language],
                                 'url' => $item['url'],
                             );
@@ -98,13 +99,14 @@ class Category extends CActiveRecord
                 }
                 $a_tree[$i]['children'] = $a_children;
             }
-            $product = Product::model()->findAllByAttributes(
-                array('status' => 1, 'category_id' => $a_category[$i]['id'])
+            $product = Product::model()->with('a_simple.simple')->findAllByAttributes(
+                array('status' => 1), array('condition' => 'category_id=' . $a_category[$i]['id'])
             );
             if ($product) {
                 $a_product = array();
                 foreach ($product as $item) {
                     $a_product[] = array(
+                        'category' => $a_category[$i]['id'],
                         'name' => $item['h1_' . Yii::app()->language],
                         'url' => $item['url'],
                     );

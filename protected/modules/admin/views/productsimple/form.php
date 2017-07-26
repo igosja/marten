@@ -1,5 +1,6 @@
 <?php
 /**
+ * @var $a_category array
  * @var $form CActiveForm
  * @var $model ProductSimple
  */
@@ -34,6 +35,18 @@
                 </td>
             </tr>
             <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'category_id'); ?></td>
+                <td>
+                    <?= $form->dropDownList(
+                        $model,
+                        'category_id',
+                        CHtml::listData($a_category, 'id', 'h1_ru'),
+                        array('empty' => 'Выберите категорию', 'class' => 'form-control')
+                    ); ?>
+                    <?= $form->error($model, 'category_id'); ?>
+                </td>
+            </tr>
+            <tr>
                 <td class="col-lg-3"><?= $form->labelEx($model, 'sku'); ?></td>
                 <td>
                     <?= $form->textField($model, 'sku', array('class' => 'form-control')); ?>
@@ -52,6 +65,12 @@
                 <td>
                     <?= $form->textField($model, 'price', array('class' => 'form-control')); ?>
                     <?= $form->error($model, 'price'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'image'); ?></td>
+                <td>
+                    <input type="file" name="image[]" class="form-control" multiple />
                 </td>
             </tr>
             <tr>

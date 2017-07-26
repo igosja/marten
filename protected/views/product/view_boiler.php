@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $a_review array
+ * @var $category_simple integer
  * @var $form CActiveForm
  * @var $more boolean
  * @var $model Review
@@ -15,7 +16,7 @@
             <div class="tov__left">
                 <div class="slider-out">
                     <div class="slider clearfix">
-                        <?php foreach ($o_product['a_image'] as $item) { ?>
+                        <?php foreach ($o_product['a_simple'][$category_simple]['simple']['a_image'] as $item) { ?>
                             <div>
                                 <img
                                         src="<?= ImageIgosja::resize($item['image_id'], 600, 600); ?>"
@@ -26,7 +27,7 @@
                     </div>
                 </div>
                 <div class="slider-nav">
-                    <?php foreach ($o_product['a_image'] as $item) { ?>
+                    <?php foreach ($o_product['a_simple'][$category_simple]['simple']['a_image'] as $item) { ?>
                         <div>
                             <img
                                     src="<?= ImageIgosja::resize($item['image_id'], 600, 600); ?>"
@@ -42,7 +43,7 @@
                 <div class="tov__info">
                     <h1 class="tov__title"><?= $o_product['h1_' . Yii::app()->language]; ?></h1>
                     <div class="tov__art"><?= Yii::t('views.product.view', 'sku'); ?>
-                        <strong>№<?= isset($o_product['a_simple'][0]['simple']['sku']) ? $o_product['a_simple'][0]['simple']['sku'] : 0; ?></strong>
+                        <strong>№<?= isset($o_product['a_simple'][$category_simple]['simple']['sku']) ? $o_product['a_simple'][$category_simple]['simple']['sku'] : 0; ?></strong>
                         <div class="tov__stars otziv-i__stars">
                             <?php for ($i = 0; $i < 5; $i++) { ?>
                                 <span
@@ -65,6 +66,7 @@
                             />
                             <label
                                     class="power-change"
+                                    data-simple="<?= $item['simple']['id']; ?>"
                                     data-power="<?= $item['simple']['power']; ?>"
                                     data-price="<?= number_format($item['simple']['price'], 0, '', ' '); ?>"
                                     data-sku="<?= $item['simple']['sku']; ?>"
@@ -81,7 +83,7 @@
                 <div class="tov__gr">
                     <div class="tov__price"><?= Yii::t('views.product.view', 'price'); ?>:
                         <strong>
-                            <?= number_format(isset($o_product['a_simple'][0]['simple']['price']) ? $o_product['a_simple'][0]['simple']['price'] : 0, 0, '', ' '); ?>
+                            <?= number_format(isset($o_product['a_simple'][$category_simple]['simple']['price']) ? $o_product['a_simple'][$category_simple]['simple']['price'] : 0, 0, '', ' '); ?>
                             грн
                         </strong>
                     </div>
@@ -96,7 +98,7 @@
                             class="tov__btn overlayElementTrigger"
                             data-image="<?= ImageIgosja::resize(isset($o_product['a_image'][0]['image_id']) ? $o_product['a_image'][0]['image_id'] : 0, 72, 72); ?>"
                             data-product="<?= $o_product['h1_' . Yii::app()->language]; ?>"
-                            data-power="<?= isset($o_product['a_simple'][0]['simple']['power']) ? $o_product['a_simple'][0]['simple']['power'] : 0; ?>"
+                            data-power="<?= isset($o_product['a_simple'][$category_simple]['simple']['power']) ? $o_product['a_simple'][$category_simple]['simple']['power'] : 0; ?>"
                     ></a>
                 </div>
                 <p class="tov__text">
@@ -165,10 +167,10 @@
                     </div>
                 </div>
                 <div class="box visible">
-                    <span id="characteristic-span"><?= isset($o_product['a_simple'][0]['simple']) ? $o_product['a_simple'][0]['simple']['characteristic_' . Yii::app()->language] : ''; ?></span>
+                    <span id="characteristic-span"><?= isset($o_product['a_simple'][$category_simple]['simple']) ? $o_product['a_simple'][$category_simple]['simple']['characteristic_' . Yii::app()->language] : ''; ?></span>
                 </div>
                 <div class="box">
-                    <span id="size-span"><?= isset($o_product['a_simple'][0]['simple']) ? $o_product['a_simple'][0]['simple']['size_' . Yii::app()->language] : ''; ?></span>
+                    <span id="size-span"><?= isset($o_product['a_simple'][$category_simple]['simple']) ? $o_product['a_simple'][$category_simple]['simple']['size_' . Yii::app()->language] : ''; ?></span>
                     <?php if (isset($o_product['size']['url'])) { ?>
                         <div class="cat__i__img"><img src="<?= $o_product['size']['url']; ?>"/></div>
                     <?php } ?>
@@ -182,7 +184,8 @@
                                 <?php } ?>
                             </div>
                             <?php if ($more) { ?>
-                                <a href="javascript:" class="art-more load-review-product" data-offset="0" data-id="<?= $o_product['id']; ?>">
+                                <a href="javascript:" class="art-more load-review-product" data-offset="0"
+                                   data-id="<?= $o_product['id']; ?>">
                                     <?= Yii::t('views.product.view', 'link-more'); ?>
                                 </a>
                             <?php } ?>

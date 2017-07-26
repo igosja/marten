@@ -207,6 +207,48 @@ jQuery(document).ready(function ($) {
         $('.tov__btn').data('power', $(this).data('power'));
         $('#characteristic-span').html($(this).data('characteristic'));
         $('#size-span').html($(this).data('size'));
+        var simple_id = $(this).data('simple');
+        $.ajax({
+            url: '/product/image/' + simple_id,
+            success: function(data) {
+                $('.tov__left').html(data);
+
+
+                if ($(".slider").length) {
+
+                    $('.slider').slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: false,
+                        infinite: false,
+                        cssEase: 'linear',
+                        fade: true,
+                        asNavFor: '.slider-nav',
+                        prevArrow: $('.prev'),
+                        nextArrow: $('.next')
+                    });
+
+                }
+
+
+                if ($(".slider").length) {
+
+                    $('.slider-nav').slick({
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        asNavFor: '.slider',
+                        vertical: true,
+                        dots: false,
+                        focusOnSelect: true,
+                        loop: false,
+                        arrows: false,
+                        dots: false,
+                        infinite: false,
+                    });
+
+                }
+            }
+        });
     });
 
     $('.tov__btn').on('click', function () {

@@ -10,8 +10,8 @@ class ProductImage extends CActiveRecord
     public function rules()
     {
         return array(
-            array('image_id, product_id', 'required'),
-            array('image_id, product_id', 'numerical'),
+            array('image_id, productsimple_id', 'required'),
+            array('image_id, productsimple_id', 'numerical'),
         );
     }
 
@@ -26,7 +26,7 @@ class ProductImage extends CActiveRecord
     {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('product_id', $this->product_id);
+        $criteria->compare('productsimple_id', $this->productsimple_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

@@ -1,7 +1,6 @@
 <?php
 /**
  * @var $also ProductAlso
- * @var $image ProductImage
  * @var $model Product
  * @var $simple ProductToSimple
  */
@@ -34,10 +33,6 @@ $attributes = array(
         'name' => 'url',
         'type' => 'raw',
         'value' => CHtml::link($model->url, array('/product/view', 'id' => $model->url), array('target' => '_blank'))
-    ),
-    array(
-        'name' => 'category_id',
-        'value' => $model->category->h1_ru,
     ),
     array(
         'name' => 'producttype_id',
@@ -106,59 +101,6 @@ $this->widget('zii.widgets.CDetailView', array(
 ?>
 
 <div class="col-lg-12">
-    <h1 class="page-header text-center">Изображения</h1>
-    <?php
-    $columns = array(
-        array(
-            'header' => 'Изображение',
-            'type' => 'raw',
-            'value' => function ($image) {
-                if (isset($image->image->url)) {
-                    $result = '<div class="col-lg-6"><a href="javascript:;" class="thumbnail"><img src="'
-                        . $image->image->url
-                        . '"/></a></div>';
-                } else {
-                    $result = '';
-                }
-                return $result;
-            }
-        ),
-        array(
-            'class' => 'CButtonColumn',
-            'deleteButtonUrl' => function ($image) {
-                return array('deleteimage', 'id' => $image->primaryKey);
-            },
-            'headerHtmlOptions' => array('class' => 'col-lg-1'),
-            'template' => '{delete}',
-        ),
-    );
-    $this->widget('zii.widgets.grid.CGridView', array(
-        'afterAjaxUpdate' => 'function(id, data){CGridViewAfterAjax()}',
-        'columns' => $columns,
-        'dataProvider' => $image->search(),
-        'itemsCssClass' => 'table table-striped table-bordered sort-table',
-        'pager' => array(
-            'header' => '',
-            'footer' => '',
-            'internalPageCssClass' => '',
-            'nextPageLabel' => '>',
-            'lastPageLabel' => '>>',
-            'nextPageCssClass' => 'next',
-            'lastPageCssClass' => 'next',
-            'prevPageLabel' => '<',
-            'firstPageLabel' => '<<',
-            'previousPageCssClass' => 'prev',
-            'firstPageCssClass' => 'prev',
-            'selectedPageCssClass' => 'active',
-            'htmlOptions' => array('class' => 'pagination'),
-        ),
-        'pagerCssClass' => 'pager-css-class',
-        'summaryCssClass' => 'text-left',
-    ));
-    ?>
-</div>
-
-<div class="col-lg-12">
     <h1 class="page-header text-center">Простые товары</h1>
     <?php
     $columns = array(
@@ -168,7 +110,7 @@ $this->widget('zii.widgets.CDetailView', array(
         array('header' => 'Артикул', 'value' => function ($simple) {
             return $simple->simple->sku;
         }),
-        array('header' => 'Мощность', 'value' => function ($simple) {
+        array('header' => 'Мощность/Диаметр', 'value' => function ($simple) {
             return $simple->simple->power;
         }),
         array('header' => 'Цена', 'value' => function ($simple) {

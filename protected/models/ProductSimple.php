@@ -4,6 +4,7 @@ class ProductSimple extends CActiveRecord
 {
     public $characteristic_uk_excel;
     public $characteristic_ru_excel;
+    public $image;
     public $size_uk_excel;
     public $size_ru_excel;
 
@@ -15,7 +16,8 @@ class ProductSimple extends CActiveRecord
     public function rules()
     {
         return array(
-            array('power, price', 'numerical'),
+            array('category_id', 'required'),
+            array('category_id, power, price', 'numerical'),
             array('name, sku', 'length', 'max' => 255),
             array('characteristic_ru, characteristic_uk, size_ru, size_uk', 'safe'),
         );
@@ -24,10 +26,12 @@ class ProductSimple extends CActiveRecord
     public function attributeLabels()
     {
         return array(
+            'category_id' => 'Категория',
             'characteristic_ru' => 'Характеристики (Русский)',
             'characteristic_ru_excel' => 'Характеристики (Русский, Excel)',
             'characteristic_uk' => 'Характеристики (Українська)',
             'characteristic_uk_excel' => 'Характеристики (Українська, Excel)',
+            'image' => 'Изображения',
             'name' => 'Название (внутреннее)',
             'power' => 'Мощность/Диаметр',
             'price' => 'Цена',
@@ -49,6 +53,14 @@ class ProductSimple extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
+    }
+
+    public function relations()
+    {
+        return array(
+            'a_image' => array(self::HAS_MANY, 'ProductImage', array('productsimple_id' => 'id')),
+            'category' => array(self::HAS_ONE, 'Category', array('id' => 'category_id')),
+        );
     }
 
     public static function model($className = __CLASS__)

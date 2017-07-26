@@ -46,7 +46,6 @@ class ProductController extends AController
                     $model->url = $model->primaryKey . '-' . str_replace($this->rus, $this->lat, $model->h1_ru);
                     $model->save();
                 }
-                $this->uploadImage($model->primaryKey);
                 $this->uploadPdf($model->primaryKey);
                 $this->uploadSize($model->primaryKey);
                 $this->also($model->primaryKey);
@@ -60,14 +59,12 @@ class ProductController extends AController
         if (0 != $id) {
             $this->breadcrumbs[$model->h1_ru] = array('view', 'id' => $model->primaryKey);
         }
-        $a_category = Category::model()->findAll(array('order' => 'h1_ru'));
         $a_producttype = ProductType::model()->findAll(array('order' => 'name'));
         $a_productsimple = ProductSimple::model()->findAll(array('order' => 'name'));
         $a_also = Product::model()->findAll(array('condition' => 'id!=' . (int)$id, 'order' => 'h1_ru'));
         $this->render('form', array(
             'model' => $model,
             'a_also' => $a_also,
-            'a_category' => $a_category,
             'a_productsimple' => $a_productsimple,
             'a_producttype' => $a_producttype,
         ));
@@ -84,13 +81,11 @@ class ProductController extends AController
             $this->title => array('index'),
             $this->h1,
         );
-        $image = new ProductImage('search');
-        $image->attributes = array('product_id' => $id);
         $simple = new ProductToSimple('search');
         $simple->attributes = array('product_id' => $id);
         $also = new ProductAlso('search');
         $also->attributes = array('parent_id' => $id);
-        $this->render('view', array('model' => $model, 'simple' => $simple, 'also' => $also, 'image' => $image));
+        $this->render('view', array('model' => $model, 'simple' => $simple, 'also' => $also));
     }
 
     public function actionDelete($id)
@@ -114,13 +109,6 @@ class ProductController extends AController
         $this->redirect(array('view', 'id' => $model->parent_id));
     }
 
-    public function actionDeleteimage($id)
-    {
-        $model = ProductImage::model()->findByPk($id);
-        $model->deleteByPk($id);
-        $this->redirect(array('view', 'id' => $model->product_id));
-    }
-
     public function actionStatus($id)
     {
         $model = $this->getModel()->findByPk($id);
@@ -141,28 +129,6 @@ class ProductController extends AController
             $o_image->delete();
         }
         $this->redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    public function uploadImage($id)
-    {
-        if (isset($_FILES['image']['name'][0]) && !empty($_FILES['image']['name'][0])) {
-            $image = $_FILES['image'];
-            for ($i = 0, $count_image = count($image['name']); $i < $count_image; $i++) {
-                $ext = $image['name'][$i];
-                $ext = explode('.', $ext);
-                $ext = end($ext);
-                $file = $image['tmp_name'][$i];
-                $image_url = ImageIgosja::put_file($file, $ext);
-                $o_image = new Image();
-                $o_image->url = $image_url;
-                $o_image->save();
-                $image_id = $o_image->primaryKey;
-                $model = new ProductImage();
-                $model->image_id = $image_id;
-                $model->product_id = $id;
-                $model->save();
-            }
-        }
     }
 
     public function uploadPdf($id)

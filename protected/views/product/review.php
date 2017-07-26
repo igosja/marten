@@ -7,7 +7,7 @@
     <div class="otziv-i__info clearfix">
         <div class="otziv-i__img">
             <img
-                    src="<?= ImageIgosja::resize(isset($item['product']['a_image'][0]['image_id']) ? $item['product']['a_image'][0]['image_id'] : 0, 70, 70); ?>"
+                    src="<?= ImageIgosja::resize(isset($item['product']['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $item['product']['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 70, 70); ?>"
                     alt=""
             />
         </div>

@@ -36,6 +36,7 @@ class ProductsimpleController extends AController
             $model->attributes = $data;
             if ($model->save()) {
                 $this->uploadExcel($model->primaryKey);
+                $this->uploadImage($model->primaryKey);
                 $this->redirect(array('view', 'id' => $model->primaryKey));
             }
         }
@@ -45,7 +46,11 @@ class ProductsimpleController extends AController
         if (0 != $id) {
             $this->breadcrumbs[$model->name] = array('view', 'id' => $model->primaryKey);
         }
-        $this->render('form', array('model' => $model));
+        $a_category = Category::model()->findAll(array('order' => 'h1_ru'));
+        $this->render('form', array(
+            'a_category' => $a_category,
+            'model' => $model,
+    ));
     }
 
     public function actionView($id)
@@ -59,7 +64,9 @@ class ProductsimpleController extends AController
             $this->title => array('index'),
             $this->h1,
         );
-        $this->render('view', array('model' => $model));
+        $image = new ProductImage('search');
+        $image->attributes = array('productsimple_id' => $id);
+        $this->render('view', array('model' => $model, 'image' => $image));
     }
 
     public function actionDelete($id)
@@ -77,6 +84,13 @@ class ProductsimpleController extends AController
         }
         $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
         $this->redirect(array('index'));
+    }
+
+    public function actionDeleteimage($id)
+    {
+        $model = ProductImage::model()->findByPk($id);
+        $model->deleteByPk($id);
+        $this->redirect(array('view', 'id' => $model->productsimple_id));
     }
 
     public function uploadExcel($id)
@@ -115,6 +129,28 @@ class ProductsimpleController extends AController
             $model = $this->getModel()->findByPk($id);
             $model->size_uk = $table;
             $model->save();
+        }
+    }
+
+    public function uploadImage($id)
+    {
+        if (isset($_FILES['image']['name'][0]) && !empty($_FILES['image']['name'][0])) {
+            $image = $_FILES['image'];
+            for ($i = 0, $count_image = count($image['name']); $i < $count_image; $i++) {
+                $ext = $image['name'][$i];
+                $ext = explode('.', $ext);
+                $ext = end($ext);
+                $file = $image['tmp_name'][$i];
+                $image_url = ImageIgosja::put_file($file, $ext);
+                $o_image = new Image();
+                $o_image->url = $image_url;
+                $o_image->save();
+                $image_id = $o_image->primaryKey;
+                $model = new ProductImage();
+                $model->image_id = $image_id;
+                $model->productsimple_id = $id;
+                $model->save();
+            }
         }
     }
 
