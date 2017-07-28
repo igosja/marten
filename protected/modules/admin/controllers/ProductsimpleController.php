@@ -46,11 +46,9 @@ class ProductsimpleController extends AController
         if (0 != $id) {
             $this->breadcrumbs[$model->name] = array('view', 'id' => $model->primaryKey);
         }
-        $a_category = Category::model()->findAll(array('order' => 'h1_ru'));
         $this->render('form', array(
-            'a_category' => $a_category,
             'model' => $model,
-    ));
+        ));
     }
 
     public function actionView($id)

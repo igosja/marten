@@ -28,10 +28,6 @@
 <?php
 $attributes = array(
     'id',
-    array(
-        'name' => 'category_id',
-        'value' => $model->category->h1_ru,
-    ),
     'name',
     'sku',
     'power',

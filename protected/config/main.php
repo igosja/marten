@@ -52,7 +52,6 @@ return array(
                 'product/check' => 'product/check',
                 '<language:(ru|uk)>/product/<id>/<category_id>' => 'product/view',
                 '<language:(ru|uk)>/product/<id>' => 'product/view',
-                'product/<id>/<category_id>' => 'product/view',
                 'product/<id>' => 'product/view',
                 '<language:(ru|uk)>/product' => 'product/index',
                 'product' => 'product/index',

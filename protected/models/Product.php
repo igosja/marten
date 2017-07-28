@@ -13,8 +13,8 @@ class Product extends CActiveRecord
     public function rules()
     {
         return array(
-            array('producttype_id', 'required'),
-            array('instock, pdf_id, producttype_id, size_id, status', 'numerical'),
+            array('category_id, producttype_id', 'required'),
+            array('category_id, instock, pdf_id, producttype_id, size_id, status', 'numerical'),
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
@@ -29,6 +29,7 @@ class Product extends CActiveRecord
     {
         return array(
             'also' => 'Также покупают',
+            'category_id' => 'Категория',
             'description_ru' => 'Описание (Русский)',
             'description_uk' => 'Описание (Українська)',
             'h1_ru' => 'Название (Русский)',
@@ -71,6 +72,7 @@ class Product extends CActiveRecord
         return array(
             'a_also' => array(self::HAS_MANY, 'ProductAlso', array('parent_id' => 'id')),
             'a_simple' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.power ASC', 'with'=>'simple'),
+            'category' => array(self::HAS_ONE, 'Category', array('id' => 'category_id')),
             'min_price' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.price ASC', 'with'=>'simple'),
             'pdf' => array(self::HAS_ONE, 'Image', array('id' => 'pdf_id')),
             'producttype' => array(self::HAS_ONE, 'ProductType', array('id' => 'producttype_id')),
