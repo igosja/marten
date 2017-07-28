@@ -35,6 +35,10 @@ $attributes = array(
         'value' => CHtml::link($model->url, array('/product/view', 'id' => $model->url), array('target' => '_blank'))
     ),
     array(
+        'name' => 'category_id',
+        'value' => $model->category->h1_ru,
+    ),
+    array(
         'name' => 'producttype_id',
         'value' => $model->producttype->name,
     ),

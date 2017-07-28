@@ -16,8 +16,7 @@ class ProductSimple extends CActiveRecord
     public function rules()
     {
         return array(
-            array('category_id', 'required'),
-            array('category_id, power, price', 'numerical'),
+            array('power, price', 'numerical'),
             array('name, sku', 'length', 'max' => 255),
             array('characteristic_ru, characteristic_uk, size_ru, size_uk', 'safe'),
         );
@@ -26,7 +25,6 @@ class ProductSimple extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'category_id' => 'Категория',
             'characteristic_ru' => 'Характеристики (Русский)',
             'characteristic_ru_excel' => 'Характеристики (Русский, Excel)',
             'characteristic_uk' => 'Характеристики (Українська)',
@@ -59,7 +57,6 @@ class ProductSimple extends CActiveRecord
     {
         return array(
             'a_image' => array(self::HAS_MANY, 'ProductImage', array('productsimple_id' => 'id')),
-            'category' => array(self::HAS_ONE, 'Category', array('id' => 'category_id')),
         );
     }
 

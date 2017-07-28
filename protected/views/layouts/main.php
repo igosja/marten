@@ -174,7 +174,7 @@
                                                         <li>
                                                             <?= CHtml::link(
                                                                 $product['name'],
-                                                                array('product/view', 'id' => $product['url'], 'category_id' => $product['category']),
+                                                                array('product/view', 'id' => $product['url']),
                                                                 array('class' => 'drop')
                                                             ); ?>
                                                         </li>
@@ -189,7 +189,7 @@
                                         <li>
                                             <?= CHtml::link(
                                                 $product['name'],
-                                                array('product/view', 'id' => $product['url'], 'category_id' => $product['category']),
+                                                array('product/view', 'id' => $product['url']),
                                                 array('class' => 'drop')
                                             ); ?>
                                         </li>

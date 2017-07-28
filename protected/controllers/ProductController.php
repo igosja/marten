@@ -7,7 +7,7 @@ class ProductController extends Controller
         $this->redirect(array('index/index'));
     }
 
-    public function actionView($id, $category_id = 0)
+    public function actionView($id)
     {
         $model = new Review();
         if ($data = Yii::app()->request->getPost('Review')) {
@@ -36,18 +36,9 @@ class ProductController extends Controller
             array('select' => 'ROUND(AVG(rating)) as rating')
         );
         $this->setSEO($o_product);
-        $category_simple = 0;
-        if ($category_id) {
-            for ($i = 0, $count_simple = count($o_product['a_simple']); $i < $count_simple; $i++) {
-                if ($category_id == $o_product['a_simple'][$i]['simple']['category_id']) {
-                    $category_simple = $i;
-                    break;
-                }
-            }
-        }
-        $this->og_image = ImageIgosja::resize(isset($o_product['a_simple'][$category_simple]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600);
-        if ($o_product['a_simple'][$category_simple]['simple']['category_id']) {
-            $o_category = Category::model()->findByPk($o_product['a_simple'][$category_simple]['simple']['category_id']);
+        $this->og_image = ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600);
+        if ($o_product['category_id']) {
+            $o_category = Category::model()->findByPk($o_product['category_id']);
             if ($o_category) {
                 if ($o_category['parent_id']) {
                     $o_parent = Category::model()->findByPk($o_category['parent_id']);
@@ -66,7 +57,6 @@ class ProductController extends Controller
         }
         $this->render('view_' . $view, array(
             'a_review' => $a_review,
-            'category_simple' => $category_simple,
             'model' => $model,
             'more' => $more,
             'o_product' => $o_product,

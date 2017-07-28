@@ -1,6 +1,5 @@
 <?php
 /**
- * @var $a_category array
  * @var $form CActiveForm
  * @var $model ProductSimple
  */
@@ -32,18 +31,6 @@
                 <td>
                     <?= $form->textField($model, 'name', array('class' => 'form-control')); ?>
                     <?= $form->error($model, 'name'); ?>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-lg-3"><?= $form->labelEx($model, 'category_id'); ?></td>
-                <td>
-                    <?= $form->dropDownList(
-                        $model,
-                        'category_id',
-                        CHtml::listData($a_category, 'id', 'h1_ru'),
-                        array('empty' => 'Выберите категорию', 'class' => 'form-control')
-                    ); ?>
-                    <?= $form->error($model, 'category_id'); ?>
                 </td>
             </tr>
             <tr>

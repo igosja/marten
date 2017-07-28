@@ -18,7 +18,7 @@
                     <span class="cat-i__price">
                     <small>' . Yii::t('views.category.product', 'price') . ':
                     </small> ' . Yii::t('views.category.product', 'from') . ' ' . number_format(isset($item['min_price'][0]['simple']['price']) ? $item['min_price'][0]['simple']['price'] : 0, 0, '', ' ') . ' грн</span>',
-                    array('product/view', 'id' => $item['url'], 'category_id' => $o_category->primaryKey),
+                    array('product/view', 'id' => $item['url']),
                     array('class' => 'cat__i')
                 ); ?>
             <?php } ?>

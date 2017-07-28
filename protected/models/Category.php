@@ -71,48 +71,48 @@ class Category extends CActiveRecord
                 'name' => $a_category[$i]['h1_' . Yii::app()->language],
                 'url' => $a_category[$i]['url'],
             );
-            $children = self::model()->findAllByAttributes(
-                array('status' => 1, 'parent_id' => $a_category[$i]['id']),
-                array('order' => '`order`')
-            );
-            if ($children) {
-                $a_children = array();
-                for ($j = 0, $count_children = count($children); $j < $count_children; $j++) {
-                    $a_children[$j] = array(
-                        'name' => $children[$j]['h1_' . Yii::app()->language],
-                        'url' => $children[$j]['url'],
-                    );
-                    $product = Product::model()->with('a_simple.simple')->findAllByAttributes(
-                        array('status' => 1), array('condition' => 'category_id=' . $children[$j]['id'])
-                    );
-                    if ($product) {
-                        $a_product = array();
-                        foreach ($product as $item) {
-                            $a_product[] = array(
-                                'category' => $children[$j]['id'],
-                                'name' => $item['h1_' . Yii::app()->language],
-                                'url' => $item['url'],
-                            );
-                        }
-                        $a_children[$j]['product'] = $a_product;
-                    }
-                }
-                $a_tree[$i]['children'] = $a_children;
-            }
-            $product = Product::model()->with('a_simple.simple')->findAllByAttributes(
-                array('status' => 1), array('condition' => 'category_id=' . $a_category[$i]['id'])
-            );
-            if ($product) {
-                $a_product = array();
-                foreach ($product as $item) {
-                    $a_product[] = array(
-                        'category' => $a_category[$i]['id'],
-                        'name' => $item['h1_' . Yii::app()->language],
-                        'url' => $item['url'],
-                    );
-                }
-                $a_tree[$i]['product'] = $a_product;
-            }
+//            $children = self::model()->findAllByAttributes(
+//                array('status' => 1, 'parent_id' => $a_category[$i]['id']),
+//                array('order' => '`order`')
+//            );
+//            if ($children) {
+//                $a_children = array();
+//                for ($j = 0, $count_children = count($children); $j < $count_children; $j++) {
+//                    $a_children[$j] = array(
+//                        'name' => $children[$j]['h1_' . Yii::app()->language],
+//                        'url' => $children[$j]['url'],
+//                    );
+//                    $product = Product::model()->findAllByAttributes(
+//                        array('status' => 1, 'category_id' => $children[$j]['id'])
+//                    );
+//                    if ($product) {
+//                        $a_product = array();
+//                        foreach ($product as $item) {
+//                            $a_product[] = array(
+//                                'category' => $children[$j]['id'],
+//                                'name' => $item['h1_' . Yii::app()->language],
+//                                'url' => $item['url'],
+//                            );
+//                        }
+//                        $a_children[$j]['product'] = $a_product;
+//                    }
+//                }
+//                $a_tree[$i]['children'] = $a_children;
+//            }
+//            $product = Product::model()->findAllByAttributes(
+//                array('status' => 1, 'category_id' => $a_category[$i]['id'])
+//            );
+//            if ($product) {
+//                $a_product = array();
+//                foreach ($product as $item) {
+//                    $a_product[] = array(
+//                        'category' => $a_category[$i]['id'],
+//                        'name' => $item['h1_' . Yii::app()->language],
+//                        'url' => $item['url'],
+//                    );
+//                }
+//                $a_tree[$i]['product'] = $a_product;
+//            }
         }
         return $a_tree;
     }
