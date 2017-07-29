@@ -1480,7 +1480,7 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
 }
 
 /*==================== catalog =============================*/
-.cat{
+/*.cat{
   margin-bottom: 25px;
 }
 .cat__i{
@@ -1492,6 +1492,19 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
 }
 .cat__i:nth-of-type(3n){
   margin-right: 0;
+}*/
+.cat{
+  margin-bottom: 25px;
+  text-align: center;
+}
+.cat__i{
+  width: 31.6%;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;  
+}
+.cat__i:nth-of-type(3n+2){
+  margin: 0 2.6% 30px;
 }
 .cat__i img{
   max-width: 100%;
