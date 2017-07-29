@@ -95,7 +95,7 @@
                             href="javascript:"
                             data-selector="form-buy"
                             class="tov__btn overlayElementTrigger"
-                            data-image="<?= ImageIgosja::resize(isset($o_product['a_image'][0]['image_id']) ? $o_product['a_image'][0]['image_id'] : 0, 72, 72); ?>"
+                            data-image="<?= ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 72, 72); ?>"
                             data-product="<?= $o_product['h1_' . Yii::app()->language]; ?>"
                             data-power="<?= isset($o_product['a_simple'][0]['simple']['power']) ? $o_product['a_simple'][0]['simple']['power'] : 0; ?>"
                     ></a>
