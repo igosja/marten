@@ -54,12 +54,14 @@
             <h2 class="b-title"><?= Yii::t('views.index.index', 'project'); ?></h2>
             <div class="proj-b clearfix">
                 <?php foreach ($a_project as $item) { ?>
-                    <a href="javascript:" class="proj-b__i">
-                        <img src="<?= ImageIgosja::resize($item['image_id'], 600, 380) ?>" alt="">
+                    <?= CHtml::link(
+                        '<img src="' . ImageIgosja::resize($item['image_id'], 600, 380) . '" alt="' . $item['projectcategory']['name_' . Yii::app()->language] . '">
                         <span class="proj-b__i__info">
-                            <span><small>#</small><?= $item['projectcategory']['name_' . Yii::app()->language]; ?></span>
-                        </span>
-                    </a>
+                            <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
+                        </span>',
+                        array('project/index'),
+                        array('class' => 'proj-b__i')
+                    ); ?>
                 <?php } ?>
             </div>
         </div>
