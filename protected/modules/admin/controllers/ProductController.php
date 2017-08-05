@@ -104,6 +104,13 @@ class ProductController extends AController
         $this->redirect(array('view', 'id' => $model->product_id));
     }
 
+    public function actionDeletepdf($id)
+    {
+        $model = ProductPdf::model()->findByPk($id);
+        $model->deleteByPk($id);
+        $this->redirect(array('view', 'id' => $model->product_id));
+    }
+
     public function actionDeletealso($id)
     {
         $model = ProductAlso::model()->findByPk($id);
@@ -135,20 +142,23 @@ class ProductController extends AController
 
     public function uploadPdf($id)
     {
-        if (isset($_FILES['pdf']['name']) && !empty($_FILES['pdf']['name'])) {
-            $image = $_FILES['pdf'];
-            $ext = $image['name'];
-            $ext = explode('.', $ext);
-            $ext = end($ext);
-            $file = $image['tmp_name'];
-            $image_url = ImageIgosja::put_file($file, $ext);
-            $o_image = new Image();
-            $o_image->url = $image_url;
-            $o_image->save();
-            $image_id = $o_image->primaryKey;
-            $model = $this->getModel()->findByPk($id);
-            $model->pdf_id = $image_id;
-            $model->save();
+        if (isset($_FILES['pdf']['name'][0]) && !empty($_FILES['pdf']['name'][0])) {
+            $pdf = $_FILES['pdf'];
+            for ($i = 0, $count_pdf = count($pdf['name']); $i < $count_pdf; $i++) {
+                $ext = $pdf['name'][$i];
+                $ext = explode('.', $ext);
+                $ext = end($ext);
+                $file = $pdf['tmp_name'][$i];
+                $image_url = ImageIgosja::put_file($file, $ext);
+                $o_image = new Image();
+                $o_image->url = $image_url;
+                $o_image->save();
+                $image_id = $o_image->primaryKey;
+                $model = new ProductPdf();
+                $model->pdf_id = $image_id;
+                $model->product_id = $id;
+                $model->save();
+            }
         }
     }
 

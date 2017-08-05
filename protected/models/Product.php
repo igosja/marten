@@ -14,7 +14,7 @@ class Product extends CActiveRecord
     {
         return array(
             array('category_id, producttype_id', 'required'),
-            array('category_id, instock, pdf_id, producttype_id, size_id, status', 'numerical'),
+            array('category_id, instock, producttype_id, size_id, status', 'numerical'),
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
@@ -35,7 +35,7 @@ class Product extends CActiveRecord
             'h1_ru' => 'Название (Русский)',
             'h1_uk' => 'Название (Українська)',
             'instock' => 'Есть на складе',
-            'pdf_id' => 'PDF',
+            'pdf' => 'PDF',
             'producttype_id' => 'Тип товара',
             'simple' => 'Простые товары',
             'size_id' => 'Габариты',
@@ -74,7 +74,7 @@ class Product extends CActiveRecord
             'a_simple' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.power ASC', 'with'=>'simple'),
             'category' => array(self::HAS_ONE, 'Category', array('id' => 'category_id')),
             'min_price' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.price ASC', 'with'=>'simple'),
-            'pdf' => array(self::HAS_ONE, 'Image', array('id' => 'pdf_id')),
+            'pdf' => array(self::HAS_MANY, 'ProductPdf', array('product_id' => 'id')),
             'producttype' => array(self::HAS_ONE, 'ProductType', array('id' => 'producttype_id')),
             'size' => array(self::HAS_ONE, 'Image', array('id' => 'size_id')),
         );
