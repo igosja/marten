@@ -63,9 +63,16 @@ $attributes = array(
             '',
     ),
     array(
-        'name' => 'pdf_id',
+        'name' => 'pdf',
         'type' => 'raw',
-        'value' => (isset($model->pdf->url)) ? ('<a href="' . $model->pdf->url . '" target="_blank">Инструкция</a>') : '',
+        'value' => function($model) {
+            $result = array();
+            foreach ($model->pdf as $item) {
+                $result[] = '<a href="' . $item->pdf->url . '" target="_blank">Инструкция</a> '.
+                    CHtml::link('&times;', array('deletepdf', 'id' => $item->id));
+            }
+            return implode('<br/>', $result);
+        },
     ),
     'h1_ru',
     'text_1_ru',

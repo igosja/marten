@@ -139,16 +139,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'pdf_id'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'pdf'); ?></td>
                         <td>
-                            <?php if (isset($model->pdf->url)) { ?>
-                                <a href="<?= $model->pdf->url ?>">
-                                    Инструкция
-                                </a>
-                                <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $model->pdf_id)); ?>
-                            <?php } else { ?>
-                                <input type="file" name="pdf" class="form-control"/>
-                            <?php } ?>
+                            <input type="file" name="pdf[]" class="form-control" multiple />
                         </td>
                     </tr>
                     <tr>

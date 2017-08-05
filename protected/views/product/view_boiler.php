@@ -241,10 +241,11 @@
                     </div>
                 </div>
                 <div class="box">
-                    <?php if (isset($o_product['pdf']['url'])) { ?>
-                        <a href="<?= $o_product['pdf']['url']; ?>" target="_blank">
+                    <?php foreach ($o_product['pdf'] as $item) { ?>
+                        <a href="<?= $item['pdf']['url']; ?>" target="_blank">
                             <?= Yii::t('views.product.view', 'tab-pdf'); ?>
                         </a>
+                        <br/>
                     <?php } ?>
                 </div>
             </div>
