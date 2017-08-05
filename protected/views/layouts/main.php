@@ -257,7 +257,12 @@
                 </h3>
                 <ul>
                     <?php foreach ($this->a_category as $item) { ?>
-                        <li><a href="javascript:"><?= $item['name']; ?></a></li>
+                        <li>
+                            <?= CHtml::link(
+                                $item['name'],
+                                array('category/view', 'id' => $item['url'])
+                            ); ?>
+                        </li>
                     <?php } ?>
                 </ul>
             </div>
