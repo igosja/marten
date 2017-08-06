@@ -285,20 +285,20 @@ jQuery(document).ready(function ($) {
         var td_length;
         for (var i = 0; i < tov_char.length; i++) {
             tov_char_tr = $(tov_char[i]).find('tr');
-            if (tov_char_tr.lenght) {
+            if (tov_char_tr.length) {
                 for (var j = 0; j < tov_char_tr.length; j++) {
                     tov_char_td = $(tov_char_tr[j]).find('td');
                     if (tov_char_td.length) {
                         if (1 === j) {
                             current_tr_length = (tov_char_td.length - 1) * 5.9 + 35.1;
-                            td_first_length = 100 + 35.1 / current_tr_length;
-                            td_length = 100 + 5.9 / current_tr_length;
+                            td_first_length = 100 * 35.1 / current_tr_length;
+                            td_length = 100 * 5.9 / current_tr_length;
                         }
-                        for (var k=0; k<tov_char_td.lenght; k++) {
+                        for (var k = 0; k < tov_char_td.length; k++) {
                             if (0 === k) {
-                                $(tov_char_td[k]).css('width', td_first_length);
-                            } else if (tov_char_td.lenght - 1 !== k) {
-                                $(tov_char_td[k]).css('width', td_length);
+                                $(tov_char_td[k]).css('width', td_first_length + '%');
+                            } else {
+                                $(tov_char_td[k]).css('width', td_length + '%');
                             }
                         }
                     }
