@@ -207,6 +207,7 @@ jQuery(document).ready(function ($) {
         $('.tov__btn').data('power', $(this).data('power'));
         $('#characteristic-span').html($(this).data('characteristic'));
         $('#size-span').html($(this).data('size'));
+        tov_char_width();
         var simple_id = $(this).data('simple');
         $.ajax({
             url: '/product/image/' + simple_id,
@@ -275,6 +276,10 @@ jQuery(document).ready(function ($) {
         $('#Review_rating').val(star);
     });
 
+    tov_char_width();
+});
+
+function tov_char_width() {
     var tov_char = $('.tov-char');
 
     if (tov_char.length) {
@@ -306,4 +311,4 @@ jQuery(document).ready(function ($) {
             }
         }
     }
-});
+}
