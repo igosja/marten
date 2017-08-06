@@ -182,7 +182,7 @@ jQuery(document).ready(function ($) {
     });
 
     var error_messages = $('.errorMessage');
-    for (var i=0; i<error_messages.length; i++) {
+    for (var i = 0; i < error_messages.length; i++) {
         if ('' !== $(error_messages[i]).html()) {
             var form_id = $(error_messages[i]).closest('form').attr('id');
             if ('form-call-me' === form_id) {
@@ -210,7 +210,7 @@ jQuery(document).ready(function ($) {
         var simple_id = $(this).data('simple');
         $.ajax({
             url: '/product/image/' + simple_id,
-            success: function(data) {
+            success: function (data) {
                 $('.tov__left').html(data);
 
 
@@ -258,11 +258,11 @@ jQuery(document).ready(function ($) {
         $('#Order_power').val($(this).data('power'));
     });
 
-    $('.rating-star-form').on('click', function() {
+    $('.rating-star-form').on('click', function () {
         var star = $(this).data('star');
         var star_item = $('.rating-star-form');
-        for (var i=0; i<star_item.length; i++){
-            if (i<star) {
+        for (var i = 0; i < star_item.length; i++) {
+            if (i < star) {
                 if ($(star_item[i]).hasClass('none')) {
                     $(star_item[i]).removeClass('none');
                 }
@@ -274,4 +274,36 @@ jQuery(document).ready(function ($) {
         }
         $('#Review_rating').val(star);
     });
+
+    var tov_char = $('.tov-char');
+
+    if (tov_char.length) {
+        var tov_char_tr;
+        var tov_char_td;
+        var current_tr_length;
+        var td_first_length;
+        var td_length;
+        for (var i = 0; i < tov_char.length; i++) {
+            tov_char_tr = $(tov_char[i]).find('tr');
+            if (tov_char_tr.lenght) {
+                for (var j = 0; j < tov_char_tr.length; j++) {
+                    tov_char_td = $(tov_char_tr[j]).find('td');
+                    if (0 === j && tov_char_td.length) {
+                        if (0 === j) {
+                            current_tr_length = (tov_char_td.length - 1) * 5.9 + 35.1;
+                            td_first_length = 100 + 35.1 / current_tr_length;
+                            td_length = 100 + 5.9 / current_tr_length;
+                        }
+                        for (var k=0; k<tov_char_td.lenght; k++) {
+                            if (0 === k) {
+                                $(tov_char_td[k]).css('width', td_first_length);
+                            } else if (tov_char_td.lenght - 1 !== k) {
+                                $(tov_char_td[k]).css('width', td_length);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 });
