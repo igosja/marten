@@ -288,8 +288,8 @@ jQuery(document).ready(function ($) {
             if (tov_char_tr.lenght) {
                 for (var j = 0; j < tov_char_tr.length; j++) {
                     tov_char_td = $(tov_char_tr[j]).find('td');
-                    if (0 === j && tov_char_td.length) {
-                        if (0 === j) {
+                    if (tov_char_td.length) {
+                        if (1 === j) {
                             current_tr_length = (tov_char_td.length - 1) * 5.9 + 35.1;
                             td_first_length = 100 + 35.1 / current_tr_length;
                             td_length = 100 + 5.9 / current_tr_length;
