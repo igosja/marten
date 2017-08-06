@@ -52,8 +52,10 @@ class ProductController extends Controller
         $this->breadcrumbs[] = $o_product['h1_' . Yii::app()->language];
         if (ProductType::TYPE_BOILER == $o_product['producttype_id']) {
             $view = 'boiler';
-        } else {
+        } elseif (ProductType::TYPE_FUNNEL) {
             $view = 'funnel';
+        } else {
+            $view = 'boilerhouse';
         }
         $this->render('view_' . $view, array(
             'a_review' => $a_review,
