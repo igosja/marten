@@ -3,6 +3,7 @@
 class Product extends CActiveRecord
 {
     public $also;
+    public $category_id;
     public $simple;
 
     public function tableName()
@@ -14,11 +15,11 @@ class Product extends CActiveRecord
     {
         return array(
             array('category_id, producttype_id', 'required'),
-            array('category_id, instock, producttype_id, size_id, status', 'numerical'),
+            array('instock, producttype_id, size_id, status', 'numerical'),
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
-                'description_ru, description_uk, text_1_ru, text_1_uk, text_2_ru, text_2_uk,
+                'description_ru, description_uk, text_ru, text_uk,
                 seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk',
                 'safe'
             ),
@@ -40,10 +41,8 @@ class Product extends CActiveRecord
             'simple' => 'Простые товары',
             'size_id' => 'Габариты',
             'status' => 'Статус',
-            'text_1_ru' => 'Текст вверху (Русский)',
-            'text_1_uk' => 'Текст вверху (Українська)',
-            'text_2_ru' => 'Текст внизу (Русский)',
-            'text_2_uk' => 'Текст внизу (Українська)',
+            'text_ru' => 'Текст внизу (Русский)',
+            'text_uk' => 'Текст внизу (Українська)',
             'url' => 'ЧП-URL',
             'video' => 'Код видео с youtube',
             'seo_title_ru' => 'SEO title (Русский)',
@@ -71,8 +70,8 @@ class Product extends CActiveRecord
     {
         return array(
             'a_also' => array(self::HAS_MANY, 'ProductAlso', array('parent_id' => 'id')),
+            'a_category' => array(self::HAS_MANY, 'ProductCategory', array('product_id' => 'id')),
             'a_simple' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.power ASC', 'with'=>'simple'),
-            'category' => array(self::HAS_ONE, 'Category', array('id' => 'category_id')),
             'min_price' => array(self::HAS_MANY, 'ProductToSimple', array('product_id' => 'id'), 'order' => 'simple.price ASC', 'with'=>'simple'),
             'pdf' => array(self::HAS_MANY, 'ProductPdf', array('product_id' => 'id')),
             'producttype' => array(self::HAS_ONE, 'ProductType', array('id' => 'producttype_id')),

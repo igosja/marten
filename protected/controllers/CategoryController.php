@@ -28,13 +28,13 @@ class CategoryController extends Controller
             array('status' => 1, 'parent_id' => $o_category->primaryKey)
         );
         if ($a_category) {
-            $a_review = Review::model()->with(array('product.category' => array(
+            $a_review = Review::model()->with(array('product.a_category.category' => array(
                 'condition' => 'parent_id=' . $o_category->primaryKey),
             ))->findAllByAttributes(
                 array('status' => 1),
                 array('order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
             );
-            $count = Review::model()->with(array('product.category' => array(
+            $count = Review::model()->with(array('product.a_category.category' => array(
                 'condition' => 'parent_id=' . $o_category->primaryKey),
             ))->countByAttributes(array('status' => 1));
             $more = false;
@@ -48,16 +48,16 @@ class CategoryController extends Controller
                 'o_category' => $o_category,
             ));
         } else {
-            $a_product = $a_product = Product::model()->findAllByAttributes(
-                array('status' => 1, 'category_id' => $o_category->primaryKey)
+            $a_product = ProductCategory::model()->findAllByAttributes(
+                array('category_id' => $o_category->primaryKey)
             );
-            $a_review = Review::model()->with(array('product' => array(
+            $a_review = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey),
             ))->findAllByAttributes(
                 array('status' => 1),
                 array('order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
             );
-            $count = Review::model()->with(array('product' => array(
+            $count = Review::model()->with(array('product.a_category' => array(
                     'condition' => 'category_id=' . $o_category->primaryKey),
                 ))->countByAttributes(array('status' => 1));
             $more = false;
@@ -79,7 +79,7 @@ class CategoryController extends Controller
             array('status' => 1, 'parent_id' => $id)
         );
         if ($a_category) {
-            $a_review = Review::model()->with(array('product.category' => array(
+            $a_review = Review::model()->with(array('product.a_category.category' => array(
                 'condition' => 'parent_id=' . $id),
             ))->findAllByAttributes(
                 array('status' => 1),
@@ -90,7 +90,7 @@ class CategoryController extends Controller
                 )
             );
         } else {
-            $a_review = Review::model()->with(array('product' => array(
+            $a_review = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $id),
             ))->findAllByAttributes(
                 array('status' => 1),
@@ -112,13 +112,13 @@ class CategoryController extends Controller
             array('status' => 1, 'parent_id' => $id)
         );
         if ($a_category) {
-            $count = Review::model()->with(array('product.category' => array(
+            $count = Review::model()->with(array('product.a_category.category' => array(
                 'condition' => 'parent_id=' . $id),
             ))->countByAttributes(
                 array('status' => 1)
             );
         } else {
-            $count = Review::model()->with(array('product' => array(
+            $count = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $id),
             ))->countByAttributes(
                 array('status' => 1)

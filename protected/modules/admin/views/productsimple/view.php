@@ -32,6 +32,8 @@ $attributes = array(
     'sku',
     'power',
     'price',
+    'text_ru',
+    'text_uk',
     array(
         'name' => 'characteristic_ru',
         'type' => 'raw',
