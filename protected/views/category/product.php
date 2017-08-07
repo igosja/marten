@@ -13,12 +13,12 @@
         <div class="cat clearfix">
             <?php foreach ($a_product as $item) {
                 print CHtml::link(
-                    '<div class="cat__i__img"><img src="' . ImageIgosja::resize(isset($item['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $item['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600) . '" alt="' . $item['h1_' . Yii::app()->language] . '"/></div>
-                    <span class="cat__i__text">' . $item['h1_' . Yii::app()->language] . '</span>
+                    '<div class="cat__i__img"><img src="' . ImageIgosja::resize(isset($item['product']['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $item['product']['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600) . '" alt="' . $item['product']['h1_' . Yii::app()->language] . '"/></div>
+                    <span class="cat__i__text">' . $item['product']['h1_' . Yii::app()->language] . '</span>
                     <span class="cat-i__price">
                     <small>' . Yii::t('views.category.product', 'price') . ':
-                    </small> ' . Yii::t('views.category.product', 'from') . ' ' . number_format(isset($item['min_price'][0]['simple']['price']) ? $item['min_price'][0]['simple']['price'] : 0, 0, '', ' ') . ' грн</span>',
-                    array('product/view', 'id' => $item['url']),
+                    </small> ' . Yii::t('views.category.product', 'from') . ' ' . number_format(isset($item['product']['min_price'][0]['simple']['price']) ? $item['product']['min_price'][0]['simple']['price'] : 0, 0, '', ' ') . ' грн</span>',
+                    array('product/view', 'id' => $item['product']['url']),
                     array('class' => 'cat__i')
                 );
             } ?>

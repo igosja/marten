@@ -68,11 +68,10 @@
                     <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'category_id'); ?></td>
                         <td>
-                            <?= $form->dropDownList(
+                            <?= $form->checkBoxList(
                                 $model,
                                 'category_id',
-                                CHtml::listData($a_category, 'id', 'h1_ru'),
-                                array('empty' => 'Выберите категорию', 'class' => 'form-control')
+                                CHtml::listData($a_category, 'id', 'h1_ru')
                             ); ?>
                             <?= $form->error($model, 'category_id'); ?>
                         </td>
@@ -141,7 +140,7 @@
                     <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'pdf'); ?></td>
                         <td>
-                            <input type="file" name="pdf[]" class="form-control" multiple />
+                            <input type="file" name="pdf[]" class="form-control" multiple/>
                         </td>
                     </tr>
                     <tr>
@@ -159,31 +158,17 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_ru'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_ru'); ?></td>
                         <td>
-                            <?= $form->textArea($model, 'text_1_ru', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'text_1_ru'); ?>
+                            <?= $form->textArea($model, 'text_ru', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_ru'); ?>
                         </td>
                     </tr>
                     <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_1_uk'); ?></td>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_uk'); ?></td>
                         <td>
-                            <?= $form->textArea($model, 'text_1_uk', array('class' => 'form-control')); ?>
-                            <?= $form->error($model, 'text_1_uk'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_2_ru'); ?></td>
-                        <td>
-                            <?= $form->textArea($model, 'text_2_ru', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_2_ru'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-lg-3"><?= $form->labelEx($model, 'text_2_uk'); ?></td>
-                        <td>
-                            <?= $form->textArea($model, 'text_2_uk', array('class' => 'ckeditor')); ?>
-                            <?= $form->error($model, 'text_2_uk'); ?>
+                            <?= $form->textArea($model, 'text_uk', array('class' => 'ckeditor')); ?>
+                            <?= $form->error($model, 'text_uk'); ?>
                         </td>
                     </tr>
                 </table>

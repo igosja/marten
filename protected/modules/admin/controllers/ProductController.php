@@ -37,6 +37,9 @@ class ProductController extends AController
             foreach ($model->a_also as $item) {
                 $model->also[] = $item['child_id'];
             }
+            foreach ($model->a_category as $item) {
+                $model->category_id[] = $item['category_id'];
+            }
         }
         if ($data = Yii::app()->request->getPost($this->model_name)) {
             $model->attributes = $data;
@@ -50,6 +53,7 @@ class ProductController extends AController
                 $this->uploadSize($model->primaryKey);
                 $this->also($model->primaryKey);
                 $this->simple($model->primaryKey);
+                $this->category($model->primaryKey);
                 $this->redirect(array('view', 'id' => $model->primaryKey));
             }
         }
@@ -149,7 +153,7 @@ class ProductController extends AController
                 $ext = explode('.', $ext);
                 $ext = end($ext);
                 $file = $pdf['tmp_name'][$i];
-                $image_url = ImageIgosja::put_file($file, $ext);
+                $image_url = ImageIgosja::put_file($file, $ext, $pdf['name'][$i]);
                 $o_image = new Image();
                 $o_image->url = $image_url;
                 $o_image->save();
@@ -190,6 +194,21 @@ class ProductController extends AController
                     $model = new ProductToSimple();
                     $model->product_id = $id;
                     $model->productsimple_id = $item;
+                    $model->save();
+                }
+            }
+        }
+    }
+
+    public function category($id)
+    {
+        ProductCategory::model()->deleteAll(array('condition' => 'product_id=' . (int)$id));
+        if ($data = Yii::app()->request->getPost('Product')) {
+            if (is_array($data['category_id'])) {
+                foreach ($data['category_id'] as $item) {
+                    $model = new ProductCategory();
+                    $model->category_id = $item;
+                    $model->product_id = $id;
                     $model->save();
                 }
             }

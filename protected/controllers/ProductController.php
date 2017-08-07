@@ -37,8 +37,8 @@ class ProductController extends Controller
         );
         $this->setSEO($o_product);
         $this->og_image = ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600);
-        if ($o_product['category_id']) {
-            $o_category = Category::model()->findByPk($o_product['category_id']);
+        if (isset($o_product['a_category'][0])) {
+            $o_category = Category::model()->findByPk($o_product['a_category'][0]['category_id']);
             if ($o_category) {
                 if ($o_category['parent_id']) {
                     $o_parent = Category::model()->findByPk($o_category['parent_id']);

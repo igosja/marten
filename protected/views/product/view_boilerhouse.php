@@ -41,8 +41,8 @@
             <div class="tov__right">
                 <div class="tov__info">
                     <h1 class="tov__title"><?= $o_product['h1_' . Yii::app()->language]; ?></h1>
-                    <div class="tov__art"><?= Yii::t('views.product.view', 'sku'); ?>
-                        <strong>№<?= isset($o_product['a_simple'][0]['simple']['sku']) ? $o_product['a_simple'][0]['simple']['sku'] : 0; ?></strong>
+                    <div class="tov__art"><?php Yii::t('views.product.view', 'sku'); ?>
+                        <strong style="display: none;">№<?= isset($o_product['a_simple'][0]['simple']['sku']) ? $o_product['a_simple'][0]['simple']['sku'] : 0; ?></strong>
                         <div class="tov__stars otziv-i__stars">
                             <?php for ($i = 0; $i < 5; $i++) { ?>
                                 <span
@@ -72,6 +72,7 @@
                                     for="pr-<?= $item['simple']['id']; ?>"
                                     data-characteristic="<?= str_replace('"', "'", $item['simple']['characteristic_' . Yii::app()->language]); ?>"
                                     data-size="<?= str_replace('"', "'", $item['simple']['size_' . Yii::app()->language]); ?>"
+                                    data-text="<?= str_replace('"', "'", $item['simple']['text_' . Yii::app()->language]); ?>"
                             >
                                 <?= $item['simple']['power']; ?>
                             </label>
@@ -101,7 +102,7 @@
                     ></a>
                 </div>
                 <p class="tov__text">
-                    <?= $o_product['text_1_' . Yii::app()->language]; ?>
+                    <?= isset($o_product['a_simple'][0]['simple']) ? $o_product['a_simple'][0]['simple']['text_' . Yii::app()->language] : ''; ?>
                 </p>
                 <div class="tov__icons">
                     <div class="clearfix">
@@ -126,15 +127,15 @@
         <div class="tov__bottom">
             <div class="product__bottom boxs">
                 <ul class="tabs">
-                    <li>
+                    <li id="tab-description">
                         <?= Yii::t('views.product.view', 'tab-description'); ?>
                     </li>
-                    <li class="current">
+                    <li class="current" id="tab-characteristic">
                         <a href="javascript:">
                             <?= Yii::t('views.product.view', 'tab-characteristic'); ?>
                         </a>
                     </li>
-                    <li>
+                    <li id="tab-review">
                         <a href="javascript:" class="tab-review-link">
                             <?= Yii::t('views.product.view', 'tab-review'); ?>
                         </a>
@@ -256,7 +257,7 @@
     <?php } ?>
     <div class="grey-bg main-b__text grey-bg_in">
         <div class="wrap">
-            <?= $o_product['text_2_' . Yii::app()->language]; ?>
+            <?= $o_product['text_' . Yii::app()->language]; ?>
         </div>
     </div>
 </section>

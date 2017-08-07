@@ -120,7 +120,7 @@ class ImageIgosja
         }
     }
 
-    public static function put_file($file, $ext)
+    public static function put_file($file, $ext, $save_name = '')
     {
         $file_name = substr(md5(uniqid()), -20) . '.' . $ext;
 
@@ -136,6 +136,7 @@ class ImageIgosja
             mkdir($upload_dir, 0777, 1);
         }
 
+        if ($save_name) {}
         $file_url = $upload_dir . '/' . $file_name;
 
         if (!file_exists($file_url)) {
@@ -145,7 +146,7 @@ class ImageIgosja
 
             return $dir . '/' . $file_name;
         } else {
-            return self::put_file($file, $ext);
+            return self::put_file($file, $ext, $save_name);
         }
     }
 }

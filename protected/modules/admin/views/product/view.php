@@ -36,7 +36,14 @@ $attributes = array(
     ),
     array(
         'name' => 'category_id',
-        'value' => $model->category->h1_ru,
+        'type' => 'raw',
+        'value' => function ($model) {
+            $category = array();
+            foreach ($model->a_category as $item) {
+                $category[] = $item->category->h1_ru;
+            }
+            return implode('<br>', $category);
+        },
     ),
     array(
         'name' => 'producttype_id',
@@ -65,36 +72,34 @@ $attributes = array(
     array(
         'name' => 'pdf',
         'type' => 'raw',
-        'value' => function($model) {
+        'value' => function ($model) {
             $result = array();
             foreach ($model->pdf as $item) {
-                $result[] = '<a href="' . $item->pdf->url . '" target="_blank">Инструкция</a> '.
+                $result[] = '<a href="' . $item->pdf->url . '" target="_blank">Инструкция</a> ' .
                     CHtml::link('&times;', array('deletepdf', 'id' => $item->id));
             }
             return implode('<br/>', $result);
         },
     ),
     'h1_ru',
-    'text_1_ru',
     array(
         'name' => 'description_ru',
         'type' => 'raw',
     ),
     array(
-        'name' => 'text_2_ru',
+        'name' => 'text_ru',
         'type' => 'raw',
     ),
     'seo_title_ru',
     'seo_description_ru',
     'seo_keywords_ru',
     'h1_uk',
-    'text_1_uk',
     array(
         'name' => 'description_uk',
         'type' => 'raw',
     ),
     array(
-        'name' => 'text_2_uk',
+        'name' => 'text_uk',
         'type' => 'raw',
     ),
     'seo_title_uk',

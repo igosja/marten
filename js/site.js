@@ -204,19 +204,19 @@ jQuery(document).ready(function ($) {
     $('.power-change').on('click', function () {
         $('.tov__art strong').html('№' + $(this).data('sku'));
         $('.tov__price strong').html($(this).data('price') + ' грн');
+        $('.tov__text').html($(this).data('text'));
         $('.tov__btn').data('power', $(this).data('power'));
         $('#characteristic-span').html($(this).data('characteristic'));
         $('#size-span').html($(this).data('size'));
         tov_char_width();
         var simple_id = $(this).data('simple');
+        $('.tov__left').append('<div class="loading"></div>');
         $.ajax({
             url: '/product/image/' + simple_id,
             success: function (data) {
                 $('.tov__left').html(data);
 
-
                 if ($(".slider").length) {
-
                     $('.slider').slick({
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -228,12 +228,9 @@ jQuery(document).ready(function ($) {
                         prevArrow: $('.prev'),
                         nextArrow: $('.next')
                     });
-
                 }
 
-
                 if ($(".slider").length) {
-
                     $('.slider-nav').slick({
                         slidesToShow: 4,
                         slidesToScroll: 1,
@@ -246,7 +243,6 @@ jQuery(document).ready(function ($) {
                         dots: false,
                         infinite: false,
                     });
-
                 }
             }
         });
@@ -275,6 +271,15 @@ jQuery(document).ready(function ($) {
         }
         $('#Review_rating').val(star);
     });
+
+    $('ul.tabs').on('click', 'li:not(.current)', function () {
+        window.location.hash = $(this).attr('id');
+    });
+
+    if (window.location.hash)
+    {
+        $(window.location.hash).trigger('click');
+    }
 
     tov_char_width();
 });

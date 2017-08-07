@@ -18,7 +18,7 @@ class ProductSimple extends CActiveRecord
         return array(
             array('power, price', 'numerical'),
             array('name, sku', 'length', 'max' => 255),
-            array('characteristic_ru, characteristic_uk, size_ru, size_uk', 'safe'),
+            array('characteristic_ru, characteristic_uk, size_ru, size_uk, text_ru, text_uk', 'safe'),
         );
     }
 
@@ -38,6 +38,8 @@ class ProductSimple extends CActiveRecord
             'size_uk' => 'Габариты (Українська)',
             'size_uk_excel' => 'Габариты (Українська, Excel)',
             'sku' => 'Артикул',
+            'text_ru' => 'Текст (Русский)',
+            'text_uk' => 'Текст (Українська)',
         );
     }
 
