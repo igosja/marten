@@ -153,13 +153,14 @@ class ProductController extends AController
                 $ext = explode('.', $ext);
                 $ext = end($ext);
                 $file = $pdf['tmp_name'][$i];
-                $image_url = ImageIgosja::put_file($file, $ext, $pdf['name'][$i]);
+                $image_url = ImageIgosja::put_file($file, $ext);
                 $o_image = new Image();
                 $o_image->url = $image_url;
                 $o_image->save();
                 $image_id = $o_image->primaryKey;
                 $model = new ProductPdf();
                 $model->pdf_id = $image_id;
+                $model->pdf_name = $pdf['name'][$i];
                 $model->product_id = $id;
                 $model->save();
             }
