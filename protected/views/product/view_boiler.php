@@ -72,6 +72,7 @@
                                     for="pr-<?= $item['simple']['id']; ?>"
                                     data-characteristic="<?= str_replace('"', "'", $item['simple']['characteristic_' . Yii::app()->language]); ?>"
                                     data-size="<?= str_replace('"', "'", $item['simple']['size_' . Yii::app()->language]); ?>"
+                                    data-text="<?= str_replace('"', "'", $item['simple']['text_' . Yii::app()->language]); ?>"
                             >
                                 <?= $item['simple']['power']; ?>
                             </label>
@@ -244,7 +245,7 @@
                 <div class="box">
                     <?php foreach ($o_product['pdf'] as $item) { ?>
                         <a href="<?= $item['pdf']['url']; ?>" target="_blank">
-                            <?= Yii::t('views.product.view', 'tab-pdf'); ?>
+                            <?= $item['pdf_name'] ? $item['pdf_name'] : Yii::t('views.product.view', 'tab-pdf'); ?>
                         </a>
                         <br/>
                     <?php } ?>

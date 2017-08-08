@@ -75,7 +75,7 @@ $attributes = array(
         'value' => function ($model) {
             $result = array();
             foreach ($model->pdf as $item) {
-                $result[] = '<a href="' . $item->pdf->url . '" target="_blank">Инструкция</a> ' .
+                $result[] = '<a href="' . $item->pdf->url . '" target="_blank">' . ($item->pdf_name ? $item->pdf_name : 'Инструкция') . '</a> ' .
                     CHtml::link('&times;', array('deletepdf', 'id' => $item->id));
             }
             return implode('<br/>', $result);

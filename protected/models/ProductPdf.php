@@ -12,6 +12,7 @@ class ProductPdf extends CActiveRecord
         return array(
             array('product_id, pdf_id', 'required'),
             array('product_id, pdf_id', 'numerical'),
+            array('pdf_name', 'length', 'max' => 255),
         );
     }
 
