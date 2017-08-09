@@ -6,11 +6,11 @@ class ReviewController extends Controller
     {
         $page = Yii::app()->request->getQuery('page', 1);
         $offset = ($page - 1) * Review::ON_PAGE_PRODUCT;
-        $a_review = Review::model()->findAllByAttributes(
+        $a_review = Review::model()->with('product')->findAllByAttributes(
             array('status' => 1),
-            array('offset' => $offset, 'limit' => Review::ON_PAGE_PRODUCT, 'order' => 'id DESC')
+            array('condition' => 'h1_ru is not null', 'offset' => $offset, 'limit' => Review::ON_PAGE_PRODUCT, 'order' => 't.id DESC')
         );
-        $count = Review::model()->countByAttributes(array('status' => 1));
+        $count = Review::model()->with('product')->countByAttributes(array('status' => 1), array('condition' => 'h1_ru is not null'));
         $more = false;
         if ($count > count($a_review) + $offset) {
             $more = true;
@@ -52,9 +52,10 @@ class ReviewController extends Controller
 
     public function actionMore()
     {
-        $a_news = Review::model()->findAllByAttributes(
+        $a_news = Review::model()->with('product')->findAllByAttributes(
             array('status' => 1),
             array(
+                'condition' => 'h1_ru is not null',
                 'order' => 'id DESC',
                 'offset' => Yii::app()->request->getQuery('offset', 0) + Review::ON_PAGE_PRODUCT,
                 'limit' => Review::ON_PAGE_PRODUCT
@@ -67,8 +68,8 @@ class ReviewController extends Controller
 
     public function actionCheck()
     {
-        $count = Review::model()->countByAttributes(
-            array('status' => 1)
+        $count = Review::model()->with('product')->countByAttributes(
+            array('status' => 1), array('condition' => 'h1_ru is not null')
         );
         $offset = (int)Yii::app()->request->getQuery('offset', 0) + Review::ON_PAGE_PRODUCT;
         $remove = false;
