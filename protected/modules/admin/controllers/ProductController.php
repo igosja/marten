@@ -169,9 +169,6 @@ class ProductController extends AController
 
     public function uploadSize($id)
     {
-        print '<pre>';
-        print_r($_FILES);
-        exit;
         if (isset($_FILES['size']['name']) && !empty($_FILES['size']['name'])) {
             $image = $_FILES['size'];
             $ext = $image['name'];
@@ -186,6 +183,9 @@ class ProductController extends AController
             $model = $this->getModel()->findByPk($id);
             $model->size_id = $image_id;
             $model->save();
+            print '<pre>';
+            print_r($model);
+            exit;
         }
     }
 
