@@ -14,12 +14,12 @@ class Product extends CActiveRecord
     public function rules()
     {
         return array(
-            array('category_id, producttype_id', 'required'),
+            array('producttype_id', 'required'),
             array('instock, producttype_id, size_id, status', 'numerical'),
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
-                'description_ru, description_uk, text_ru, text_uk,
+                'category_id, description_ru, description_uk, text_ru, text_uk,
                 seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk',
                 'safe'
             ),

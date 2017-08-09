@@ -183,9 +183,6 @@ class ProductController extends AController
             $model = $this->getModel()->findByPk($id);
             $model->size_id = $image_id;
             $model->save();
-            print '<pre>';
-            print_r($model);
-            exit;
         }
     }
 
