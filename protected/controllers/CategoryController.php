@@ -32,11 +32,11 @@ class CategoryController extends Controller
                 'condition' => 'parent_id=' . $o_category->primaryKey),
             ))->findAllByAttributes(
                 array('status' => 1),
-                array('condition' => 'h1_ru is not null', 'order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
+                array('condition' => 'product.h1_ru is not null', 'order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
             );
             $count = Review::model()->with(array('product.a_category.category' => array(
                 'condition' => 'parent_id=' . $o_category->primaryKey),
-            ))->countByAttributes(array('status' => 1), array('condition' => 'h1_ru is not null'));
+            ))->countByAttributes(array('status' => 1), array('condition' => 'product.h1_ru is not null'));
             $more = false;
             if ($count > count($a_review)) {
                 $more = true;
@@ -49,17 +49,17 @@ class CategoryController extends Controller
             ));
         } else {
             $a_product = ProductCategory::model()->with('product')->findAllByAttributes(
-                array('category_id' => $o_category->primaryKey), array('condition' => 'h1_ru is not null')
+                array('category_id' => $o_category->primaryKey), array('condition' => 'product.h1_ru is not null')
             );
             $a_review = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey
             )))->findAllByAttributes(
                 array('status' => 1),
-                array('condition' => 'h1_ru is not null', 'order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
+                array('condition' => 'product.h1_ru is not null', 'order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
             );
             $count = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey),
-            ))->countByAttributes(array('status' => 1), array('condition' => 'h1_ru is not null'));
+            ))->countByAttributes(array('status' => 1), array('condition' => 'product.h1_ru is not null'));
             $more = false;
             if ($count > count($a_review)) {
                 $more = true;
@@ -84,7 +84,7 @@ class CategoryController extends Controller
             ))->findAllByAttributes(
                 array('status' => 1),
                 array(
-                    'condition' => 'h1_ru is not null',
+                    'condition' => 'product.h1_ru is not null',
                     'order' => 't.id DESC',
                     'offset' => Yii::app()->request->getQuery('offset', 0) + Review::ON_PAGE_CATEGORY,
                     'limit' => Review::ON_PAGE_CATEGORY
@@ -96,7 +96,7 @@ class CategoryController extends Controller
             ))->findAllByAttributes(
                 array('status' => 1),
                 array(
-                    'condition' => 'h1_ru is not null',
+                    'condition' => 'product.h1_ru is not null',
                     'order' => 't.id DESC',
                     'offset' => Yii::app()->request->getQuery('offset', 0) + Review::ON_PAGE_CATEGORY,
                     'limit' => Review::ON_PAGE_CATEGORY
@@ -117,13 +117,13 @@ class CategoryController extends Controller
             $count = Review::model()->with(array('product.a_category.category' => array(
                 'condition' => 'parent_id=' . $id),
             ))->countByAttributes(
-                array('status' => 1), array('condition' => 'h1_ru is not null')
+                array('status' => 1), array('condition' => 'product.h1_ru is not null')
             );
         } else {
             $count = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $id),
             ))->countByAttributes(
-                array('status' => 1), array('condition' => 'h1_ru is not null')
+                array('status' => 1), array('condition' => 'product.h1_ru is not null')
             );
         };
         $offset = (int)Yii::app()->request->getQuery('offset', 0) + Review::ON_PAGE_CATEGORY;
