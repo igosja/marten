@@ -53,7 +53,7 @@ class CategoryController extends Controller
             );
             $a_review = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey
-            )), array('product' => array(
+            ), 'product' => array(
                 'condition' => 'h1_ru is not null'
             )))->findAllByAttributes(
                 array('status' => 1),
