@@ -52,14 +52,16 @@ class CategoryController extends Controller
                 array('category_id' => $o_category->primaryKey), array('condition' => 'h1_ru is not null')
             );
             $a_review = Review::model()->with(array('product.a_category' => array(
-                'condition' => 'category_id=' . $o_category->primaryKey),
-            ))->findAllByAttributes(
+                'condition' => 'category_id=' . $o_category->primaryKey
+            )), array('product' => array(
+                'condition' => 'h1_ru is not null'
+            )))->findAllByAttributes(
                 array('status' => 1),
                 array('order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
             );
             $count = Review::model()->with(array('product.a_category' => array(
-                    'condition' => 'category_id=' . $o_category->primaryKey),
-                ))->countByAttributes(array('status' => 1));
+                'condition' => 'category_id=' . $o_category->primaryKey),
+            ))->countByAttributes(array('status' => 1));
             $more = false;
             if ($count > count($a_review)) {
                 $more = true;
