@@ -48,8 +48,8 @@ class CategoryController extends Controller
                 'o_category' => $o_category,
             ));
         } else {
-            $a_product = ProductCategory::model()->findAllByAttributes(
-                array('category_id' => $o_category->primaryKey)
+            $a_product = ProductCategory::model()->with('product')->findAllByAttributes(
+                array('category_id' => $o_category->primaryKey), array('condition' => 'h1_ru is not null')
             );
             $a_review = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey),
