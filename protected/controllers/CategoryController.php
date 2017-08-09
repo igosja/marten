@@ -53,15 +53,10 @@ class CategoryController extends Controller
             );
             $a_review = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey
-            ), 'product' => array(
-                'condition' => 'h12_ru is not null'
             )))->findAllByAttributes(
                 array('status' => 1),
                 array('order' => 't.id DESC', 'limit' => Review::ON_PAGE_CATEGORY)
             );
-            print '<pre>';
-            print_r($a_review);
-            exit;
             $count = Review::model()->with(array('product.a_category' => array(
                 'condition' => 'category_id=' . $o_category->primaryKey),
             ))->countByAttributes(array('status' => 1));
