@@ -59,7 +59,8 @@ class Controller extends CController
         $this->callme = new CallMe();
         if ($data = Yii::app()->request->getPost('CallMe')) {
             $this->callme->attributes = $data;
-            if ($this->callme->validate()) {
+            $this->callme->date = time();
+            if ($this->callme->save()) {
                 $this->callme->send();
                 $this->refresh();
             }
@@ -67,7 +68,8 @@ class Controller extends CController
         $this->order = new Order();
         if ($data = Yii::app()->request->getPost('Order')) {
             $this->order->attributes = $data;
-            if ($this->order->validate()) {
+            $this->order->date = time();
+            if ($this->order->save()) {
                 $this->order->send();
                 $this->refresh();
             }
