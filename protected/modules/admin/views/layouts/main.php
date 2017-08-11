@@ -30,6 +30,28 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+                    <span class="badge"><?= ($this->notification ? $this->notification : ''); ?></span>
+                    <i class="fa fa-envelope fa-fw"></i>
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-messages">
+                    <li>
+                        <?= CHtml::link(
+                            '<span class="badge">' . ($this->callme ? $this->callme : '') . '</span> Обратные звонки',
+                            array('callme/index')
+                        ); ?>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <?= CHtml::link(
+                            '<span class="badge">' . ($this->order ? $this->order : '') . '</span> Заказы',
+                            array('order/index')
+                        ); ?>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
                 <?= CHtml::link('<i class="fa fa-sign-out fa-fw"></i>', array('/site/logout')); ?>
             </li>
         </ul>

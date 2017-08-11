@@ -206,6 +206,7 @@ jQuery(document).ready(function ($) {
         $('.tov__price strong').html($(this).data('price') + ' грн');
         $('.tov__text').html($(this).data('text'));
         $('.tov__btn').data('power', $(this).data('power'));
+        $('.tov__btn').data('price', $(this).data('price'));
         $('#characteristic-span').html($(this).data('characteristic'));
         $('#size-span').html($(this).data('size'));
         tov_char_width();
@@ -253,6 +254,7 @@ jQuery(document).ready(function ($) {
         $('.form-buy__text').html($(this).data('product'));
         $('#Order_product').val($(this).data('product'));
         $('#Order_power').val($(this).data('power'));
+        $('#Order_price').val($(this).data('price'));
     });
 
     $('.rating-star-form').on('click', function () {

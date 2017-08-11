@@ -149,7 +149,7 @@
     </header>
     <div class="wrap">
         <nav class="nav-main">
-            <a href="javascript:;" class="menu-close"></a>
+            <a href="javascript:" class="menu-close"></a>
             <ul>
                 <?php foreach ($this->a_category as $item) { ?>
                     <li>
@@ -413,6 +413,7 @@
                 </div>
                 <?= $form->hiddenField($this->order, 'product'); ?>
                 <?= $form->hiddenField($this->order, 'power'); ?>
+                <?= $form->hiddenField($this->order, 'price'); ?>
                 <?= CHtml::label(
                     Yii::t('views.layout.index', 'form-order-label-name') . ' <span></span>',
                     '',

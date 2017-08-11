@@ -1,15 +1,17 @@
 <?php
 
-class CallMe extends CFormModel
+class CallMe extends CActiveRecord
 {
-    public $name;
-    public $phone;
-    public $text;
+    public function tableName()
+    {
+        return 'callme';
+    }
 
     public function rules()
     {
         return array(
             array('name, phone', 'required'),
+            array('date', 'numerical'),
             array('name, phone', 'length', 'max' => 255),
             array('text', 'safe'),
         );
@@ -21,7 +23,18 @@ class CallMe extends CFormModel
             'name' => Yii::t('models.CallMe', 'label-name'),
             'phone' => Yii::t('models.CallMe', 'label-phone'),
             'text' => Yii::t('models.CallMe', 'label-text'),
+            'date' => 'Время',
+            'status' => 'Статус',
         );
+    }
+
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
     }
 
     public function send()
@@ -39,5 +52,10 @@ class CallMe extends CFormModel
         $mail->setSubject('Клиент заказал обратный звонок через сайт');
         $mail->setHtml($text);
         $mail->send();
+    }
+
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
     }
 }
