@@ -268,6 +268,10 @@ header{
 .header-work-show{
   display: none;
 }
+.header-work strong{
+  display: inline-block;
+  width: 14px;
+}
 
 /*==================== header bottom =============================*/
 .header-bot{
@@ -2004,7 +2008,10 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
 .tov__icons div br{
   display: none;
 }
-
+.tov__icons div a{
+  color:#dc211e;
+  text-decoration: none;
+}
 
 .tov__bottom{
   margin-bottom: 30px;
@@ -2087,19 +2094,17 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
 .box.visible {
   display: block;
 }
-.box__half:first-of-type{
-  float: left;
-  width:600px;
-}
-.box__half iframe{
+
+.box iframe{
   width: 600px; 
   height: 430px;  
-}
-.box__half:last-of-type{
-  margin-left: 620px; 
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 .tov-char{
-  width: 100%;
+  width:1000px;
+  margin:0 auto;
   border-bottom: 1px solid #f4f4f4;
   border-right: 1px solid #f4f4f4;  
 }
@@ -2114,16 +2119,16 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   padding-bottom: 9px; 
 }
 .tov-char th:nth-of-type(3){
-  text-align: right;
   padding-right: 15px;
 }
 .tov-char td{
   border-right:1px solid #f4f4f4;
   padding-left: 15px;
-  width: 5.9%;
+  width: 25%!important;
   padding-top: 10px;
   padding-bottom: 10px;   
   font-size:14px;
+  padding-right: 15px;
 }
 .tov-char td:first-of-type{
   border-left:1px solid #f4f4f4;
@@ -2132,24 +2137,55 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   background: #f4f4f4;
 }
 .tov-char tr:nth-of-type(2) td:first-of-type{
-  width:35.1%;
+  width:50%!important;
 }
 .tov-char td:last-of-type{
   border-right:1px solid #f4f4f4;
 }
-.tov-char__in-table{
-  width: 100%;
+.tov-char td:nth-of-type(2),
+.tov-char td:nth-of-type(3),
+.tov-char th:nth-of-type(2),
+.tov-char th:nth-of-type(3){
+  text-align: center;
 }
-.tov-char__in-table td{
-  background: #fff!important;
-  border:0;
+.passp-out{
+  text-align: center;
 }
-.tov-char__in-table td:first-of-type{
-  border-right: 1px solid #f4f4f4;
-  width: 67%;
+.passp{
+  display: inline-block;
+  width: 410px;
+  text-decoration: none;  
+  margin:0 10px 20px;
 }
-.tov-char__in-table tr:nth-of-type(2n+1) td:last-of-type{
-  background: #f4f4f4!important;
+.passp-img{
+  border:5px solid #dc211e;
+}
+.passp-img img{
+  max-width: 100%;
+}
+.passp-text{
+  font-size: 14px;
+  line-height: 18px; 
+  float: left;
+  height: 82px;
+  background: #dc211e;
+  width: 50%;
+  box-sizing: border-box;
+  padding:10px 0 0 15px;
+  color:#fff;
+  text-decoration: none;  
+  border-bottom: 0;
+}
+.passp-title{
+  float: left;
+  width: 50%;
+  color:#000;  
+  font-size:22px;
+  font-family: 'PlumbBold'; 
+  height: 82px;
+  line-height: 82px; 
+  text-align: center;  
+  box-sizing: border-box;
 }
 /*==================== footer top =============================*/
 .footer-top{
@@ -2557,9 +2593,27 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   .owl-controls .owl-buttons .owl-next{
     right: 30px;
   }   
-}
 
-@media only screen and (max-width: 1599px) {
+  .tov__icons div:first-of-type br{
+    display: block;
+  }  
+  .tov__icons div:first-of-type img{
+    float: left;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (min-width: 1640px) {
+  .tov__icons div:first-of-type br{
+    display: block;
+  }    
+  .tov__icons div:first-of-type img{
+    float: left;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 1639px) {
   .tov__icons div{
     width: 26%;
     padding-right: 20px;
@@ -2582,6 +2636,7 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   .tov__icons div br{
     display: block;
   }
+    
 }
 @media only screen and (max-width: 1560px) {
   .main-b__btns__btn:first-of-type,
@@ -2646,6 +2701,9 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
 	.nav-main > ul > li:nth-of-type(8) {
 	  width:13.5%;
 	}
+  .tov__icons div:first-of-type br{
+    display: none;
+  }   
 }
 @media only screen and (max-width: 1370px) {
 	.nav-main > ul > li > a span{
@@ -2665,4 +2723,9 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
     text-align: center;
     padding-left: 0;    
   } 
+}
+@media only screen and (max-width: 1260px) {
+  .tov__icons div{
+    padding-right: 10px;
+  }
 }
