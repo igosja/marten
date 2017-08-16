@@ -254,7 +254,18 @@
                             </div>
                             <div class="clearfix">
                                 <div class="passp-text">
-                                    <?= $item['pdf_name'] ? $item['pdf_name'] : Yii::t('views.product.view', 'tab-pdf'); ?>
+                                    <?php
+                                    $pdf_name = $item['pdf_name'] ? $item['pdf_name'] : Yii::t('views.product.view', 'tab-pdf');
+                                    $pdf_name = explode(' ', $pdf_name);
+                                    $count_pdf_name = count($pdf_name);
+                                    $count_first = ceil($count_pdf_name / 2);
+                                    $pdf_first = array_slice($pdf_name, 0, $count_first-1);
+                                    $pdf_first = implode(' ', $pdf_first);
+                                    $pdf_second = array_slice($pdf_name, $count_first);
+                                    $pdf_second = implode(' ', $pdf_second);
+                                    $pdf_name = $pdf_first . '<br>' . $pdf_second;
+                                    print $pdf_name;
+                                    ?>
                                 </div>
                                 <div class="passp-title">
                                     Marten
