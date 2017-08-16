@@ -744,7 +744,7 @@
 	  margin-top: 10px;
 	  height: 50px;
 	  width: 150px;
-	  background: url(../img/btn-buy-sm.png) 0 0 no-repeat; 
+	  background: url(../img/imgpsh_fullsize.png) 0 0 no-repeat; 
 	}
 	.tov__icons div{
 	  float: left;
@@ -816,6 +816,9 @@
 	}
 	.tov-char{
 	  width:100%;
+	}
+	.size-img{
+	  width: 100%;
 	}
 	.tov-char th{
 	  font-size:13px;

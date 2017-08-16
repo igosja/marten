@@ -2549,6 +2549,9 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   margin-left: 14px;
 }
 
+.size-img{
+  width: 1000px;
+}
 @media only screen and (min-width: 1900px) {
   .wrap {
     width: 1860px;
