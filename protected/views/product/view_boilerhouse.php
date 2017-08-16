@@ -108,7 +108,10 @@
                 <div class="tov__icons">
                     <div class="clearfix">
                         <img src="/img/tov-icons/icon-1.png" alt="<?= Yii::t('views.product.view', 'delivery'); ?>">
-                        <span><?= Yii::t('views.product.view', 'delivery'); ?></span>
+                        <?= CHtml::link(
+                            Yii::t('views.product.view', 'delivery'),
+                            array('payment/index')
+                        ); ?>
                     </div>
                     <div class="clearfix">
                         <img src="/img/tov-icons/icon-2.png" alt="<?= Yii::t('views.product.view', 'guarantee'); ?>">

@@ -40,7 +40,7 @@ class Contact extends CActiveRecord
             'h1_ru' => 'H1 (Русский)',
             'h1_uk' => 'H1 (Українська)',
             'hours_monday' => 'Часы работы (пн-пт)',
-            'hours_saturday' => 'Часы работы (сб-вс)',
+            'hours_saturday' => 'Часы работы (сб)',
             'phone_city' => 'Телефон (город)',
             'phone_kyivstar' => 'Телефон (київстар)',
             'phone_life' => 'Телефон (lifecell)',

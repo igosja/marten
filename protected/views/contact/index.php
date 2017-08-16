@@ -27,11 +27,10 @@
                     <a href="mailto:<?= $o_page['email']; ?>"><?= $o_page['email']; ?></a>
                 </div>
                 <div class="contacts-i">
-                    <strong><?= Yii::t('views.contact.index', 'site'); ?></strong><br/>
-                    <?= CHtml::link(
-                        $_SERVER['HTTP_HOST'],
-                        array('index/index')
-                    ); ?>
+                    <strong><?= Yii::t('views.contact.index', 'schedule'); ?></strong><br />
+                    <?= Yii::t('views.contact.index', 'monday'); ?> &nbsp;<?= $this->contact['hours_monday']; ?><br />
+                    <?= Yii::t('views.contact.index', 'saturday'); ?> &nbsp; &nbsp; &nbsp;<?= $this->contact['hours_saturday']; ?><br />
+                    <?= Yii::t('views.contact.index', 'sunday'); ?>  &nbsp;- &nbsp; <?= Yii::t('views.contact.index', 'free-day'); ?>
                 </div>
             </div>
             <div class="contacts-c">

@@ -109,7 +109,10 @@
                 <div class="tov__icons">
                     <div class="clearfix">
                         <img src="/img/tov-icons/icon-1.png" alt="<?= Yii::t('views.product.view', 'delivery'); ?>">
-                        <span><?= Yii::t('views.product.view', 'delivery'); ?></span>
+                        <?= CHtml::link(
+                            Yii::t('views.product.view', 'delivery'),
+                            array('payment/index')
+                        ); ?>
                     </div>
                     <div class="clearfix">
                         <img src="/img/tov-icons/icon-2.png" alt="<?= Yii::t('views.product.view', 'guarantee'); ?>">
@@ -245,10 +248,19 @@
                 </div>
                 <div class="box">
                     <?php foreach ($o_product['pdf'] as $item) { ?>
-                        <a href="<?= $item['pdf']['url']; ?>" target="_blank">
-                            <?= $item['pdf_name'] ? $item['pdf_name'] : Yii::t('views.product.view', 'tab-pdf'); ?>
+                        <a href="<?= $item['pdf']['url']; ?>" target="_blank" class="passp">
+                            <div class="passp-img">
+                                <img src="/img/trash/tov-img.jpg" alt="">
+                            </div>
+                            <div class="clearfix">
+                                <div class="passp-text">
+                                    <?= $item['pdf_name'] ? $item['pdf_name'] : Yii::t('views.product.view', 'tab-pdf'); ?>
+                                </div>
+                                <div class="passp-title">
+                                    <?= $o_product['h1_' . Yii::app()->language]; ?>
+                                </div>
+                            </div>
                         </a>
-                        <br/>
                     <?php } ?>
                 </div>
             </div>
