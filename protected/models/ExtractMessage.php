@@ -24,9 +24,8 @@ class ExtractMessage extends CFormModel
                 continue;
             }
             $path = $dir . DIRECTORY_SEPARATOR . $file;
-            if (false !== strpos($path, '../controllers') ||
-                false !== strpos($path, '../models') ||
-                false !== strpos($path, '../views')
+            if (false !== strpos($path, '../controllers') || false !== strpos($path, '../models')
+                || false !== strpos($path, '../views')
             ) {
                 if (is_file($path)) {
                     $list[] = $path;
@@ -79,7 +78,11 @@ class ExtractMessage extends CFormModel
 
                     if ($pendingParenthesisCount === 0) {
                         // end of translator call or end of something that we can't extract
-                        if (isset($buffer[0][0], $buffer[1], $buffer[2][0]) && $buffer[0][0] === T_CONSTANT_ENCAPSED_STRING && $buffer[1] === ',' && $buffer[2][0] === T_CONSTANT_ENCAPSED_STRING) {
+                        if (isset($buffer[0][0], $buffer[1], $buffer[2][0])
+                            && $buffer[0][0] === T_CONSTANT_ENCAPSED_STRING
+                            && $buffer[1] === ','
+                            && $buffer[2][0] === T_CONSTANT_ENCAPSED_STRING
+                        ) {
                             // is valid call we can extract
                             $category = stripcslashes($buffer[0][1]);
                             $category = mb_substr($category, 1, mb_strlen($category) - 2);
@@ -92,7 +95,8 @@ class ExtractMessage extends CFormModel
                             $nestedTokens = array_slice($buffer, 3);
                             if (count($nestedTokens) > $translatorTokensCount) {
                                 // search for possible nested translator calls
-                                $messages = array_merge_recursive($messages, $this->extractMessagesFromTokens($nestedTokens, $translatorTokens));
+                                $messages = array_merge_recursive($messages,
+                                    $this->extractMessagesFromTokens($nestedTokens, $translatorTokens));
                             }
                         }
 
@@ -173,7 +177,8 @@ class ExtractMessage extends CFormModel
 
         foreach ($new as $category => $msgs) {
             foreach ($msgs as $msg) {
-                Yii::app()->db->createCommand()->insert('i18n_source_messages', array('category' => $category, 'message' => $msg));
+                Yii::app()->db->createCommand()
+                    ->insert('i18n_source_messages', array('category' => $category, 'message' => $msg));
                 $insert_id = Yii::app()->db->getLastInsertID();
                 foreach ($languages as $language) {
                     Yii::app()->db->createCommand()
@@ -199,8 +204,10 @@ class ExtractMessage extends CFormModel
         }
 
         if (!empty($obsolete)) {
-            Yii::app()->db->createCommand()
-                ->delete('i18n_source_messages', 'id=:id', array('id' => $obsolete));
+            foreach ($obsolete as $item) {
+                Yii::app()->db->createCommand()
+                    ->delete('i18n_source_messages', 'id=:id', array('id' => $item));
+            }
         }
     }
 }

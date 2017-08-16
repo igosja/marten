@@ -130,8 +130,9 @@
                     <span class="header-work">
                         <small></small>
                         <?= Yii::t('views.layouts.main', 'monday'); ?>
-                        <?= $this->contact['hours_monday']; ?>,
-                        <?= Yii::t('views.layouts.main', 'saturday'); ?>
+                        &nbsp;<?= $this->contact['hours_monday']; ?>&nbsp;
+                        <br />
+                        <?= Yii::t('views.layouts.main', 'saturday'); ?><strong></strong>&nbsp;
                         <?= $this->contact['hours_saturday']; ?>
                     </span>
                 </div>
