@@ -259,7 +259,7 @@
                                     $pdf_name = explode(' ', $pdf_name);
                                     $count_pdf_name = count($pdf_name);
                                     $count_first = ceil($count_pdf_name / 2);
-                                    $pdf_first = array_slice($pdf_name, 0, $count_first-1);
+                                    $pdf_first = array_slice($pdf_name, 0, $count_first);
                                     $pdf_first = implode(' ', $pdf_first);
                                     $pdf_second = array_slice($pdf_name, $count_first);
                                     $pdf_second = implode(' ', $pdf_second);
