@@ -257,7 +257,7 @@
                                     <?= $item['pdf_name'] ? $item['pdf_name'] : Yii::t('views.product.view', 'tab-pdf'); ?>
                                 </div>
                                 <div class="passp-title">
-                                    <?= $o_product['h1_' . Yii::app()->language]; ?>
+                                    Marten
                                 </div>
                             </div>
                         </a>
