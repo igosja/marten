@@ -26,7 +26,7 @@
                             <?= $a_advantage[$i]['text_' . Yii::app()->language]; ?>
                         </p>
                     </div>
-                <?php if (1 == $i % 2 || $i+1 = $count_advantage) { ?>
+                <?php if (1 == $i % 2 || $i + 1 == $count_advantage) { ?>
                     </div>
                 <?php } ?>
             <?php } ?>
