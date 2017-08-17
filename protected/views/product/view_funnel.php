@@ -11,13 +11,14 @@
 <section class="content">
     <div class="wrap">
         <?= $this->renderPartial('/include/bread'); ?>
-        <div class="clearfix tov">
+        <div class="clearfix tov" itemscope itemtype="http://schema.org/Product">
             <div class="tov__left">
                 <div class="slider-out">
                     <div class="slider clearfix">
                         <?php foreach ($o_product['a_simple'][0]['simple']['a_image'] as $item) { ?>
                             <div>
                                 <img
+                                        itemprop="image"
                                         src="<?= ImageIgosja::resize($item['image_id'], 600, 600); ?>"
                                         alt="<?= $o_product['h1_' . Yii::app()->language]; ?>"
                                 />
@@ -40,7 +41,7 @@
             </div>
             <div class="tov__right">
                 <div class="tov__info">
-                    <h1 class="tov__title"><?= $o_product['h1_' . Yii::app()->language]; ?></h1>
+                    <h1 class="tov__title" itemprop="name"><?= $o_product['h1_' . Yii::app()->language]; ?></h1>
                     <div class="tov__art"><?php Yii::t('views.product.view', 'sku'); ?>
                         <strong style="display: none;">№<?= isset($o_product['a_simple'][0]['simple']['sku']) ? $o_product['a_simple'][0]['simple']['sku'] : 0; ?></strong>
                         <div class="tov__stars otziv-i__stars">
@@ -80,7 +81,9 @@
                         <?php $checked = false;
                     } ?>
                 </div>
-                <div class="tov__gr">
+                <div class="tov__gr" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="UAH" />
+                    <span itemprop="price" style="display:none;"><?= isset($o_product['a_simple'][0]['simple']['price']) ? $o_product['a_simple'][0]['simple']['price'] : 0; ?></span>
                     <div class="tov__price"><?= Yii::t('views.product.view', 'price'); ?>:
                         <strong>
                             <?= number_format(isset($o_product['a_simple'][0]['simple']['price']) ? $o_product['a_simple'][0]['simple']['price'] : 0, 0, '', ' '); ?>
