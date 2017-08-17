@@ -39,6 +39,7 @@ class AController extends CController
         $this->callme = CallMe::model()->countByAttributes(array('status' => 0));
         $this->order = Order::model()->countByAttributes(array('status' => 0));
         $this->notification = $this->callme + $this->order;
+
         return $action;
     }
 }

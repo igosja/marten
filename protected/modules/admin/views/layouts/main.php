@@ -223,6 +223,9 @@
                     <li>
                         <?= CHtml::link('Переводы', array('translate/index')); ?>
                     </li>
+                    <li>
+                        <?= CHtml::link('Sitemap', array('sitemap/index')); ?>
+                    </li>
                 </ul>
             </div>
         </div>
