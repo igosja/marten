@@ -11,8 +11,10 @@
         <?= $o_page['text_' . Yii::app()->language]; ?>
         <div class="divider"></div>
         <div class="clearfix adv-list">
-            <div class="clearfix">
-                <?php for ($i = 0, $count_advantage = count($a_advantage); $i < $count_advantage; $i++) { ?>
+            <?php for ($i = 0, $count_advantage = count($a_advantage); $i < $count_advantage; $i++) { ?>
+                <?php if (0 == $i % 2) { ?>
+                    <div class="clearfix">
+                <?php } ?>
                     <div class="adv-list__item">
                         <div class="adv-list__item__nmb">
                             <?= $i + 1; ?>
@@ -24,8 +26,10 @@
                             <?= $a_advantage[$i]['text_' . Yii::app()->language]; ?>
                         </p>
                     </div>
+                <?php if (1 == $i % 2 || $i+1 = $count_advantage) { ?>
+                    </div>
                 <?php } ?>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
