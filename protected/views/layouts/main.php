@@ -322,8 +322,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:" class="footer-facebook"></a>
-                        <a href="javascript:" class="footer-twitter"></a>
+                        <a href="https://www.facebook.com/kotly.marten/" class="footer-facebook" target="_blank"></a>
+                        <a href="https://www.youtube.com/channel/UC9-u7r_nzsRDSb00PCfmBww?view_as=subscriber" class="footer-twitter" target="_blank"></a>
                     </li>
                 </ul>
             </div>

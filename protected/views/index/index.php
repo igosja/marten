@@ -1,7 +1,9 @@
 <?php
 /**
  * @var $a_news array
- * @var $a_project array
+ * @var $a_project_1 array
+ * @var $a_project_2 array
+ * @var $a_project_3 array
  * @var $a_slide array
  * @var $o_page PageMain
  */
@@ -53,7 +55,27 @@
         <div class="wrap clearfix">
             <h2 class="b-title"><?= Yii::t('views.index.index', 'project'); ?></h2>
             <div class="proj-b clearfix">
-                <?php foreach ($a_project as $item) { ?>
+                <?php foreach ($a_project_1 as $item) { ?>
+                    <?= CHtml::link(
+                        '<img src="' . ImageIgosja::resize($item['image_id'], 600, 380) . '" alt="' . $item['projectcategory']['name_' . Yii::app()->language] . '">
+                        <span class="proj-b__i__info">
+                            <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
+                        </span>',
+                        array('project/index'),
+                        array('class' => 'proj-b__i')
+                    ); ?>
+                <?php } ?>
+                <?php foreach ($a_project_2 as $item) { ?>
+                    <?= CHtml::link(
+                        '<img src="' . ImageIgosja::resize($item['image_id'], 600, 380) . '" alt="' . $item['projectcategory']['name_' . Yii::app()->language] . '">
+                        <span class="proj-b__i__info">
+                            <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
+                        </span>',
+                        array('project/index'),
+                        array('class' => 'proj-b__i')
+                    ); ?>
+                <?php } ?>
+                <?php foreach ($a_project_3 as $item) { ?>
                     <?= CHtml::link(
                         '<img src="' . ImageIgosja::resize($item['image_id'], 600, 380) . '" alt="' . $item['projectcategory']['name_' . Yii::app()->language] . '">
                         <span class="proj-b__i__info">
