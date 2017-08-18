@@ -1,5 +1,5 @@
-function initialize() {
-    var myLatlng = new google.maps.LatLng(50.4469359, 30.4641351);
+function initialize(lat, lng) {
+    var myLatlng = new google.maps.LatLng(lat, lng);
     var mapOptions = {
         zoom: 16,
         center: myLatlng
@@ -40,7 +40,7 @@ $(window).load(function () {
 
 jQuery(document).ready(function ($) {
     if ($("#map").length) {
-        initialize();
+        initialize($("#map").data('lat'), $("#map").data('lng'));
     }
 
     var delay = 1000;
