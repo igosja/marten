@@ -133,7 +133,7 @@
         </div>
         <div class="tov__bottom">
             <div class="product__bottom boxs">
-                <ul class="tabs">
+                <ul class="tabs tabs_3">
                     <li id="tab-description">
                         <?= Yii::t('views.product.view', 'tab-description'); ?>
                     </li>
