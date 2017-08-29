@@ -136,7 +136,9 @@
             <div class="product__bottom boxs">
                 <ul class="tabs">
                     <li id="tab-description">
-                        <?= Yii::t('views.product.view', 'tab-description'); ?>
+                        <a href="javascript:">
+                            <?= Yii::t('views.product.view', 'tab-description'); ?>
+                        </a>
                     </li>
                     <li class="current" id="tab-characteristic">
                         <a href="javascript:">
