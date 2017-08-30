@@ -1506,6 +1506,9 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   display: inline-block;
   margin-bottom: 30px;
   text-decoration: none;  
+  background: #f4f4f4;  
+  border-bottom: 1px solid #dc211e;
+  padding-bottom: 15px;  
 }
 .cat__i:nth-of-type(3n+2){
   margin: 0 2.6% 30px;
@@ -1531,6 +1534,19 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
 .cat__i__img{
   border:10px solid #f4f4f4;
 }
+.cat-i__info{
+  display: block;
+  height: 86px;
+  overflow:hidden;
+  color:#231f20;
+  font-size:14px;
+  line-height: 22px;
+  margin: 0 20px;
+  border-top:1px solid #d3d2d2;
+  text-align: left;
+  padding-top: 10px;
+  
+}
 .cat-i__price{
   display: block;
   height:64px;
@@ -1540,7 +1556,6 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   color:#231f20;
   font-family: 'PlumbMedium';  
   text-align: center;
-  border-bottom: 1px solid #dc211e;  
 }
 .cat-i__price small{
   font-size:16px;
@@ -2036,6 +2051,13 @@ box-shadow: inset 0px 3px 1px 0px rgba(244,244,244,1);
   font-family: 'PlumbBold';    
   cursor: pointer;
   color: #dc211e;  
+}
+.tabs_3 li{
+  width: 33.3%;
+}
+.tabs_3 li:nth-of-type(4),
+.tabs_3 li:nth-of-type(5){
+  display: none;
 }
 .tabs li a{
   display: block;
