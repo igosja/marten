@@ -139,7 +139,9 @@
 		right: 200px;
 		top: 15px;
 		cursor:pointer;
- 		background: url(../img/sprite.png) 0 -970px no-repeat;   		
+ 		background: url(../img/maps.svg) 0 0 no-repeat;   	
+ 		background-size:15px 19px; 	 
+
 	}
 	.header-adress-show:before{
 		content:'';
@@ -158,7 +160,8 @@
 		right: 146px;
 		top: 15px;
 		cursor:pointer;
- 		background: url(../img/sprite.png) 0 -995px no-repeat;   		
+ 		background: url(../img/date.svg) 0 0 no-repeat;   
+ 		background-size:19px 19px; 	 				
 	}
 	.header-work-show:before{
 		content:'';
@@ -178,7 +181,8 @@
 		right: 92px;
 		top: 15px;
 		cursor:pointer;
- 		background: url(../img/sprite.png) 0 -1020px no-repeat;   		
+ 		background: url(../img/phone.svg) 0 0 no-repeat;   
+ 		background-size:19px 19px;  		
 	}
 	.header-phones-show:before{
 		content:'';
@@ -797,7 +801,7 @@
 	.tabs li a{
 	  display: block;
 	  width: auto;
-	  padding:0 60px;  
+	  padding:0 20px;  
 	}
 	.tabs li.current:after{
 		bottom: -2px;
