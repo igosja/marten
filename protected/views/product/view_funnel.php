@@ -159,11 +159,13 @@
                 <div class="box">
                     <div class="box__half">
                         <?php if ($o_product['video']) { ?>
-                            <iframe
-                                    src="https://www.youtube.com/embed/<?= $o_product['video']; ?>"
-                                    frameborder="0"
-                                    allowfullscreen
-                            ></iframe>
+                            <div class="iframe">
+                                <iframe
+                                        src="https://www.youtube.com/embed/<?= $o_product['video']; ?>"
+                                        frameborder="0"
+                                        allowfullscreen
+                                ></iframe>
+                            </div>
                         <?php } ?>
                     </div>
                     <div class="box__half">
