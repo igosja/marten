@@ -59,9 +59,9 @@
                     <?= CHtml::link(
                         '<img src="' . ImageIgosja::resize($item['image_id'], 600, 380) . '" alt="' . $item['projectcategory']['name_' . Yii::app()->language] . '">
                         <span class="proj-b__i__info">
-                            <span><small>#</small>' . $item['projectcategory']['projectcategory']['name_' . Yii::app()->language] . '</span>
+                            <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
                         </span>',
-                        array('project/index', 'id' => $item['url']),
+                        array('project/index', 'id' => $item['projectcategory']['url']),
                         array('class' => 'proj-b__i')
                     ); ?>
                 <?php } ?>
@@ -69,9 +69,9 @@
                     <?= CHtml::link(
                         '<img src="' . ImageIgosja::resize($item['image_id'], 600, 380) . '" alt="' . $item['projectcategory']['name_' . Yii::app()->language] . '">
                         <span class="proj-b__i__info">
-                            <span><small>#</small>' . $item['projectcategory']['projectcategory']['name_' . Yii::app()->language] . '</span>
+                            <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
                         </span>',
-                        array('project/index', 'id' => $item['url']),
+                        array('project/index', 'id' => $item['projectcategory']['url']),
                         array('class' => 'proj-b__i')
                     ); ?>
                 <?php } ?>
