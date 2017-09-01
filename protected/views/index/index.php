@@ -61,7 +61,7 @@
                         <span class="proj-b__i__info">
                             <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
                         </span>',
-                        array('project/index'),
+                        array('project/index', 'id' => $item['url']),
                         array('class' => 'proj-b__i')
                     ); ?>
                 <?php } ?>
@@ -71,7 +71,7 @@
                         <span class="proj-b__i__info">
                             <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
                         </span>',
-                        array('project/index'),
+                        array('project/index', 'id' => $item['url']),
                         array('class' => 'proj-b__i')
                     ); ?>
                 <?php } ?>
@@ -81,7 +81,7 @@
                         <span class="proj-b__i__info">
                             <span><small>#</small>' . $item['projectcategory']['name_' . Yii::app()->language] . '</span>
                         </span>',
-                        array('project/index'),
+                        array('project/index', 'id' => $item['url']),
                         array('class' => 'proj-b__i')
                     ); ?>
                 <?php } ?>
