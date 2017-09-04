@@ -117,7 +117,7 @@ class ProductController extends Controller
             print '<div class="slider-out"><div class="slider clearfix">';
             foreach ($o_simple['a_image'] as $item) {
                 print '<div>
-                            <a href="' . ImageIgosja::resize($item['image_id'], 600, 600) . '" data-lightbox="1">
+                            <a href="' . ImageIgosja::resize($item['image_id'], 600, 600) .'" data-lightbox="1">
                                 <img src="' . ImageIgosja::resize($item['image_id'], 600, 600) . '" alt=""/>
                             </a>
                         </div>';
