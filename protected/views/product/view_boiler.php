@@ -18,11 +18,13 @@
                     <div class="slider clearfix">
                         <?php foreach ($o_product['a_simple'][0]['simple']['a_image'] as $item) { ?>
                             <div>
-                                <img
-                                        itemprop="image"
-                                        src="<?= ImageIgosja::resize($item['image_id'], 600, 600); ?>"
-                                        alt="<?= $o_product['h1_' . Yii::app()->language]; ?>"
-                                />
+                                <a href="<?= ImageIgosja::resize($item['image_id'], 600, 600); ?>" data-lightbox="1">
+                                    <img
+                                            itemprop="image"
+                                            src="<?= ImageIgosja::resize($item['image_id'], 600, 600); ?>"
+                                            alt="<?= $o_product['h1_' . Yii::app()->language]; ?>"
+                                    />
+                                </a>
                             </div>
                         <?php } ?>
                     </div>
@@ -260,7 +262,7 @@
                     <?php foreach ($o_product['pdf'] as $item) { ?>
                         <a href="<?= $item['pdf']['url']; ?>" target="_blank" class="passp">
                             <div class="passp-img">
-                                <iframe src="<?= $item['pdf']['url']; ?>" class="pdf-frame"></iframe>
+                                <img src="<?= ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600); ?>" alt="<?= $o_product['h1_' . Yii::app()->language]; ?>"/>
                             </div>
                             <div class="clearfix">
                                 <div class="passp-text">

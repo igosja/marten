@@ -6,6 +6,7 @@
  * @var $model Review
  * @var $o_product Product
  * @var $rating Review
+ * @var $rating_count Review
  */
 ?>
 <section class="content">
