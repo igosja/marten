@@ -40,17 +40,24 @@ class ProductController extends Controller
             array('select' => 'COUNT(rating) as rating')
         );
         $this->setSEO($o_product);
-        $this->og_image = ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600);
+        $this->og_image = ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id'])
+            ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600);
         if (isset($o_product['a_category'][0])) {
             $o_category = Category::model()->findByPk($o_product['a_category'][0]['category_id']);
             if ($o_category) {
                 if ($o_category['parent_id']) {
                     $o_parent = Category::model()->findByPk($o_category['parent_id']);
                     if ($o_parent) {
-                        $this->breadcrumbs[$o_parent['h1_' . Yii::app()->language]] = array('category/view', 'id' => $o_parent['url']);
+                        $this->breadcrumbs[$o_parent['h1_' . Yii::app()->language]] = array(
+                            'category/view',
+                            'id' => $o_parent['url']
+                        );
                     }
                 }
-                $this->breadcrumbs[$o_category['h1_' . Yii::app()->language]] = array('category/view', 'id' => $o_category['url']);
+                $this->breadcrumbs[$o_category['h1_' . Yii::app()->language]] = array(
+                    'category/view',
+                    'id' => $o_category['url']
+                );
             }
         }
         $this->breadcrumbs[] = $o_product['h1_' . Yii::app()->language];
@@ -109,7 +116,11 @@ class ProductController extends Controller
         } else {
             print '<div class="slider-out"><div class="slider clearfix">';
             foreach ($o_simple['a_image'] as $item) {
-                print '<div><img src="' . ImageIgosja::resize($item['image_id'], 600, 600) . '" alt=""/></div>';
+                print '<div>
+                            <a href="' . ImageIgosja::resize($item['image_id'], 600, 600) . '" data-lightbox="1">
+                                <img src="' . ImageIgosja::resize($item['image_id'], 600, 600) . '" alt=""/>
+                            </a>
+                        </div>';
             }
             print '</div></div><div class="slider-nav">';
             foreach ($o_simple['a_image'] as $item) {
