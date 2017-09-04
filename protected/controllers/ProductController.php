@@ -68,6 +68,17 @@ class ProductController extends Controller
         } else {
             $view = 'boilerhouse';
         }
+        $simple = 0;
+        if (Yii::app()->user->hasFlash('simple')) {
+            $simple_id = Yii::app()->user->getFlash('simple');
+            for ($i=0; $i<count($o_product['a_simple']); $i++) {
+                print $o_product['a_simple'][$i]['simple']['id'];
+                print '<br>';
+                if ($simple_id == $o_product['a_simple'][$i]['simple']['id']) {
+                    $simple = $i;
+                }
+            }
+        }
         $this->render('view_' . $view, array(
             'a_review' => $a_review,
             'model' => $model,
@@ -75,6 +86,7 @@ class ProductController extends Controller
             'o_product' => $o_product,
             'rating' => $rating,
             'rating_count' => $rating_count,
+            'simple' => $simple,
         ));
     }
 
@@ -108,6 +120,7 @@ class ProductController extends Controller
 
     public function actionImage($id)
     {
+        Yii::app()->user->setFlash('simple', $id);
         $o_simple = ProductSimple::model()->findByPk($id);
         if (!$o_simple) {
             print '<div class="slider-out"><div class="slider clearfix">';
