@@ -82,6 +82,7 @@ $attributes = array(
         },
     ),
     'h1_ru',
+    'categorytext_ru',
     array(
         'name' => 'description_ru',
         'type' => 'raw',
@@ -94,6 +95,7 @@ $attributes = array(
     'seo_description_ru',
     'seo_keywords_ru',
     'h1_uk',
+    'categorytext_uk',
     array(
         'name' => 'description_uk',
         'type' => 'raw',

@@ -49,3 +49,8 @@
 .box .iframe {
     float: left;
 }
+
+.box iframe.pdf-frame {
+    width: 100%;
+    margin: 0;
+}

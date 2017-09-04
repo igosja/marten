@@ -19,7 +19,7 @@ class Product extends CActiveRecord
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
-                'category_id, description_ru, description_uk, text_ru, text_uk,
+                'category_id, categorytext_ru, categorytext_uk, description_ru, description_uk, text_ru, text_uk,
                 seo_description_ru, seo_description_uk, seo_keywords_ru, seo_keywords_uk',
                 'safe'
             ),
@@ -31,6 +31,8 @@ class Product extends CActiveRecord
         return array(
             'also' => 'Также покупают',
             'category_id' => 'Категория',
+            'categorytext_ru' => 'Текст для списка категорий (Русский)',
+            'categorytext_uk' => 'Текст для списка категорий (Українська)',
             'description_ru' => 'Описание (Русский)',
             'description_uk' => 'Описание (Українська)',
             'h1_ru' => 'Название (Русский)',

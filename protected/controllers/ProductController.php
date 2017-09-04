@@ -35,6 +35,10 @@ class ProductController extends Controller
             array('product_id' => $o_product->primaryKey, 'status' => 1),
             array('select' => 'ROUND(AVG(rating)) as rating')
         );
+        $rating_count = Review::model()->findByAttributes(
+            array('product_id' => $o_product->primaryKey, 'status' => 1),
+            array('select' => 'COUNT(rating) as rating')
+        );
         $this->setSEO($o_product);
         $this->og_image = ImageIgosja::resize(isset($o_product['a_simple'][0]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][0]['simple']['a_image'][0]['image_id'] : 0, 600, 600);
         if (isset($o_product['a_category'][0])) {
@@ -63,6 +67,7 @@ class ProductController extends Controller
             'more' => $more,
             'o_product' => $o_product,
             'rating' => $rating,
+            'rating_count' => $rating_count,
         ));
     }
 

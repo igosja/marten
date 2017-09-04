@@ -23,9 +23,21 @@
     $columns = array(
         array(
             'headerHtmlOptions' => array('class' => 'col-lg-1, col-md-1, col-sm-1, col-xs-1'),
-            'name' => 'id',
+            'htmlOptions' => array('class' => 'text-center'),
+            'type' => 'raw',
+            'value' => function () {
+                return '<i class="fa fa-arrows-v sorter">';
+            },
         ),
-        'name' => 'h1_ru',
+        array(
+            'headerHtmlOptions' => array('class' => 'col-lg-1, col-md-1, col-sm-1, col-xs-1'),
+            'name' => 'id',
+            'sortable' => false,
+        ),
+        array(
+            'name' => 'h1_ru',
+            'sortable' => false,
+        ),
         array(
             'filter' => false,
             'headerHtmlOptions' => array('class' => 'col-lg-1, col-md-1, col-sm-1, col-xs-1'),
@@ -56,6 +68,7 @@
     $this->widget('zii.widgets.grid.CGridView', array(
         'afterAjaxUpdate' => 'function(id, data){CGridViewAfterAjax()}',
         'columns' => $columns,
+        'enablePagination' => false,
         'dataProvider' => $model->search(),
         'itemsCssClass' => 'table table-striped table-bordered sort-table',
         'htmlOptions' => array('data-controller' => $this->uniqueid),

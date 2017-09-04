@@ -69,6 +69,7 @@
     $this->widget('zii.widgets.grid.CGridView', array(
         'afterAjaxUpdate' => 'function(id, data){CGridViewAfterAjax()}',
         'columns' => $columns,
+        'enablePagination' => false,
         'dataProvider' => $model->search(),
         'itemsCssClass' => 'table table-striped table-bordered sort-table',
         'htmlOptions' => array('data-controller' => $this->uniqueid),

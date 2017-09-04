@@ -144,6 +144,20 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'categorytext_ru'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'categorytext_ru', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'categorytext_ru'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'categorytext_uk'); ?></td>
+                        <td>
+                            <?= $form->textArea($model, 'categorytext_uk', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'categorytext_uk'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'description_ru'); ?></td>
                         <td>
                             <?= $form->textArea($model, 'description_ru', array('class' => 'ckeditor')); ?>

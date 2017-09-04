@@ -44,7 +44,9 @@
                     <h1 class="tov__title" itemprop="name"><?= $o_product['h1_' . Yii::app()->language]; ?></h1>
                     <div class="tov__art"><?php Yii::t('views.product.view', 'sku'); ?>
                         <strong style="display: none;">№<?= isset($o_product['a_simple'][0]['simple']['sku']) ? $o_product['a_simple'][0]['simple']['sku'] : 0; ?></strong>
-                        <div class="tov__stars otziv-i__stars">
+                        <div class="tov__stars otziv-i__stars" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <span itemprop="ratingValue" style="display: none;"><?= $rating['rating']; ?></span>
+                            <span itemprop="reviewCount" style="display: none;"><?= $rating_count['rating']; ?></span>
                             <?php for ($i = 0; $i < 5; $i++) { ?>
                                 <span
                                     <?php if ($i >= $rating['rating']) { ?>class="none"<?php } ?>

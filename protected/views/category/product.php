@@ -18,7 +18,7 @@
                     <span class="cat-i__price">
                     <small>' . Yii::t('views.category.product', 'price') . ':
                     </small> ' . Yii::t('views.category.product', 'from') . ' ' . number_format(isset($item['product']['min_price'][0]['simple']['price']) ? $item['product']['min_price'][0]['simple']['price'] : 0, 0, '', ' ') . ' грн</span>
-                    <span class="cat-i__info">' . (isset($item['product']['a_simple'][0]['simple']) ? $item['product']['a_simple'][0]['simple']['text_' . Yii::app()->language] : ''). '</span>',
+                    <span class="cat-i__info">' . $item['product']['categorytext_' . Yii::app()->language]. '</span>',
                     array('product/view', 'id' => $item['product']['url']),
                     array('class' => 'cat__i')
                 );
