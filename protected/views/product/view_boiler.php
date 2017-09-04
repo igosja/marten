@@ -49,8 +49,8 @@
                     <div class="tov__art"><?php Yii::t('views.product.view', 'sku'); ?>
                         <strong style="display: none;">№<?= isset($o_product['a_simple'][$simple]['simple']['sku']) ? $o_product['a_simple'][$simple]['simple']['sku'] : 0; ?></strong>
                         <div class="tov__stars otziv-i__stars" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                            <span itemprop="ratingValue" style="display: none;"><?= $rating['rating']; ?></span>
-                            <span itemprop="reviewCount" style="display: none;"><?= $rating_count['rating']; ?></span>
+                            <span itemprop="ratingValue" style="display: none;"><?= $rating['rating'] ? $rating['rating'] : 1; ?></span>
+                            <span itemprop="reviewCount" style="display: none;"><?= $rating_count['rating'] ? $rating_count['rating'] : 1; ?></span>
                             <?php for ($i = 0; $i < 5; $i++) { ?>
                                 <span
                                     <?php if ($i >= $rating['rating']) { ?>class="none"<?php } ?>
