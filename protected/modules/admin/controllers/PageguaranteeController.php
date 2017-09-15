@@ -29,6 +29,7 @@ class PageguaranteeController extends AController
         if ($data = Yii::app()->request->getPost($this->model_name)) {
             $model->attributes = $data;
             if ($model->save()) {
+                $this->uploadImage($model->primaryKey);
                 $this->redirect(array('index'));
             }
         }
@@ -36,6 +37,37 @@ class PageguaranteeController extends AController
             $this->title => array('index'),
         );
         $this->render('form', array('model' => $model));
+    }
+
+    public function actionImage($id)
+    {
+        $o_image = Image::model()->findByPk($id);
+        if (isset($o_image->url)) {
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            }
+            $o_image->delete();
+        }
+        $this->redirect(array('index'));
+    }
+
+    public function uploadImage($id)
+    {
+        if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+            $image = $_FILES['image'];
+            $ext = $image['name'];
+            $ext = explode('.', $ext);
+            $ext = end($ext);
+            $file = $image['tmp_name'];
+            $image_url = ImageIgosja::put_file($file, $ext);
+            $o_image = new Image();
+            $o_image->url = $image_url;
+            $o_image->save();
+            $image_id = $o_image->id;
+            $model = $this->getModel()->findByPk($id);
+            $model->image_id = $image_id;
+            $model->save();
+        }
     }
 
     public function getModel($search = '')

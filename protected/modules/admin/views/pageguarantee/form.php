@@ -23,6 +23,7 @@
         <?php $form = $this->beginWidget('CActiveForm', array(
             'enableAjaxValidation' => false,
             'enableClientValidation' => true,
+            'htmlOptions' => array('enctype' => 'multipart/form-data'),
         )); ?>
         <ul class="nav nav-tabs">
             <li class="active"><a href="#main" data-toggle="tab">Общая информация</a></li>
@@ -57,6 +58,21 @@
                         <td>
                             <?= $form->textArea($model, 'text_uk', array('class' => 'ckeditor')); ?>
                             <?= $form->error($model, 'text_uk'); ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'image_id'); ?></td>
+                        <td>
+                            <?php if (isset($model->image->url)) { ?>
+                                <div class="col-lg-6">
+                                    <a href="javascript:;" class="thumbnail">
+                                        <img src="<?= $model->image->url ?>"/>
+                                    </a>
+                                </div>
+                                <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $model->image_id)); ?>
+                            <?php } else { ?>
+                                <input type="file" name="image" class="form-control"/>
+                            <?php } ?>
                         </td>
                     </tr>
                 </table>

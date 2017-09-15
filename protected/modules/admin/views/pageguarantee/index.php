@@ -35,6 +35,17 @@ $attributes = array(
     'seo_title_uk',
     'seo_description_uk',
     'seo_keywords_uk',
+    array(
+        'name' => 'image_id',
+        'type' => 'raw',
+        'value' => (isset($model->image->url)) ?
+            ('<div class="col-lg-6">
+                <a href="javascript:;" class="thumbnail">
+                    <img src="' . $model->image->url . '"/>
+                </a>
+            </div>') :
+            '',
+    ),
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,
