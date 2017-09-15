@@ -3,7 +3,9 @@
 class AController extends CController
 {
     public $callme = 0;
+    public $commerce = 0;
     public $order = 0;
+    public $review = 0;
     public $notification = 0;
     public $layout = 'main';
     public $breadcrumbs = array();
@@ -38,7 +40,9 @@ class AController extends CController
     {
         $this->callme = CallMe::model()->countByAttributes(array('status' => 0));
         $this->order = Order::model()->countByAttributes(array('status' => 0));
-        $this->notification = $this->callme + $this->order;
+        $this->review = Review::model()->countByAttributes(array('status' => 0));
+        $this->commerce = Commerce::model()->countByAttributes(array('status' => 0));
+        $this->notification = $this->callme + $this->order + $this->review + $this->commerce;
 
         return $action;
     }

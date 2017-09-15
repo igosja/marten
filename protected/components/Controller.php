@@ -8,6 +8,7 @@ class Controller extends CController
     public $a_language = array();
     public $breadcrumbs = array();
     public $callme;
+    public $commerce;
     public $order;
     public $contact;
     public $layout = 'main';
@@ -71,6 +72,15 @@ class Controller extends CController
             $this->order->date = time();
             if ($this->order->save()) {
                 $this->order->send();
+                $this->refresh();
+            }
+        }
+        $this->commerce = new Commerce();
+        if ($data = Yii::app()->request->getPost('Commerce')) {
+            $this->commerce->attributes = $data;
+            $this->commerce->date = time();
+            if ($this->commerce->save()) {
+                $this->commerce->send();
                 $this->refresh();
             }
         }

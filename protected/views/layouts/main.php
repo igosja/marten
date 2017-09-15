@@ -451,6 +451,238 @@
             </div>
             <?php $this->endWidget(); ?>
         </div>
+
+        <!-- большая форма -->
+        <div class="of-form form-commerse">
+            <a href="javascript:" class="of-close"></a>
+            <?php $form = $this->beginWidget('CActiveForm', array(
+                'enableAjaxValidation' => false,
+                'enableClientValidation' => true,
+                'id' => 'form-commerse'
+            )); ?>
+            <?= $form->hiddenField($this->commerce, 'product'); ?>
+            <?= $form->hiddenField($this->commerce, 'power'); ?>
+            <?= $form->hiddenField($this->commerce, 'price'); ?>
+                <div class="of-form__title">
+                    <?= Yii::t('views.layouts.commerce', 'get-propose'); ?>
+                    <span><?= Yii::t('views.layouts.commerce', 'fill-below'); ?></span>
+                </div>
+                <div class="of-wrap clearfix">
+                    <div class="form-bl">
+                        <div class="form-bl__title">
+                            <?= Yii::t('views.layouts.commerce', 'contact-info'); ?>
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'name', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-name'))); ?>
+                                <?= $form->error($this->commerce, 'name'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'phone', array('class' => 'of-input phone_mask', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-phone'))); ?>
+                                <?= $form->error($this->commerce, 'phone'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'email', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-email'))); ?>
+                                <?= $form->error($this->commerce, 'email'); ?>
+                            </div>
+                        </div>
+                        <?= $form->textField($this->commerce, 'object', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-object'))); ?>
+                        <?= $form->error($this->commerce, 'object'); ?>
+                    </div>
+                    <div class="form-bl">
+                        <div class="form-bl__title">
+                            <?= Yii::t('views.layouts.commerce', 'spent'); ?>
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'gas', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-gas'))); ?>
+                                <?= $form->error($this->commerce, 'gas'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'electro', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-electro'))); ?>
+                                <?= $form->error($this->commerce, 'electro'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'warm', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-warm'))); ?>
+                                <?= $form->error($this->commerce, 'warm'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'kkal', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-kkal'))); ?>
+                                <?= $form->error($this->commerce, 'kkal'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-bl">
+                        <div class="form-bl__title">
+                            <?= Yii::t('views.layouts.commerce', 'complect'); ?>
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'quantity', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-quantity'))); ?>
+                                <?= $form->error($this->commerce, 'quantity'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <?= $form->textField($this->commerce, 'height', array('class' => 'of-input', 'placeholder' => Yii::t('views.layouts.commerce', 'placeholder-height'))); ?>
+                                <?= $form->error($this->commerce, 'height'); ?>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'project', array(
+                                            '' => Yii::t('views.layouts.commerce', 'placeholder-project'),
+                                            'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                            'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'pusk', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-pusk'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'fuel', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-fuel'),
+                                        'Дрова' => Yii::t('views.layouts.commerce', 'select-drova'),
+                                        'Брикет' => Yii::t('views.layouts.commerce', 'select-bryket'),
+                                        'Уголь' => Yii::t('views.layouts.commerce', 'select-ugol'),
+                                        'Пеллета' => Yii::t('views.layouts.commerce', 'select-peleta'),
+                                        'Щепа' => Yii::t('views.layouts.commerce', 'select-shepa'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'fuelmethod', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-fuelmethod'),
+                                        'Ручная' => Yii::t('views.layouts.commerce', 'select-hand'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'weather', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-weather'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'smoke', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-smoke'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'dust', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-dust'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'water', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-water'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'net', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-net'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'gsm', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-gsm'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'bufer', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-bufer'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'hot', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-hot'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'warmcounter', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-warmcounter'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'warehouse', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-warehouse'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'size', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-size'),
+                                        '7' => '7',
+                                        '10' => '10',
+                                        '14' => '14',
+                                        '21' => '21',
+                                        '30' => '30',
+                                    )); ?>
+                                </div>
+                            </div>
+                            <div class="form-tr">
+                                <div class="jqui-select">
+                                    <?= $form->dropDownList($this->commerce, 'staff', array(
+                                        '' => Yii::t('views.layouts.commerce', 'placeholder-staff'),
+                                        'Требуется' => Yii::t('views.layouts.commerce', 'select-need'),
+                                        'Не требуется' => Yii::t('views.layouts.commerce', 'select-not-need'),
+                                    )); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?= CHtml::submitButton(
+                        Yii::t('views.layouts.main', 'commerce-button-submit'),
+                        array('class' => 'of-submit of-submit-form')
+                    ); ?>
+                </div>
+            <?php $this->endWidget(); ?>
+        </div>
     </div>
 </section>
 <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>

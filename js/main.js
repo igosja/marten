@@ -254,5 +254,7 @@ jQuery(document).ready(function ($) {
         $('.nav-main').stop().fadeOut();
         $('.menu-sec').stop().fadeOut();
     });
+
+    $('.jqui-select > select').selectmenu();
 });	
 	

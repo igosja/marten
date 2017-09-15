@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $model News
+ * @var $model Commerce
  */
 ?>
 <div class="row">

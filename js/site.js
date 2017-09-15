@@ -193,6 +193,10 @@ jQuery(document).ready(function ($) {
                 $('.tov__btn').trigger('click');
                 break;
             }
+            else if ('form-commerse' === form_id) {
+                $('.tov__btn').trigger('click');
+                break;
+            }
             else if ('form-review' === form_id) {
                 $('.tab-review-link').trigger('click');
                 $('.add-otziv').trigger('click');
@@ -255,6 +259,9 @@ jQuery(document).ready(function ($) {
         $('#Order_product').val($(this).data('product'));
         $('#Order_power').val($(this).data('power'));
         $('#Order_price').val($(this).data('price'));
+        $('#Commerce_product').val($(this).data('product'));
+        $('#Commerce_power').val($(this).data('power'));
+        $('#Commerce_price').val($(this).data('price'));
     });
 
     $('.rating-star-form').on('click', function () {

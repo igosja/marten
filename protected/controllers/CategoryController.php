@@ -103,8 +103,15 @@ class CategoryController extends Controller
                 )
             );
         }
-        foreach ($a_review as $item) {
-            $this->renderPartial('review', array('item' => $item));
+
+        for ($i = 0; $i < count($a_review); $i++) {
+            if (0 == $i % 2) {
+                print '<div class="clearfix">';
+            }
+            $this->renderPartial('review', array('item' => $a_review[$i]));
+            if (1 == $i % 2 || $i + 1 < count($a_review)) {
+                print '</div>';
+            }
         }
     }
 

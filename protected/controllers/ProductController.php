@@ -13,6 +13,7 @@ class ProductController extends Controller
         if ($data = Yii::app()->request->getPost('Review')) {
             $model->attributes = $data;
             if ($model->save()) {
+                $model->send();
                 $this->refresh();
             }
         }
@@ -72,8 +73,6 @@ class ProductController extends Controller
         if (Yii::app()->user->hasFlash('simple')) {
             $simple_id = Yii::app()->user->getFlash('simple');
             for ($i=0; $i<count($o_product['a_simple']); $i++) {
-                print $o_product['a_simple'][$i]['simple']['id'];
-                print '<br>';
                 if ($simple_id == $o_product['a_simple'][$i]['simple']['id']) {
                     $simple = $i;
                 }
@@ -100,8 +99,15 @@ class ProductController extends Controller
                 'limit' => Review::ON_PAGE_PRODUCT
             )
         );
-        foreach ($a_review as $item) {
-            $this->renderPartial('review', array('item' => $item));
+
+        for ($i = 0; $i < count($a_review); $i++) {
+            if (0 == $i % 2) {
+                print '<div class="clearfix">';
+            }
+            $this->renderPartial('review', array('item' => $a_review[$i]));
+            if (1 == $i % 2 || $i + 1 < count($a_review)) {
+                print '</div>';
+            }
         }
     }
 

@@ -1,20 +1,22 @@
 <?php
 
-class Order extends CActiveRecord
+class Commerce extends CActiveRecord
 {
     public function tableName()
     {
-        return 'order';
+        return 'commerce';
     }
 
     public function rules()
     {
         return array(
             array('name, phone', 'required'),
-            array('date, price', 'numerical'),
-            array('name, phone, power, product', 'length', 'max' => 255),
+            array('date, price, quantity', 'numerical'),
+            array('name, phone, power, product, gas, electro, warm, kkal, quantity, height, project, pusk, fuel,
+             fuelmethod, weather, smoke, dust, water, net, gsm, bufer, hot, warmcounter, warehouse, staff, size',
+                'length', 'max' => 255),
             array('email', 'email'),
-            array('text', 'safe'),
+            array('text, object', 'safe'),
         );
     }
 
@@ -30,6 +32,29 @@ class Order extends CActiveRecord
             'price' => 'Цена',
             'power' => 'Мощность/Диаметр',
             'status' => 'Статус',
+            'object' => 'Наименование объекта',
+            'gas' => 'Газ, м3',
+            'electro' => 'Электричество, кВт',
+            'warm' => 'Ценрализиваное отопление, Гкал',
+            'kkal' => 'Текущая стоимость ГКал, грн с НДС',
+            'quantity' => 'Количество котлов, шт',
+            'height' => 'Высота дымовой трубы, м',
+            'project' => 'Проектирование',
+            'pusk' => 'Монтаж и пуско-наладка',
+            'fuel' => 'Применяемое топливо',
+            'fuelmethod' => 'Топливоподача',
+            'weather' => 'Погодозависимая автоматика',
+            'smoke' => 'Дымосос',
+            'dust' => 'Циклон пылеуловитель',
+            'water' => 'Хим-водоочистка',
+            'net' => 'Насос сетевого контура',
+            'gsm' => 'GSM-модуль диспетчиризации',
+            'bufer' => 'Буферная емкость, л',
+            'hot' => 'Приготовление горячей воды',
+            'warmcounter' => 'Тепловой счетчик',
+            'warehouse' => 'Склад запаса топлива',
+            'size' => 'Объем склада, дней',
+            'staff' => 'Комната персонала',
         );
     }
 
@@ -60,7 +85,7 @@ class Order extends CActiveRecord
         $contact = Contact::model()->findByPk(1);
         $mail = new Mail();
         $mail->setTo($contact['email']);
-        $mail->setSubject('Клиент заказал товар на сайте');
+        $mail->setSubject('Клиент заказал комерческое предложение на сайте');
         $mail->setHtml($text);
         $mail->send();
     }

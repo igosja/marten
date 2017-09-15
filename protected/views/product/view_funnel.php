@@ -101,7 +101,7 @@
                     <?php } ?>
                     <a
                             href="javascript:"
-                            data-selector="form-buy"
+                            data-selector="form-commerse"
                             class="tov__btn overlayElementTrigger"
                             data-image="<?= ImageIgosja::resize(isset($o_product['a_simple'][$simple]['simple']['a_image'][0]['image_id']) ? $o_product['a_simple'][$simple]['simple']['a_image'][0]['image_id'] : 0, 72, 72); ?>"
                             data-price="<?= isset($o_product['a_simple'][$simple]['simple']['price']) ? number_format($o_product['a_simple'][$simple]['simple']['price'], 0, '', ' ') : 0; ?>"
@@ -183,8 +183,14 @@
                     <div class="clearfix otzivi">
                         <div class="otzivi-l">
                             <div class="review-list">
-                                <?php foreach ($a_review as $item) { ?>
-                                    <?= $this->renderPartial('review', array('item' => $item)); ?>
+                                <?php for ($i = 0; $i < count($a_review); $i++) { ?>
+                                    <?php if (0 == $i % 2) { ?>
+                                        <div class="clearfix">
+                                    <?php } ?>
+                                    <?= $this->renderPartial('review', array('item' => $a_review[$i])); ?>
+                                    <?php if (1 == $i % 2 || $i + 1 < count($a_review)) { ?>
+                                        </div>
+                                    <?php } ?>
                                 <?php } ?>
                             </div>
                             <?php if ($more) { ?>

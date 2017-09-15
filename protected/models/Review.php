@@ -61,6 +61,18 @@ class Review extends CActiveRecord
         );
     }
 
+    public function send()
+    {
+        $text = 'Товар - ' . $this->product->h1_ru;
+        $text .= '<br/>Отзыв - ' . $this->text;
+        $contact = Contact::model()->findByPk(1);
+        $mail = new Mail();
+        $mail->setTo($contact['email']);
+        $mail->setSubject('Появился новый отзыв на сайте');
+        $mail->setHtml($text);
+        $mail->send();
+    }
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);

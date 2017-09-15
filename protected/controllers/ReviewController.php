@@ -56,7 +56,7 @@ class ReviewController extends Controller
             array('status' => 1),
             array(
                 'condition' => 'h1_ru is not null',
-                'order' => 'id DESC',
+                'order' => 't.id DESC',
                 'offset' => Yii::app()->request->getQuery('offset', 0) + Review::ON_PAGE_PRODUCT,
                 'limit' => Review::ON_PAGE_PRODUCT
             )

@@ -1,10 +1,10 @@
 <?php
 
-class OrderController extends AController
+class CommerceController extends AController
 {
-    public $h1 = 'Заказы';
-    public $title = 'Заказы';
-    public $model_name = 'Order';
+    public $h1 = 'Котельни';
+    public $title = 'Котельни';
+    public $model_name = 'Commerce';
 
     public function actionIndex()
     {

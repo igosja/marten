@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $model News
+ * @var $model Commerce
  */
 ?>
     <div class="row">
@@ -33,7 +33,29 @@ $attributes = array(
         'name' => 'price',
         'value' => number_format($model->price, 0, ',', ' ') . ' грн',
     ),
-    'text',
+    'object',
+    'gas',
+    'electro',
+    'warm',
+    'kkal',
+    'quantity',
+    'height',
+    'project',
+    'pusk',
+    'fuel',
+    'fuelmethod',
+    'weather',
+    'smoke',
+    'dust',
+    'water',
+    'net',
+    'gsm',
+    'bufer',
+    'hot',
+    'warmcounter',
+    'warehouse',
+    'size',
+    'staff',
 );
 $this->widget('zii.widgets.CDetailView', array(
     'attributes' => $attributes,
