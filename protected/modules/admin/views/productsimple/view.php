@@ -32,6 +32,10 @@ $attributes = array(
     'sku',
     'power',
     'price',
+    array(
+        'name' => 'instock',
+        'value' => $model->instock ? 'Да' : 'Нет',
+    ),
     'text_ru',
     'text_uk',
     array(

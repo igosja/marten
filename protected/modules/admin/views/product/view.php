@@ -50,10 +50,6 @@ $attributes = array(
         'value' => $model->producttype->name,
     ),
     array(
-        'name' => 'instock',
-        'value' => $model->instock ? 'Да' : 'Нет',
-    ),
-    array(
         'name' => 'video',
         'type' => 'raw',
         'value' => 'https://www.youtube.com/watch?v=<strong>' . $model->video . '</strong>',

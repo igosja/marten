@@ -213,6 +213,17 @@ jQuery(document).ready(function ($) {
         $('.tov__btn').data('price', $(this).data('price'));
         $('#characteristic-span').html($(this).data('characteristic'));
         $('#size-span').html($(this).data('size'));
+        if (1 === parseInt($(this).data('instock'))) {
+            if ($('.tov__nalichie').hasClass('tov__nalichie_no')) {
+                $('.tov__nalichie').removeClass('tov__nalichie_no');
+            }
+            $('.tov__nalichie').html($('.tov__nalichie').data('yes'));
+        } else {
+            if (!$('.tov__nalichie').hasClass('tov__nalichie_no')) {
+                $('.tov__nalichie').addClass('tov__nalichie_no');
+            }
+            $('.tov__nalichie').html($('.tov__nalichie').data('no'));
+        }
         tov_char_width();
         var simple_id = $(this).data('simple');
         $('.tov__left').append('<div class="loading"></div>');

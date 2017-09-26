@@ -55,6 +55,18 @@
                 </td>
             </tr>
             <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'instock'); ?></td>
+                <td>
+                    <?= $form->dropDownList(
+                        $model,
+                        'instock',
+                        array(1 => 'Да', 0 => 'Нет'),
+                        array('class' => 'form-control')
+                    ); ?>
+                    <?= $form->error($model, 'instock'); ?>
+                </td>
+            </tr>
+            <tr>
                 <td class="col-lg-3"><?= $form->labelEx($model, 'image'); ?></td>
                 <td>
                     <input type="file" name="image[]" class="form-control" multiple />

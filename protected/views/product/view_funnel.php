@@ -70,6 +70,7 @@
                             />
                             <label
                                     class="power-change"
+                                    data-instock="<?= $item['simple']['instock']; ?>"
                                     data-simple="<?= $item['simple']['id']; ?>"
                                     data-power="<?= $item['simple']['power']; ?>"
                                     data-price="<?= number_format($item['simple']['price'], 0, '', ' '); ?>"
@@ -94,9 +95,13 @@
                             грн
                         </strong>
                     </div>
-                    <?php if ($o_product['instock']) { ?>
-                        <div class="tov__nalichie">
+                    <?php if ($o_product['a_simple'][$simple]['simple']['instock']) { ?>
+                        <div class="tov__nalichie" data-yes="<?= Yii::t('views.product.view', 'instock'); ?>" data-no="<?= Yii::t('views.product.view', 'instock-no'); ?>">
                             <?= Yii::t('views.product.view', 'instock'); ?>
+                        </div>
+                    <?php } else { ?>
+                        <div class="tov__nalichie tov__nalichie_no" data-yes="<?= Yii::t('views.product.view', 'instock'); ?>" data-no="<?= Yii::t('views.product.view', 'instock-no'); ?>">
+                            <?= Yii::t('views.product.view', 'instock-no'); ?>
                         </div>
                     <?php } ?>
                     <a

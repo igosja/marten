@@ -15,7 +15,7 @@ class Product extends CActiveRecord
     {
         return array(
             array('producttype_id', 'required'),
-            array('instock, producttype_id, size_id, status', 'numerical'),
+            array('producttype_id, size_id, status', 'numerical'),
             array('h1_ru, h1_uk, url, seo_title_ru, seo_title_uk', 'length', 'max' => 255),
             array('video', 'length', 'max' => 15),
             array(
@@ -37,7 +37,6 @@ class Product extends CActiveRecord
             'description_uk' => 'Описание (Українська)',
             'h1_ru' => 'Название (Русский)',
             'h1_uk' => 'Название (Українська)',
-            'instock' => 'Есть на складе',
             'pdf' => 'PDF',
             'producttype_id' => 'Тип товара',
             'simple' => 'Простые товары',

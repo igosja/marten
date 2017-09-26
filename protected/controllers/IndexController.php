@@ -4,6 +4,7 @@ class IndexController extends Controller
 {
     public function actionIndex()
     {
+//        Yii::app()->db->createCommand()->addColumn('productsimple', 'instock', 'int(1) default 1');
         $a_news = News::model()->findAllByAttributes(array('status' => 1), array('order' => 'id DESC', 'limit' => 3));
         $a_project_1 = Project::model()->findAllByAttributes(array('status' => 1, 'projectcategory_id' => 1), array('order' => 'id DESC', 'limit' => 1));
         $a_project_2 = Project::model()->findAllByAttributes(array('status' => 1, 'projectcategory_id' => 3), array('order' => 'id DESC', 'limit' => 1));
