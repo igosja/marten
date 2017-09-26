@@ -105,6 +105,9 @@ return array(
             'translatedMessageTable' => 'i18n_translated_messages',
             'forceTranslation' => true,
         ),
+        'errorHandler'=>array(
+            'errorAction'=>'index/error',
+        ),
     ),
     'modules' => array(
         'admin',

@@ -23,7 +23,6 @@ function marginBottom() {
     if ($(".projects__i").length) {
         var marginRight = $(".projects__i").css("marginRight");
         $(".projects__i").css({"margin-bottom": marginRight});
-        console.log(marginRight);
     }
 }
 
@@ -256,5 +255,4 @@ jQuery(document).ready(function ($) {
     });
 
     $('.jqui-select > select').selectmenu();
-});	
-	
+});

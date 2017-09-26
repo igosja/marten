@@ -119,19 +119,8 @@
                 </p>
                 <div class="tov__icons">
                     <div class="clearfix">
-                        <img src="/img/tov-icons/icon-1.png" alt="<?= Yii::t('views.product.view', 'delivery'); ?>">
-                        <?= CHtml::link(
-                            Yii::t('views.product.view', 'delivery'),
-                            array('payment/index')
-                        ); ?>
-                    </div>
-                    <div class="clearfix">
                         <img src="/img/tov-icons/icon-2.png" alt="<?= Yii::t('views.product.view', 'guarantee'); ?>">
                         <span><?= Yii::t('views.product.view', 'guarantee'); ?></span>
-                    </div>
-                    <div class="clearfix">
-                        <img src="/img/tov-icons/icon-3.png" alt="<?= Yii::t('views.product.view', 'exchange'); ?>">
-                        <span><?= Yii::t('views.product.view', 'exchange'); ?></span>
                     </div>
                     <div class="clearfix">
                         <img src="/img/tov-icons/icon-4.png" alt="<?= Yii::t('views.product.view', 'install'); ?>">
@@ -221,7 +210,7 @@
                                     <span class="rating-star-form" data-star="4" id="rating-star-form-4"></span>
                                     <span class="rating-star-form" data-star="5" id="rating-star-form-5"></span>
                                 </div>
-                                <?= $form->hiddenField($model, 'rating', array('value' => $o_product['id'])); ?>
+                                <?= $form->hiddenField($model, 'rating', array('value' => 5)); ?>
                                 <?= $form->hiddenField($model, 'product_id', array('value' => $o_product['id'])); ?>
                                 <?= CHtml::label(
                                     Yii::t('views.product.view', 'label-name') . '<span></span>',

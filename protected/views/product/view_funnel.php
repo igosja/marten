@@ -221,7 +221,7 @@
                                     <span class="rating-star-form" data-star="4" id="rating-star-form-4"></span>
                                     <span class="rating-star-form" data-star="5" id="rating-star-form-5"></span>
                                 </div>
-                                <?= $form->hiddenField($model, 'rating', array('value' => $o_product['id'])); ?>
+                                <?= $form->hiddenField($model, 'rating', array('value' => 5)); ?>
                                 <?= $form->hiddenField($model, 'product_id', array('value' => $o_product['id'])); ?>
                                 <?= CHtml::label(
                                     Yii::t('views.product.view', 'label-name') . '<span></span>',

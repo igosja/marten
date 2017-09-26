@@ -693,5 +693,10 @@
 <?php if ('contact' == $this->uniqueid) { ?>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAYBg8KC7jzGXqsJO4ZvBUBr-zHT_0qm2s&callback=initMap"></script>
 <?php } ?>
+
+<script>
+lightbox.option({
+'fitImagesInViewport': false
+});</script>
 </body>
 </html>

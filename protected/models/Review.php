@@ -3,7 +3,7 @@
 class Review extends CActiveRecord
 {
     const ON_PAGE_PRODUCT = 3;
-    const ON_PAGE_CATEGORY = 6;
+    const ON_PAGE_CATEGORY = 4;
 
     public function tableName()
     {
